@@ -2,9 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');  
 [type="radio"]:checked {
   background-image: none;
 }
+@keyframes slide {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.slider-container {
+  display: flex;
+  overflow: hidden;
+  width: 100vw; /* Full viewport width */
+}
+
+.transformminus100 {
+ transform: translateX(-100%);
+}
+.transformminus200 {
+  transform: translateX(-200%);
+}
+
+.transform200 {
+  transform: translateX(200%);
+}
+
+
 .StripeElement {
   box-sizing: border-box;
   height: 50px;

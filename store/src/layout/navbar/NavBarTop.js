@@ -7,7 +7,7 @@ import { IoLockOpenOutline } from "react-icons/io5";
 import { FiPhoneCall, FiUser } from "react-icons/fi";
 import { signOut } from "next-auth/react";
 import { jwtDecode } from "jwt-decode";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 //internal import
 import { getUserSession } from "@lib/auth";
@@ -48,90 +48,64 @@ const NavBarTop = () => {
     }
   }, [userInfo]);
 
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentClass, setCurrentClass] = useState("");
+
+  console.log("@@@", currentSlide);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide(prevSlide => {
+        let newSlide = prevSlide + 1;
+        let newClass = "";
+
+        if (newSlide > 3) {
+          newSlide = 1;
+          newClass = "transformminus200";
+        } else if (newSlide === 2) {
+          newClass = "transformminus100";
+        } else if (newSlide === 1) {
+          newClass = "transform200";
+        }
+
+        setCurrentClass(newClass);
+        return newSlide;
+      });
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <>
-      <div className="hidden lg:block bg-gray-100">
-        <div className="max-w-screen-2xl mx-auto px-3 sm:px-10">
-          <div className="text-gray-700 py-2 font-sans text-xs font-medium border-b flex justify-between items-center">
-            <span className="flex items-center">
-              <FiPhoneCall className="mr-2" />
-              {showingTranslateValue(
-                storeCustomizationSetting?.navbar?.help_text
-              )}
-              <a
-                href={`tel:${
-                  storeCustomizationSetting?.navbar?.phone_number ||
-                  "+099949343"
-                }`}
-                className="font-bold text-emerald-500 ml-1"
-              >
-                {storeCustomizationSetting?.navbar?.phone_number ||
-                  "+099949343"}
-              </a>
-            </span>
+      <div className="block bg-black py-2.5 md:px-3">
+        <div className="min-w-screen mx-auto">
+          <div
+            className={`text-gray-700 font-sans text-[11px] md:text-xs font-medium flex justify-between items-center 
+               ${isMobile ? currentClass : ''} 
+              `}
+          >
+            <div className="flex items-center font-karla text-[11px] lg:text-xs text-white font-semibold uppercase whitespace-nowrap min-w-full md:min-w-fit md:w-fit justify-center">
+              1 YEAR WARRANTY | WEAR EVERYDAY
+            </div>
 
-            <div className="lg:text-right flex items-center navBar">
-              {storeCustomizationSetting?.navbar?.about_menu_status && (
-                <div>
-                  <Link
-                    href="/about-us"
-                    className="font-medium hover:text-emerald-600"
-                  >
-                    {showingTranslateValue(
-                      storeCustomizationSetting?.navbar?.about_us
-                    )}
-                  </Link>
-                  <span className="mx-2">|</span>
-                </div>
-              )}
-              {storeCustomizationSetting?.navbar?.contact_menu_status && (
-                <div>
-                  <Link
-                    href="/contact-us"
-                    className="font-medium hover:text-emerald-600"
-                  >
-                    {showingTranslateValue(
-                      storeCustomizationSetting?.navbar?.contact_us
-                    )}
-                  </Link>
-                  <span className="mx-2">|</span>
-                </div>
-              )}
-              <Link
-                href="/user/my-account"
-                className="font-medium hover:text-emerald-600"
-              >
-                {showingTranslateValue(
-                  storeCustomizationSetting?.navbar?.my_account
-                )}
-              </Link>
-              <span className="mx-2">|</span>
-              {userInfo?.email ? (
-                <button
-                  onClick={handleLogOut}
-                  className="flex items-center font-medium hover:text-emerald-600"
-                >
-                  <span className="mr-1">
-                    <IoLockOpenOutline />
-                  </span>
-                  {showingTranslateValue(
-                    storeCustomizationSetting?.navbar?.logout
-                  )}
-                </button>
-              ) : (
-                <Link
-                  href="/auth/login"
-                  className="flex items-center font-medium hover:text-emerald-600"
-                >
-                  <span className="mr-1">
-                    <FiUser />
-                  </span>
+            <div className="flex items-center font-karla text-[11px] lg:text-xs text-white font-semibold uppercase whitespace-nowrap min-w-full md:min-w-fit md:w-fit justify-center ">
+              50000+ HAPPY CUSTOMERS
+            </div>
 
-                  {showingTranslateValue(
-                    storeCustomizationSetting?.navbar?.login
-                  )}
-                </Link>
-              )}
+            <div className="flex items-center font-karla text-[11px] lg:text-xs text-white font-semibold uppercase whitespace-nowrap min-w-full md:min-w-fit md:w-fit justify-center">
+              Tarini's "A Part of Me" Collection is Live - Shop Now
             </div>
           </div>
         </div>
