@@ -27,7 +27,7 @@ export default function Category() {
         "https://www.shinez.in/cdn/shop/files/055A8764copy_1.jpg?v=1714382121",
       heading: "rings",
       description:
-        "Rings, with their intricate designs and symbolic meanings, represent commitments and milestones, encircling our fingers with stories of love, friendship, and personal triumphs.",
+        "Rings, with their intricate designs and symbolic meanings, represent milestones, encircling our fingers with stories of love, friendship, and personal triumphs.",
       label: "shop now",
       href: "/",
     },
@@ -46,7 +46,7 @@ export default function Category() {
         "https://www.aegte.in/cdn/shop/products/PremiumStepCutFauxDiamondStatementNecklace_BossLadyDiamondChain_01.jpg?v=1658902006",
       heading: "Necklaces",
       description:
-        "necklaces drape elegantly around our necks, drawing the eye and inviting admiration; they can be simple, or elaborate masterpieces that command attention.",
+        "Necklaces drape elegantly around our necks, drawing the eye and inviting admiration; they can be simple, or elaborate masterpieces that command attention.",
       label: "shop now",
       href: "/",
     },
