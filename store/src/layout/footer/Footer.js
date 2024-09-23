@@ -497,7 +497,7 @@ const Footer = () => {
     //     </p>
     //   </div>
     // </div>
-    <footer className="bg-gray-100">
+    <footer className="bg-emerald-300">
       {/* Join the community section */}
       <div className="bg-black text-white py-10">
         <div className="flex justify-center mb-6">
@@ -566,7 +566,7 @@ const Footer = () => {
               <li key={index}>
                 <Link
                   href={links.link}
-                  className="hover:text-gray-400 tracking-wider text-base uppercase"
+                  className="hover:text-emerald-600 tracking-wider text-base uppercase"
                 >
                   {links.label}
                 </Link>

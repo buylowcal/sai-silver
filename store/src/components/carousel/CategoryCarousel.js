@@ -104,9 +104,9 @@ const CategoryCarousel = () => {
                   onClick={() =>
                     handleCategoryClick(category?._id, category.name)
                   }
-                  className="text-center cursor-pointer p-3 bg-white rounded-lg"
+                  className="text-center cursor-pointer p-5 bg rounded-lg"
                 >
-                  <div className="bg-white p-2 mx-auto w-10 h-10 rounded-full shadow-md">
+                  {/* <div className="bg-white p-2 mx-auto w-10 h-10 rounded-full shadow-md">
                     <div className="relative w-9 h-9">
                       <Image
                         src={
@@ -119,10 +119,10 @@ const CategoryCarousel = () => {
                         className="object-fill"
                       />
                     </div>
-                  </div>
+                  </div> */}
 
-                  <h3 className="text-xs text-gray-600 mt-2 font-serif group-hover:text-emerald-500">
-                    {showingTranslateValue(category?.name)}
+                  <h3 className="text-xs text-gray-600 mt-2 tracking-widest whitespace-nowrap hover:underline transition-all duration-500 font-serif group-hover:text-emerald-500">
+                    {showingTranslateValue(category?.name).toUpperCase()}
                   </h3>
                 </div>
               </SwiperSlide>
@@ -130,7 +130,7 @@ const CategoryCarousel = () => {
           </div>
         )}
         <button ref={prevRef} className="prev">
-          <IoChevronBackOutline />
+          <IoChevronBackOutline className="" />
         </button>
         <button ref={nextRef} className="next">
           <IoChevronForward />
