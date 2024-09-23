@@ -91,8 +91,7 @@ const Home = ({ popularProducts, discountProducts, attributes }) => {
                     </div>
                   </div> */}
 
-                  <FeatureCategory />
-                {/* </div> */}
+                 {/* </div> */}
               {/* </div> */}
             {/* )} */}
 

@@ -1812,11 +1812,11 @@ const products = [
     description:
       'Juice is a drink made from the extraction or pressing of the natural liquid contained in fruit and vegetables. It can also refer to liquids that are flavored with concentrate or other biological food sources, such as meat or seafood, such as clam juice.',
     image:
-      'https://i.postimg.cc/J4R7f5nc/Robinsons-Pink-Lemonade-Juice-Drink-10-fl-oz.jpg',
+      'https://i.postimg.cc/J4R7f5nc/Robinsons-emerald-Lemonade-Juice-Drink-10-fl-oz.jpg',
     originalPrice: 11,
     parent: 'Drinks',
     quantity: 100,
-    slug: 'robinsons-pink-lemonade',
+    slug: 'robinsons-emerald-lemonade',
     title: 'Robinsons Pink Lemonade',
     type: 'Grocery',
     unit: '10fl-oz',

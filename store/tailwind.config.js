@@ -1,4 +1,6 @@
+// tailwind.config.js
 const colors = require("tailwindcss/colors");
+
 module.exports = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx}",
@@ -8,11 +10,41 @@ module.exports = {
 
   theme: {
     fontFamily: {
+      // New Font Families for Heading and Body
+      heading: ['"Playfair Display"', 'serif'],
+      body: ['Roboto', 'sans-serif'],
+      
+      // Retain existing font families if needed
       sans: ["Open Sans", "sans-serif"],
-      serif: ["Inter", "sans-serif"],
       DejaVu: ["DejaVu Sans", "Arial", "sans-serif"],
     },
     extend: {
+      colors: {
+        emerald: {
+          // Customizing specific shades
+          300:'#EAD7CD',
+          400: '#2C3E50',
+          500: '#2C3E50', // Example: Changing emerald-500
+          600: '#333333', // Example: Changing emerald-600
+          700: '#2C3E50',
+          800: '#333333',
+          // Add more custom shades as needed
+        },
+        // Primary Colors
+        silver: '#C0C0C0',
+        black: '#000000',
+        white: '#FFFFFF',
+
+        // Accent Colors
+        'deep-charcoal': '#333333',
+        'soft-blue': '#A0AEC0',
+        'muted-teal': '#5A6E6F',
+
+        // Secondary Colors
+        'light-gray': '#D3D3D3',
+      },
+
+      // Extend animations and keyframes
       animation: {
         'infinite-scroll': 'infinite-scroll 30s linear infinite',
       },
@@ -20,15 +52,15 @@ module.exports = {
         'infinite-scroll': {
           from: { transform: 'translateX(0)' },
           to: { transform: 'translateX(-100%)' },
-        }
-      },          
+        },
+      },
+
+      // Extend height
       height: {
         header: "560px",
       },
-      fontFamily: {
-        serif: ['Merriweather', 'Georgia', 'serif'],
-        // sans: ['ui-sans-serif', "system-ui", "sans-serif", "Apple Color Emoji"]
-      },
+
+      // Extend background images
       backgroundImage: {
         "page-header": "url('/page-header-bg.jpg')",
         "contact-header": "url('/page-header-bg-2.jpg')",

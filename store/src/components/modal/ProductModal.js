@@ -221,7 +221,7 @@ const ProductModal = ({
     <>
       <MainModal modalOpen={modalOpen} setModalOpen={setModalOpen}>
         <div className="inline-block overflow-y-auto h-full align-middle transition-all transform bg-white shadow-xl rounded-2xl">
-          <div className="flex flex-col lg:flex-row md:flex-row w-full max-w-4xl overflow-hidden">
+          <div className="flex flex-col lg:flex-row md:flex-row w-full max-w-7xl overflow-hidden">
             <Link href={`/product/${product.slug}`} passHref>
               <div
                 onClick={() => setModalOpen(false)}
@@ -231,15 +231,15 @@ const ProductModal = ({
                 {product.image[0] ? (
                   <Image
                     src={img || product.image[0]}
-                    width={420}
-                    height={420}
+                    width={1020}
+                    height={1020}
                     alt="product"
                   />
                 ) : (
                   <Image
                     src="https://res.cloudinary.com/ahossain/image/upload/v1655097002/placeholder_kvepfp.png"
-                    width={420}
-                    height={420}
+                    width={1020}
+                    height={1020}
                     alt="product Image"
                   />
                 )}

@@ -30,9 +30,9 @@ const Search = ({ products, attributes }) => {
         <div className="flex py-10 lg:py-12">
           <div className="flex w-full">
             <div className="w-full">
-              <div className="w-full grid grid-col gap-4 grid-cols-1 2xl:gap-6 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2">
+              {/* <div className="w-full grid grid-col gap-4 grid-cols-1 2xl:gap-6 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2">
                 <Card />
-              </div>
+              </div> */}
               <div className="relative">
                 <CategoryCarousel />
               </div>
@@ -79,7 +79,7 @@ const Search = ({ products, attributes }) => {
                 <Loading loading={isLoading} />
               ) : (
                 <>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-6 gap-2 md:gap-3 lg:gap-3">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-2 md:gap-3 lg:gap-3">
                     {productData?.slice(0, visibleProduct).map((product, i) => (
                       <ProductCard
                         key={i + 1}
@@ -92,7 +92,9 @@ const Search = ({ products, attributes }) => {
                   {productData?.length > visibleProduct && (
                     <button
                       onClick={() => setVisibleProduct((pre) => pre + 10)}
-                      className="w-auto mx-auto md:text-sm leading-5 flex items-center transition ease-in-out duration-300 font-medium text-center justify-center border-0 border-transparent rounded-md focus-visible:outline-none focus:outline-none bg-indigo-100 text-gray-700 px-5 md:px-6 lg:px-8 py-2 md:py-3 lg:py-3 hover:text-white hover:bg-emerald-600 h-12 mt-6 text-sm lg:text-sm"
+                      className="w-auto mx-auto md:text-sm leading-5 flex items-center transition ease-in-out duration-300 font-medium text-center 
+                                 justify-center border-0 border-transparent rounded-md focus-visible:outline-none focus:outline-none bg-indigo-100 
+                                 text-gray-700 px-5 md:px-6 lg:px-8 py-2 md:py-3 lg:py-3 hover:text-white hover:bg-emerald-600 h-12 mt-6 text-sm lg:text-sm"
                     >
                       {t("common:loadMoreBtn")}
                     </button>
