@@ -156,12 +156,12 @@ const CategoryCarousel = () => {
             ))}
           </div>
         )}
-        <button ref={prevRef} className="prev">
+        {/* <button ref={prevRef} className="prev">
           <IoChevronBackOutline className="" />
         </button>
         <button ref={nextRef} className="next">
           <IoChevronForward />
-        </button>
+        </button> */}
       </Swiper>
     </>
   );
