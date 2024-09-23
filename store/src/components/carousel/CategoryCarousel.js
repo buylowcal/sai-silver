@@ -121,20 +121,47 @@ const CategoryCarousel = () => {
                     </div>
                   </div> */}
 
-                  <h3 className="text-xs text-gray-600 mt-2 tracking-widest whitespace-nowrap hover:underline transition-all duration-500 font-serif group-hover:text-emerald-500">
-                    {showingTranslateValue(category?.name).toUpperCase()}
-                  </h3>
+<h3
+  className="
+    relative 
+    inline-block       /* Added to make the element wrap around the text */
+    text-xs 
+    mt-2 
+    tracking-widest 
+    whitespace-nowrap 
+    font-serif 
+    group-hover:text-emerald-500 
+    after:content-[' ']  
+    after:absolute 
+    after:left-0 
+    after:bottom-0 
+    after:h-0.5 
+    after:w-full         /* Width now matches the text */
+    after:bg-current 
+    after:transition-transform 
+    after:duration-500 
+    after:scale-x-0 
+    after:origin-center
+    hover:after:scale-x-100
+  "
+>
+  {showingTranslateValue(category?.name).toUpperCase()}
+</h3>
+
+
+
+
                 </div>
               </SwiperSlide>
             ))}
           </div>
         )}
-        <button ref={prevRef} className="prev">
+        {/* <button ref={prevRef} className="prev">
           <IoChevronBackOutline className="" />
         </button>
         <button ref={nextRef} className="next">
           <IoChevronForward />
-        </button>
+        </button> */}
       </Swiper>
     </>
   );
