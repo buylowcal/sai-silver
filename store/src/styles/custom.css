@@ -387,6 +387,7 @@ p:not(:last-of-type) {
   align-items: center;
   margin-top: 10px;
 }
+
 .paginationOrder ul li:first-child {
   margin-left: 0;
 }
