@@ -128,33 +128,39 @@ const CategoryCarousel = () => {
     relative 
     text-xs 
     sm:text-sm 
+    md:text-base 
     mt-2 
+    
     tracking-widest 
     font-serif 
     group-hover:text-emerald-500 
-    leading-tight       
-    px-2                
-    mx-2                 /* Added strict left and right margins */
+    leading-tight      
+    px-2               
+    mx-2                 
     after:content-[' ']  
     after:absolute 
     after:left-0 
     after:bottom-0 
     after:h-0.5 
-    after:w-full       
+    after:w-full      
     after:bg-current 
     after:transition-transform 
     after:duration-500 
     after:scale-x-0 
     after:origin-center
     hover:after:scale-x-100
-    w-full
-    sm:w-auto
-    sm:inline-block
-    sm:whitespace-nowrap
+    w-full                /* Full width on small screens */
+    sm:w-auto             /* Auto width on small screens and above */
+    sm:inline-block       /* Inline-block on small screens and above */
+    flex-shrink-0         /* Prevents shrinking to avoid overlap */
+    max-w-xs              /* Sets a maximum width to prevent overflow */
+    text-center           /* Centers text within the element */
+    break-words           /* Allows long words to break and wrap */
   "
 >
   {showingTranslateValue(category?.name).toUpperCase()}
 </h3>
+
 
 
 
