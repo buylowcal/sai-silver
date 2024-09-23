@@ -19,8 +19,6 @@ import CMSkeleton from "@components/preloader/CMSkeleton";
 import Connect from "@components/landingPage/connect";
 import LandingPage from "@components/landingPage/landingPage";
 
-
-
 const Home = ({ popularProducts, discountProducts, attributes }) => {
   const router = useRouter();
   const { isLoading, setIsLoading } = useContext(SidebarContext);
@@ -42,6 +40,7 @@ const Home = ({ popularProducts, discountProducts, attributes }) => {
         <Loading loading={isLoading} />
       ) : (
         <Layout>
+          <LandingPage />
           <div className="min-h-screen">
             <StickyCart />
             {/* <div className="bg-white">
@@ -232,8 +231,7 @@ const Home = ({ popularProducts, discountProducts, attributes }) => {
           </div>
           <LandingPage/>
         </Layout>
-      )
-      }
+      )}
     </>
   );
 };

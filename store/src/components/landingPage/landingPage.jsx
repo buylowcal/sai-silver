@@ -7,10 +7,14 @@ import Innovations from "@components/landingPage/innovations";
 import Connect from "@components/landingPage/connect";
 import Brand from "@components/landingPage/brand";
 import Showroom from "./showroom";
+import Category from "@components/landingPage/category";
+import LovedDesigns from "./lovedDesigns";
 const LandingPage = () => {
   return (
     <div className="bg-gary-50">
       {/* <Brand /> */}
+      <Category/>
+      <LovedDesigns/>
       <Showroom/>
       <Connect />
       <Innovations />
