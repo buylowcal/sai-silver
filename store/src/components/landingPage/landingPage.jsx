@@ -9,22 +9,16 @@ import Brand from "@components/landingPage/brand";
 import Showroom from "./showroom";
 import Category from "@components/landingPage/category";
 import LovedDesigns from "./lovedDesigns";
+import CategoryCarousel from "@components/carousel/CategoryCarousel";
 const LandingPage = () => {
   return (
-    <div className="bg-gary-50">
-      {/* <Brand /> */}
-      <Category/>
-      <LovedDesigns/>
-      <Showroom/>
-      <Connect />
-      <Innovations />
-      <Journey />
-      <Services />
-      <br />
-      <div className="mt-6">
-        <ToolsResources />
-      </div>
-      
+    <div className="w-screen bg--500">
+      {/* <div className=" border   "> */}
+        <CategoryCarousel />
+      {/* </div> */}
+
+      <Category />
+      {/* <LovedDesigns /> */}
     </div>
   );
 };

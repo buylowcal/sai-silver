@@ -18,6 +18,8 @@ import AttributeServices from "@services/AttributeServices";
 import CMSkeleton from "@components/preloader/CMSkeleton";
 import Connect from "@components/landingPage/connect";
 import LandingPage from "@components/landingPage/landingPage";
+import CategoryCarousel from "@components/carousel/CategoryCarousel";
+// import Header from "@components/landingPage/header";
 
 const Home = ({ popularProducts, discountProducts, attributes }) => {
   const router = useRouter();
@@ -40,9 +42,9 @@ const Home = ({ popularProducts, discountProducts, attributes }) => {
         <Loading loading={isLoading} />
       ) : (
         <Layout>
-          <LandingPage />
           <div className="min-h-screen">
             <StickyCart />
+            <CategoryCarousel/>
             {/* <div className="bg-white">
               <div className="mx-auto py-5 max-w-screen-2xl px-3 sm:px-10">
                 <div className="flex w-full">
@@ -63,9 +65,9 @@ const Home = ({ popularProducts, discountProducts, attributes }) => {
 
             {/* feature category's */}
             {/* {storeCustomizationSetting?.home?.featured_status && ( */}
-              {/* <div className="bg-gray-100 lg:py-16 py-10"> */}
-                {/* <div className="mx-auto max-w-screen-2xl px-3 sm:px-10"> */}
-                  {/* <div className="mb-10 flex justify-center">
+            {/* <div className="bg-gray-100 lg:py-16 py-10"> */}
+            {/* <div className="mx-auto max-w-screen-2xl px-3 sm:px-10"> */}
+            {/* <div className="mb-10 flex justify-center">
                     <div className="text-center w-full lg:w-2/5">
                       <h2 className="text-xl lg:text-2xl mb-2 font-serif font-semibold">
                         <CMSkeleton
@@ -89,15 +91,16 @@ const Home = ({ popularProducts, discountProducts, attributes }) => {
                       </p>
                     </div>
                   </div> */}
-
-                 {/* </div> */}
-              {/* </div> */}
+            {/* <Header /> */}
+            {/* <FeatureCategory /> */}
+            {/* </div> */}
+            {/* </div> */}
             {/* )} */}
 
             {/* popular products */}
             {/* {storeCustomizationSetting?.home?.popular_products_status && ( */}
-              {/* <div className="bg-gray-50 lg:py-16 py-10 mx-auto max-w-screen-2xl px-3 sm:px-10"> */}
-                {/* <div className="mb-10 flex justify-center">
+            {/* <div className="bg-gray-50 lg:py-16 py-10 mx-auto max-w-screen-2xl px-3 sm:px-10"> */}
+            {/* <div className="mb-10 flex justify-center">
                   <div className="text-center w-full lg:w-2/5">
                     <h2 className="text-xl lg:text-2xl mb-2 font-serif font-semibold">
                       <CMSkeleton
@@ -121,7 +124,7 @@ const Home = ({ popularProducts, discountProducts, attributes }) => {
                     </p>
                   </div>
                 </div> */}
-                {/* <div className="flex">
+            {/* <div className="flex">
                   <div className="w-full">
                     {loading ? (
                       <CMSkeleton
@@ -229,7 +232,7 @@ const Home = ({ popularProducts, discountProducts, attributes }) => {
                 </div>
               )} */}
           </div>
-          <LandingPage/>
+          <LandingPage />
         </Layout>
       )}
     </>
