@@ -8,6 +8,7 @@ const config = {
       fontFamily: {
         sans: ["Open Sans", "sans-serif"],
         serif: ["Inter", ...defaultTheme.fontFamily.sans],
+        karla: ['Karla', 'sans-serif'],
       },
       boxShadow: {
         bottom:
