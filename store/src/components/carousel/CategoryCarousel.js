@@ -121,33 +121,41 @@ const CategoryCarousel = () => {
                     </div>
                   </div> */}
 
+
+
 <h3
   className="
     relative 
-    inline-block       /* Added to make the element wrap around the text */
     text-xs 
-    
+    sm:text-sm 
     mt-2 
     tracking-widest 
-    whitespace-nowrap 
     font-serif 
     group-hover:text-emerald-500 
+    leading-tight       
+    px-2                
+    mx-2                 /* Added strict left and right margins */
     after:content-[' ']  
     after:absolute 
     after:left-0 
     after:bottom-0 
     after:h-0.5 
-    after:w-full         /* Width now matches the text */
+    after:w-full       
     after:bg-current 
     after:transition-transform 
     after:duration-500 
     after:scale-x-0 
     after:origin-center
     hover:after:scale-x-100
+    w-full
+    sm:w-auto
+    sm:inline-block
+    sm:whitespace-nowrap
   "
 >
   {showingTranslateValue(category?.name).toUpperCase()}
 </h3>
+
 
 
 
