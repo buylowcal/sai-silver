@@ -13,9 +13,9 @@ import CategoryCarousel from "@components/carousel/CategoryCarousel";
 const LandingPage = () => {
   return (
     <div className="w-screen bg--500">
-      {/* <div className=" border   "> */}
+      <div className=" relative border   ">
         <CategoryCarousel />
-      {/* </div> */}
+      </div>
 
       <Category />
       {/* <LovedDesigns /> */}

@@ -124,7 +124,7 @@ const CategoryCarousel = () => {
 <h3
   className="
     relative 
-    inline-block       /* Added to make the element wrap around the text */
+    inline       /* Added to make the element wrap around the text */
     text-xs 
     
     mt-2 

@@ -52,7 +52,7 @@ export default function Category() {
     },
     {
       imgSrc:
-        "https://ae01.alicdn.com/kf/Hcc091e59d7064b0cb5c6238e30e06f73d.jpg?width=800&height=800&hash=1600",
+        "https://s.alicdn.com/@sc04/kf/Hb23cf5445a604b78a0101d82140fffbeZ.jpg_720x720q50.jpg",
       heading: "personalized jewellery",
       description:
         "In a world where everything feels mass-produced and impersonal, personalized jewelry emerges as a timeless testament to individuality and emotion.",
