@@ -64,10 +64,10 @@ const ProductCard = ({ product, attributes }) => {
 
       <div className="group box-border overflow-hidden flex rounded-lg shadow-md flex-col items-center bg-white relative w-full h-full max-w-sm">
         {/* Header Section */}
-        {/* <div className="w-full flex justify-between px-4 py-2">
-          <Stock product={product} stock={product.stock} card />
+        <div className="w-full flex justify-between px-4 py-2">
+          {/* <Stock product={product} stock={product.stock} card /> */}
           <Discount product={product} />
-        </div> */}
+        </div>
 
         {/* Image Section */}
         <div

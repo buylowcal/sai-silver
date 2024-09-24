@@ -19,12 +19,32 @@ function DiscountProducts({discountProducts,attributes}) {
         <h2 className="text-3xl  tracking-widest text-center mb-8">Discount Products</h2>
          <>
                       {loading ? (
+                       <>
+                        <h2 className="text-xl lg:text-2xl mb-2 font-serif font-semibold">
                         <CMSkeleton
-                          count={20}
-                          height={20}
-                          error={error}
+                          count={1}
+                          height={30}
+                          // error={error}
                           loading={loading}
+                          data={
+                            storeCustomizationSetting?.home
+                              ?.latest_discount_title
+                          }
                         />
+                      </h2>
+                      <p className="text-base font-sans text-gray-600 leading-6">
+                        <CMSkeleton
+                          count={5}
+                          height={20}
+                          // error={error}
+                          loading={loading}
+                          data={
+                            storeCustomizationSetting?.home
+                              ?.latest_discount_description
+                          }
+                        />
+                      </p>
+                       </>
                       ) : (
                         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
 

@@ -166,7 +166,7 @@ const Home = ({ popularProducts, discountProducts, attributes }) => {
             )} */}
 
             {/* discounted products */}
-            {storeCustomizationSetting?.home?.discount_product_status ||
+            {/* {storeCustomizationSetting?.home?.discount_product_status ||
               discountProducts?.length > 0 && (
                 <div
                   id="discount"
@@ -178,7 +178,7 @@ const Home = ({ popularProducts, discountProducts, attributes }) => {
                         <CMSkeleton
                           count={1}
                           height={30}
-                          // error={error}
+                          error={error}
                           loading={loading}
                           data={
                             storeCustomizationSetting?.home
@@ -190,7 +190,7 @@ const Home = ({ popularProducts, discountProducts, attributes }) => {
                         <CMSkeleton
                           count={5}
                           height={20}
-                          // error={error}
+                          error={error}
                           loading={loading}
                           data={
                             storeCustomizationSetting?.home
@@ -229,7 +229,7 @@ const Home = ({ popularProducts, discountProducts, attributes }) => {
                     </div>
                   </div>
                 </div>
-              )}
+              )} */}
           </div>
           {/* <LandingPage/> */}
         </Layout>
