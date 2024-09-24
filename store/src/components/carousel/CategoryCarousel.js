@@ -42,7 +42,7 @@ const CategoryCarousel = () => {
           swiper.navigation.init();
           swiper.navigation.update();
         }}
-        spaceBetween={8}
+        spaceBetween={80}
         navigation={true}
         allowTouchMove={false}
         loop={true}
@@ -78,7 +78,7 @@ const CategoryCarousel = () => {
           // when window width is >= 768px
           1140: {
             width: 1140,
-            slidesPerView: 9,
+            slidesPerView: 8,
           },
           1680: {
             width: 1680,
@@ -97,7 +97,7 @@ const CategoryCarousel = () => {
             <span> {error}</span>
           </p>
         ) : (
-          <div>
+          <div className="">
             {data[0]?.children?.map((category, i) => (
               <SwiperSlide key={i + 1} className="group">
                 <div
@@ -125,12 +125,14 @@ const CategoryCarousel = () => {
 
 <h3
   className="
+  
     relative 
     text-xs 
-    sm:text-sm 
-    md:text-base 
-    mt-2 
+    sm:text-xs 
+    md:text-xs 
     
+    mt-2 
+    whitespace-nowrap
     tracking-widest 
     font-serif 
     group-hover:text-emerald-500 
@@ -155,7 +157,7 @@ const CategoryCarousel = () => {
     flex-shrink-0         /* Prevents shrinking to avoid overlap */
     max-w-xs              /* Sets a maximum width to prevent overflow */
     text-center           /* Centers text within the element */
-    break-words           /* Allows long words to break and wrap */
+              /* Allows long words to break and wrap */
   "
 >
   {showingTranslateValue(category?.name).toUpperCase()}
@@ -171,12 +173,12 @@ const CategoryCarousel = () => {
             ))}
           </div>
         )}
-        {/* <button ref={prevRef} className="prev">
+        <button ref={prevRef} className="prev">
           <IoChevronBackOutline className="" />
         </button>
         <button ref={nextRef} className="next">
           <IoChevronForward />
-        </button> */}
+        </button>
       </Swiper>
     </>
   );
