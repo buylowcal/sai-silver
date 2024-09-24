@@ -27,9 +27,9 @@ const Category = () => {
           <h2 className="font-semibold font-serif text-lg m-0 text-heading flex align-center">
             <Link href="/" className="mr-10">
               <Image
-                width={100}
+                width={50}
                 height={38}
-                src="/logo/logo-color.svg"
+                src="/logo/logo-color.png"
                 alt="logo"
               />
             </Link>
@@ -59,6 +59,7 @@ const Category = () => {
           <div className="relative grid gap-2 p-6">
             {data[0]?.children?.map((category) => (
               <CategoryCard
+              images={false}
                 key={category._id}
                 id={category._id}
                 icon={category.icon}
@@ -69,7 +70,7 @@ const Category = () => {
           </div>
         )}
 
-        {categoryDrawerOpen && (
+        {/* {categoryDrawerOpen && (
           <div className="relative grid gap-2 mt-5">
             <h3 className="font-semibold font-serif text-lg m-0 text-heading flex align-center border-b px-8 py-3">
               Pages
@@ -92,7 +93,7 @@ const Category = () => {
               ))}
             </div>
           </div>
-        )}
+        )} */}
       </div>
     </div>
   );

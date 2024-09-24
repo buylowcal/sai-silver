@@ -17,9 +17,7 @@ import FeatureCategory from "@components/category/FeatureCategory";
 import AttributeServices from "@services/AttributeServices";
 import CMSkeleton from "@components/preloader/CMSkeleton";
 import Connect from "@components/landingPage/connect";
-import LandingPage from "@components/landingPage/landingPage";
-import CategoryCarousel from "@components/carousel/CategoryCarousel";
-// import Header from "@components/landingPage/header";
+import LandingPage from "@components/landingPage";
 
 const Home = ({ popularProducts, discountProducts, attributes }) => {
   const router = useRouter();
@@ -42,9 +40,11 @@ const Home = ({ popularProducts, discountProducts, attributes }) => {
         <Loading loading={isLoading} />
       ) : (
         <Layout>
-          <div className="min-h-screen">
-            <StickyCart />
-            <CategoryCarousel/>
+          <LandingPage popularProducts={popularProducts} 
+                       attributes={attributes} 
+                       discountProducts={discountProducts} />
+          <div className=" ">
+            {/* <StickyCart /> */}
             {/* <div className="bg-white">
               <div className="mx-auto py-5 max-w-screen-2xl px-3 sm:px-10">
                 <div className="flex w-full">
@@ -167,7 +167,7 @@ const Home = ({ popularProducts, discountProducts, attributes }) => {
             )} */}
 
             {/* discounted products */}
-            {/* {storeCustomizationSetting?.home?.discount_product_status &&
+            {/* {storeCustomizationSetting?.home?.discount_product_status ||
               discountProducts?.length > 0 && (
                 <div
                   id="discount"
@@ -179,7 +179,7 @@ const Home = ({ popularProducts, discountProducts, attributes }) => {
                         <CMSkeleton
                           count={1}
                           height={30}
-                          // error={error}
+                          error={error}
                           loading={loading}
                           data={
                             storeCustomizationSetting?.home
@@ -191,7 +191,7 @@ const Home = ({ popularProducts, discountProducts, attributes }) => {
                         <CMSkeleton
                           count={5}
                           height={20}
-                          // error={error}
+                          error={error}
                           loading={loading}
                           data={
                             storeCustomizationSetting?.home
@@ -211,7 +211,7 @@ const Home = ({ popularProducts, discountProducts, attributes }) => {
                           loading={loading}
                         />
                       ) : (
-                        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 2xl:grid-cols-6 gap-2 md:gap-3 lg:gap-3">
+                        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-2 md:gap-3 lg:gap-3">
                           {discountProducts
                             ?.slice(
                               0,
@@ -232,7 +232,7 @@ const Home = ({ popularProducts, discountProducts, attributes }) => {
                 </div>
               )} */}
           </div>
-          <LandingPage />
+          {/* <LandingPage/> */}
         </Layout>
       )}
     </>

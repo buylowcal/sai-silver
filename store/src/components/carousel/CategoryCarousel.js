@@ -42,7 +42,7 @@ const CategoryCarousel = () => {
           swiper.navigation.init();
           swiper.navigation.update();
         }}
-        spaceBetween={8}
+        spaceBetween={80}
         navigation={true}
         allowTouchMove={false}
         loop={true}
@@ -78,7 +78,7 @@ const CategoryCarousel = () => {
           // when window width is >= 768px
           1140: {
             width: 1140,
-            slidesPerView: 9,
+            slidesPerView: 8,
           },
           1680: {
             width: 1680,
@@ -97,7 +97,7 @@ const CategoryCarousel = () => {
             <span> {error}</span>
           </p>
         ) : (
-          <div>
+          <div className="max-w-7xl">
             {data[0]?.children?.map((category, i) => (
               <SwiperSlide key={i + 1} className="group">
                 <div
@@ -121,33 +121,49 @@ const CategoryCarousel = () => {
                     </div>
                   </div> */}
 
+
+
 <h3
   className="
+  
     relative 
-    inline       /* Added to make the element wrap around the text */
     text-xs 
+    sm:text-xs 
+    md:text-xs 
     
     mt-2 
+    whitespace-nowrap
     tracking-widest 
-    whitespace-nowrap 
     font-serif 
     group-hover:text-emerald-500 
+    leading-tight      
+    px-2               
+    mx-2                 
     after:content-[' ']  
     after:absolute 
     after:left-0 
     after:bottom-0 
     after:h-0.5 
-    after:w-full         /* Width now matches the text */
+    after:w-full      
     after:bg-current 
     after:transition-transform 
     after:duration-500 
     after:scale-x-0 
     after:origin-center
     hover:after:scale-x-100
+    w-full                /* Full width on small screens */
+    sm:w-auto             /* Auto width on small screens and above */
+    sm:inline-block       /* Inline-block on small screens and above */
+    flex-shrink-0         /* Prevents shrinking to avoid overlap */
+    max-w-xs              /* Sets a maximum width to prevent overflow */
+    text-center           /* Centers text within the element */
+              /* Allows long words to break and wrap */
   "
 >
   {showingTranslateValue(category?.name).toUpperCase()}
 </h3>
+
+
 
 
 

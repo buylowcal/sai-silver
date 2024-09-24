@@ -52,6 +52,7 @@ const NavBarTop = () => {
   const [currentClass, setCurrentClass] = useState("");
 
   console.log("@@@", currentSlide);
+  
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide(prevSlide => {

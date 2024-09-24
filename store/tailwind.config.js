@@ -19,6 +19,8 @@ module.exports = {
       DejaVu: ["DejaVu Sans", "Arial", "sans-serif"],
     },
     extend: {
+      translate: ['responsive', 'hover', 'focus', 'group-hover', 'motion-safe', 'motion-reduce'],
+      opacity: ['responsive', 'hover', 'focus', 'group-hover'],
       colors: {
         emerald: {
           // Customizing specific shades
