@@ -17,10 +17,11 @@ function CategoriesSlider() {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
+    slidesToShow: 4,
+    slidesToScroll: 4,
     draggable: true,
     responsive: [
+        { breakpoint: 1090, settings: { slidesToShow: 4 }},
       { breakpoint: 1024, settings: { slidesToShow: 3 }},
       { breakpoint: 768, settings: { slidesToShow: 2 }},
       { breakpoint: 640, settings: { slidesToShow: 1 }},
@@ -29,8 +30,8 @@ function CategoriesSlider() {
 
   return (
     <section id="categories" className="py-12">
-      <h2 className="text-3xl font-bold text-center mb-8">Shop by Category</h2>
-      <div className="max-w-7xl mx-auto px-4">
+      <h2 className="text-3xl font- text-center tracking-widest font-serif mb-8">Shop by Category</h2>
+      <div className="max-w-  mx-auto px-4">
         {/* <DirectionAwareHover imageUrl={''}/> */}
         <Slider {...settings}>
           {cards.map((category, index) => (

@@ -17,7 +17,7 @@ import FeatureCategory from "@components/category/FeatureCategory";
 import AttributeServices from "@services/AttributeServices";
 import CMSkeleton from "@components/preloader/CMSkeleton";
 import Connect from "@components/landingPage/connect";
-import LandingPage from "@components/landingPage/landingPage";
+import LandingPage from "@components/landingPage";
 
 const Home = ({ popularProducts, discountProducts, attributes }) => {
   const router = useRouter();
