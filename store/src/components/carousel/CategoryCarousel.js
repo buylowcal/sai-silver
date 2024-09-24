@@ -97,7 +97,7 @@ const CategoryCarousel = () => {
             <span> {error}</span>
           </p>
         ) : (
-          <div className="">
+          <div className="max-w-7xl">
             {data[0]?.children?.map((category, i) => (
               <SwiperSlide key={i + 1} className="group">
                 <div
@@ -173,12 +173,12 @@ const CategoryCarousel = () => {
             ))}
           </div>
         )}
-        <button ref={prevRef} className="prev">
+        {/* <button ref={prevRef} className="prev">
           <IoChevronBackOutline className="" />
         </button>
         <button ref={nextRef} className="next">
           <IoChevronForward />
-        </button>
+        </button> */}
       </Swiper>
     </>
   );

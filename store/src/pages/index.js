@@ -41,7 +41,7 @@ const Home = ({ popularProducts, discountProducts, attributes }) => {
       ) : (
         <Layout>
           <LandingPage />
-          <div className="min-h-screen">
+          <div className=" ">
             {/* <StickyCart /> */}
             {/* <div className="bg-white">
               <div className="mx-auto py-5 max-w-screen-2xl px-3 sm:px-10">
@@ -164,7 +164,7 @@ const Home = ({ popularProducts, discountProducts, attributes }) => {
             )} */}
 
             {/* discounted products */}
-            {/* {storeCustomizationSetting?.home?.discount_product_status &&
+            {storeCustomizationSetting?.home?.discount_product_status ||
               discountProducts?.length > 0 && (
                 <div
                   id="discount"
@@ -208,7 +208,7 @@ const Home = ({ popularProducts, discountProducts, attributes }) => {
                           loading={loading}
                         />
                       ) : (
-                        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 2xl:grid-cols-6 gap-2 md:gap-3 lg:gap-3">
+                        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-2 md:gap-3 lg:gap-3">
                           {discountProducts
                             ?.slice(
                               0,
@@ -227,9 +227,9 @@ const Home = ({ popularProducts, discountProducts, attributes }) => {
                     </div>
                   </div>
                 </div>
-              )} */}
+              )}
           </div>
-          <LandingPage/>
+          {/* <LandingPage/> */}
         </Layout>
       )}
     </>

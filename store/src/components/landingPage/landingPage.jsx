@@ -9,21 +9,33 @@ import Brand from "@components/landingPage/brand";
 import Showroom from "./showroom";
 import Category from "@components/landingPage/category";
 import LovedDesigns from "./lovedDesigns";
+import Navbar from "./navbar";
+import Banner from "./banner";
+import CategoriesSlider from "./categories-slider";
+import FeaturedProducts from "./featured-products";
+
+
+
 const LandingPage = () => {
   return (
     <div className="bg-gary-50">
       {/* <Brand /> */}
-      <Category/>
-      <LovedDesigns/>
-      <Showroom/>
-      <Connect />
+      {/* <Category/> */}
+      {/* <LovedDesigns/> */}
+      {/* <Showroom/> */}
+      {/* <Connect />
       <Innovations />
       <Journey />
-      <Services />
+      <Services /> */}
+      <Navbar />
+      <Banner />
+      <CategoriesSlider />
+      <FeaturedProducts />
+      {/* <Footer /> */}
       <br />
-      <div className="mt-6">
+      {/* <div className="mt-6">
         <ToolsResources />
-      </div>
+      </div> */}
       
     </div>
   );
