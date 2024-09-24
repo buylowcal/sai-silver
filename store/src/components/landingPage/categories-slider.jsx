@@ -4,6 +4,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { DirectionAwareHover } from '@components/ui/direction-aware-hover';
 import { cards } from './category';
+import useAsync from '@hooks/useAsync';
+import CategoryServices from "@services/CategoryServices";
+
 
 function CategoriesSlider({attributes}) {
   const categories = [
@@ -12,6 +15,11 @@ function CategoriesSlider({attributes}) {
     { name: 'Earrings', image: '/images/earrings.jpg' },
     // Add more categories as needed
   ];
+
+  const { data, error, loading } = useAsync(
+    CategoryServices.getShowingCategory
+  );
+
 
   const settings = {
     dots: false,
@@ -29,7 +37,7 @@ function CategoriesSlider({attributes}) {
   };
 
   console.log('attributes',attributes)
-  console.log('')
+  console.log('categories',data[0]?.children)
 
   return (
     <section id="categories" className="py-12">
@@ -37,8 +45,8 @@ function CategoriesSlider({attributes}) {
       <div className="max-w-  mx-auto px-4">
         {/* <DirectionAwareHover imageUrl={''}/> */}
         <Slider {...settings}>
-          {cards.map((category, index) => (
-             <DirectionAwareHover children={category.heading} imageUrl={category.image}/>
+          {data[0]?.children.map((category, index) => (
+             <DirectionAwareHover children={category.name?.en} imageUrl={category?.icon}/>
             // <div key={index} className="px-2">
             //   <div className="relative overflow-hidden rounded-lg">
             //     <img

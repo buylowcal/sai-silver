@@ -14,6 +14,7 @@ import Banner from "./banner";
 import CategoriesSlider from "./categories-slider";
 import FeaturedProducts from "./featured-products";
 import DiscountProducts from "./discounted-products";
+import FeatureCategory from "@components/category/FeatureCategory";
 
 
 
@@ -30,6 +31,7 @@ const LandingPage = ({discountProducts,popularProducts,attributes}) => {
       <Services /> */}
       <Navbar />
       <Banner />
+      {/* <FeatureCategory/> */}
       <CategoriesSlider attributes={attributes} />
       <FeaturedProducts attributes={attributes}  popularProducts={popularProducts} />
 
