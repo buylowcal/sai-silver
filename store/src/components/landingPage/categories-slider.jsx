@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { DirectionAwareHover } from '@components/ui/direction-aware-hover';
 import { cards } from './category';
 
-function CategoriesSlider() {
+function CategoriesSlider({attributes}) {
   const categories = [
     { name: 'Rings', image: '/images/rings.jpg' },
     { name: 'Necklaces', image: '/images/necklaces.jpg' },
@@ -27,6 +27,9 @@ function CategoriesSlider() {
       { breakpoint: 640, settings: { slidesToShow: 1 }},
     ],
   };
+
+  console.log('attributes',attributes)
+  console.log('')
 
   return (
     <section id="categories" className="py-12">

@@ -40,7 +40,9 @@ const Home = ({ popularProducts, discountProducts, attributes }) => {
         <Loading loading={isLoading} />
       ) : (
         <Layout>
-          <LandingPage />
+          <LandingPage popularProducts={popularProducts} 
+                       attributes={attributes} 
+                       discountProducts={discountProducts} />
           <div className=" ">
             {/* <StickyCart /> */}
             {/* <div className="bg-white">

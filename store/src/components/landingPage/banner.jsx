@@ -3,7 +3,7 @@ function Banner() {
     return (
       <section
         id="home"
-        className="relative h-screen bg-cover bg-center"
+        className="relative h-screen bg-cover bg-no-repeat bg-center"
         style={{ backgroundImage: "url('/banner.png')" }}
       >
     

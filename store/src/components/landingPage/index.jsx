@@ -13,10 +13,11 @@ import Navbar from "./navbar";
 import Banner from "./banner";
 import CategoriesSlider from "./categories-slider";
 import FeaturedProducts from "./featured-products";
+import DiscountProducts from "./discounted-products";
 
 
 
-const LandingPage = () => {
+const LandingPage = ({discountProducts,popularProducts,attributes}) => {
   return (
     <div className="bg-gary-50">
       {/* <Brand /> */}
@@ -29,9 +30,11 @@ const LandingPage = () => {
       <Services /> */}
       <Navbar />
       <Banner />
-      <CategoriesSlider />
-      <FeaturedProducts />
-      {/* <Footer /> */}
+      <CategoriesSlider attributes={attributes} />
+      <FeaturedProducts attributes={attributes}  popularProducts={popularProducts} />
+
+      <DiscountProducts  discountProducts={discountProducts} attributes={attributes} />
+       {/* <Footer /> */}
       <br />
       {/* <div className="mt-6">
         <ToolsResources />

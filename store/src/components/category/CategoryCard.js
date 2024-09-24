@@ -11,7 +11,7 @@ import {
 import { SidebarContext } from "@context/SidebarContext";
 import useUtilsFunction from "@hooks/useUtilsFunction";
 
-const CategoryCard = ({ title, icon, nested, id }) => {
+const CategoryCard = ({ title, icon,images=true, nested, id }) => {
   const router = useRouter();
   const { closeCategoryDrawer, isLoading, setIsLoading } =
     useContext(SidebarContext);
@@ -59,18 +59,19 @@ const CategoryCard = ({ title, icon, nested, id }) => {
         className="p-2 flex items-center rounded-md hover:bg-gray-50 w-full hover:text-emerald-600"
         role="button"
       >
-        {icon ? (
+        {(icon && images) ? (
           <Image src={icon} width={18} height={18} alt="Category" />
         ) : (
-          <Image
-            src="https://res.cloudinary.com/ahossain/image/upload/v1655097002/placeholder_kvepfp.png"
-            width={18}
-            height={18}
-            alt="category"
-          />
+          ''
+          // <Image
+          //   src="https://res.cloudinary.com/ahossain/image/upload/v1655097002/placeholder_kvepfp.png"
+          //   width={18}
+          //   height={18}
+          //   alt="category"
+          // />
         )}
 
-        <div className="inline-flex items-center justify-between ml-3 text-sm font-medium w-full hover:text-emerald-600">
+        <div className="inline-flex items-center tracking-widest justify-between ml-3 text-sm font-medium w-full hover:text-emerald-400">
           {title}
           {nested?.length > 0 && (
             <span className="transition duration-700 ease-in-out inline-flex loading-none items-end text-gray-400">
@@ -80,9 +81,9 @@ const CategoryCard = ({ title, icon, nested, id }) => {
         </div>
       </a>
       {show && nested.length > 0 && (
-        <ul className="pl-6 pb-3 pt-1 -mt-1">
+        <ul className="pl-6 pb-3 pt-1   -mt-1">
           {nested.map((children) => (
-            <li key={children._id}>
+            <li className="tracking-widest" key={children._id}>
               {children.children.length > 0 ? (
                 <a
                   onClick={() =>
@@ -91,17 +92,17 @@ const CategoryCard = ({ title, icon, nested, id }) => {
                       showingTranslateValue(children.name)
                     )
                   }
-                  className="flex items-center font-serif pr-2 text-sm text-gray-600 hover:text-emerald-600 py-1 cursor-pointer"
+                  className="flex items-center tracking-widest font-serif pr-2 text-sm text-gray-600 hover:text-emerald-600 py-1 cursor-pointer"
                 >
                   <span className="text-xs text-gray-500">
                     <IoRemoveSharp />
                   </span>
 
-                  <div className="inline-flex items-center justify-between ml-3 text-sm font-medium w-full hover:text-emerald-600">
+                  <div className="inline-flex items-center tracking-widest justify-between ml-3 text-sm font-medium w-full hover:text-emerald-600">
                     {showingTranslateValue(children.name)}
 
                     {children.children.length > 0 ? (
-                      <span className="transition duration-700 ease-in-out inline-flex loading-none items-end text-gray-400">
+                      <span className="tracking-widest transition duration-700 ease-in-out inline-flex loading-none items-end text-gray-400">
                         {showSubCategory.id === children._id &&
                         showSubCategory.show ? (
                           <IoChevronDownOutline />
@@ -120,7 +121,7 @@ const CategoryCard = ({ title, icon, nested, id }) => {
                       showingTranslateValue(children.name)
                     )
                   }
-                  className="flex items-center font-serif py-1 text-sm text-gray-600 hover:text-emerald-600 cursor-pointer"
+                  className="flex items-center  tracking-widest font-serif py-1 text-sm text-gray-600 hover:text-emerald-600 cursor-pointer"
                 >
                   <span className="text-xs text-gray-500 pr-2">
                     <IoRemoveSharp />
@@ -132,7 +133,7 @@ const CategoryCard = ({ title, icon, nested, id }) => {
               {/* sub children category */}
               {showSubCategory.id === children._id &&
               showSubCategory.show === true ? (
-                <ul className="pl-6 pb-3">
+                <ul className="pl-6 tracking-widest pb-3">
                   {children.children.map((subChildren) => (
                     <li key={subChildren._id}>
                       <a
@@ -142,9 +143,9 @@ const CategoryCard = ({ title, icon, nested, id }) => {
                             showingTranslateValue(subChildren?.name)
                           )
                         }
-                        className="flex items-center font-serif py-1 text-sm text-gray-600 hover:text-emerald-600 cursor-pointer"
+                        className="flex tracking-widest items-center font-serif py-1 text-sm text-gray-600 hover:text-emerald-600 cursor-pointer"
                       >
-                        <span className="text-xs text-gray-500 pr-2">
+                        <span className="text-xs tracking-widest text-gray-500 pr-2">
                           <IoRemoveSharp />
                         </span>
                         {showingTranslateValue(subChildren?.name)}

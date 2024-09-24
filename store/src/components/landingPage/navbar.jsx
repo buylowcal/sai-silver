@@ -6,22 +6,27 @@ import CategoryServices from "@services/CategoryServices";
 import useUtilsFunction from "@hooks/useUtilsFunction";
 import { useRouter } from "next/router";
 import { ShoppingCartIcon, UserIcon } from '@heroicons/react/outline'; // Import icons
-import { FiBell, FiShoppingCart, FiUser, FiSearch } from 'react-icons/fi';import { useCart } from "react-use-cart";
+import { FiShoppingCart, FiUser, FiSearch, FiMenu } from 'react-icons/fi'; // Import FiMenuimport { useCart } from "react-use-cart";
 import { getUserSession } from "@lib/auth";
 import Link from 'next/link'
 import Image from 'next/image';
 import SearchBar from './search-bar';
+import CartDrawer from '@components/drawer/CartDrawer';
+import Sidebar from './sidebar';
+import { useCart } from 'react-use-cart';
+import CategoryDrawer from '@components/drawer/CategoryDrawer';
 
 
 
 function Navbar() {
     const [navBg, setNavBg] = useState('bg-transparent');
     const [showSearch, setShowSearch] = useState(false);
-     const router = useRouter();
+    const [showSidebar, setShowSidebar] = useState(false); // State for sidebar
+    const router = useRouter();
     const userInfo = getUserSession();
   
     const { showingTranslateValue } = useUtilsFunction();
-    const { isLoading, setIsLoading, toggleCartDrawer } = useContext(SidebarContext);
+    const { isLoading, setIsLoading, toggleCartDrawer , toggleCategoryDrawer } = useContext(SidebarContext);
     const { data, error } = useAsync(() => CategoryServices.getShowingCategory());
     const { totalItems } = useCart();
   
@@ -51,6 +56,9 @@ function Navbar() {
   
     return (
       <>
+        <CartDrawer />
+        <CategoryDrawer className="w-6 h-6 drop-shadow-xl" />
+
         <nav className={`fixed w-full z-40 transition-all duration-300 p-4 ${navBg}`}>
           <div className="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
             {/* Left Side: Logo */}
@@ -61,8 +69,8 @@ function Navbar() {
               alt="Brand Logo"
             />
   
-            {/* Center: Categories */}
-            <div className="flex items-center space-x-2">
+            {/* Center: Categories (hidden on small screens) */}
+            <div className="hidden md:flex items-center space-x-2">
               {data[0]?.children?.slice(1, 5).map((category, index) => (
                 <div key={index} className="cursor-pointer group">
                   <h3
@@ -109,10 +117,10 @@ function Navbar() {
             <div className="flex items-center space-x-4">
               {/* Search Icon */}
               <FiSearch
-          className="h-6 w-6 cursor-pointer text-gray-800 hover:text-emerald-500"
-          onClick={() => setShowSearch(true)}
-          aria-label="Search"
-        />
+                className="h-6 w-6 cursor-pointer text-gray-800 hover:text-emerald-500"
+                onClick={() => setShowSearch(true)}
+                aria-label="Search"
+              />
   
               {/* Cart Icon */}
               <div className="relative">
@@ -153,14 +161,32 @@ function Navbar() {
                   </Link>
                 )}
               </button>
+  
+              {/* Burger Menu Icon (visible on small screens) */}
+              <div className="md:hidden">
+                <FiMenu
+                  className="h-6 w-6 cursor-pointer text-gray-800 hover:text-emerald-500"
+                  onClick={toggleCategoryDrawer}
+                  aria-label="Menu"
+                />
+              </div>
             </div>
           </div>
         </nav>
   
+        {/* Sidebar Component */}
+        {showSidebar && (
+          <Sidebar
+            setShowSidebar={setShowSidebar}
+            categories={data[0]?.children?.slice(1, 5)}
+            handleCategoryClick={handleCategoryClick}
+          />
+        )}
+  
         {/* SearchBar Component */}
         {showSearch && (
           <SearchBar
-          showSearch={showSearch}
+            showSearch={showSearch}
             setShowSearch={setShowSearch}
             lastSearches={lastSearches}
           />
