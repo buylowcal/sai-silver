@@ -32,25 +32,25 @@ const testimonials = [
   
     return (
       <section className="py-12 bg-gray-50">
-        <div className="max-w-6xl mx-auto   ">
+        <div className="max-w-6xl mx-auto p-4 ">
           <h2 className="text-3xl font-extrabold text-gray-900 text-center mb-8">
             What Our Customers Say
           </h2>
-          <div ref={sliderRef} className="keen-slider h-[600px]">
+          <div ref={sliderRef} className="keen-slider h-[650px] m-auto">
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className="keen-slider__slide flex mx-2 flex-col items-center bg-white   rounded-lg shadow-md flex-1"
+                className="keen-slider__slide flex mx-4 border-2 border-gray-300  flex-col items-center bg-white rounded-lg shadow-xl flex-1"
               >
                 <img
                   src={testimonial.image}
                   alt={testimonial.name}
-                  className="w-full h-full object-cover mb-4 rounded-lg"
+                  className="w-full h-full object-cover rounded-lg"
                 />
                 <h3 className="text-xl font-semibold text-gray-800 mt-4">
                   {testimonial.name}
                 </h3>
-                <p className="text-gray-600 mt-2 text-center italic">
+                <p className="text-gray-600 mt-2 text-center italic p-2 mb-5">
                   "{testimonial.comment}"
                 </p>
               </div>
