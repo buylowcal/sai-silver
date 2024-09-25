@@ -10,6 +10,8 @@ import Showroom from "./showroom";
 import Category from "@components/landingPage/category";
 import LovedDesigns from "./lovedDesigns";
 import CategoryCarousel from "@components/carousel/CategoryCarousel";
+
+
 const LandingPage = () => {
   return (
     <div className="w-screen bg--500">
