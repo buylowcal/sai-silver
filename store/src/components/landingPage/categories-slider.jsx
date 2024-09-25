@@ -51,19 +51,6 @@ function CategoriesSlider({attributes}) {
         <Slider {...settings}>
           {data[0]?.children.map((category, index) => (
              <DirectionAwareHover children={category.name?.en} imageUrl={category?.icon}/>
-            // <div key={index} className="px-2">
-            //   <div className="relative overflow-hidden rounded-lg">
-            //     <img
-            //       src={category.image}
-            //       alt={category.heading}
-            //       className="w-full h-64 object-cover"
-            //     />
-            //     <div className="absolute inset-0 bg-black opacity-25"></div>
-            //     <div className="absolute bottom-4 left-4 text-white text-xl font-semibold">
-            //       {category.heading}
-            //     </div>
-            //   </div>
-            // </div>
           ))}
         </Slider>
       </div>
