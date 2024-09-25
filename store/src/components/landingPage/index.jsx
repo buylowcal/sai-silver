@@ -6,8 +6,6 @@ import Journey from "@components/landingPage/journey";
 import Innovations from "@components/landingPage/innovations";
 import Connect from "@components/landingPage/connect";
 import Brand from "@components/landingPage/brand";
-import Showroom from "./showroom";
-import Category from "@components/landingPage/category";
 import LovedDesigns from "./lovedDesigns";
 import Navbar from "./navbar";
 import Banner from "./banner";
@@ -16,7 +14,7 @@ import FeaturedProducts from "./featured-products";
 import DiscountProducts from "./discounted-products";
 import FeatureCategory from "@components/category/FeatureCategory";
 import TestimonialSlider from "./testimonial-slider";
-
+import Category from "@components/landingPage/category";
 const LandingPage = ({ discountProducts, popularProducts, attributes }) => {
   return (
     <div className="bg-gary-50 mx-auto w-full">
@@ -27,6 +25,7 @@ const LandingPage = ({ discountProducts, popularProducts, attributes }) => {
       <Banner />
       {/* <FeatureCategory/> */}
       <CategoriesSlider attributes={attributes} />
+      {/* <Category /> */}
       <FeaturedProducts
         attributes={attributes}
         popularProducts={popularProducts}
