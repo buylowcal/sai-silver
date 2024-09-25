@@ -11,7 +11,10 @@ import CoverTextInCenter from '../components/CoverTextInCenter';
 import ProductsSliderByQuery from '../components/ProductsSliderByQuery';
 import {IBasicSettings} from '../@types/settings';
 
-export default function IndexPage({products, mainMenu, footerMenu, basicSettings}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+
+
+
+export default function IndexPage({products, mainMenu, footerMenu, basicSettings}) {
 	return (
 		<MainLayout
 			mainMenu={mainMenu}
@@ -26,7 +29,7 @@ export default function IndexPage({products, mainMenu, footerMenu, basicSettings
 				content={{
 					intro: 'Muhammad Ali',
 					head: 'Impossible is nothing!',
-					subHead: 'Impossible is not a fact. It’s an opinion. Impossible is not a declaration. It’s a dare. Impossible is potential. Impossible is temporary.'
+					subHead: 'Impossible is not a fact. Its an opinion. Impossible is not a declaration. Its a dare. Impossible is potential. Impossible is temporary.'
 				}}
 				shadow={{
 					opacity: 0.5,
@@ -47,10 +50,12 @@ export default function IndexPage({products, mainMenu, footerMenu, basicSettings
 	);
 }
 
-export const getServerSideProps: GetServerSideProps<IIndexPageProps> = async () => {
+
+
+export const getServerSideProps = async () => {
 	const categoryTree = await apiClient.catalog.getCategoryTree({menu: 'category'});
 	const {products} = await apiClient.catalog.getProducts({collection: ['main-page'], sort: 'in_collection'});
-	const basicSettings = await apiClient.system.fetchSettings(['system.locale', 'system.currency']) as IBasicSettings;
+	const basicSettings = await apiClient.system.fetchSettings(['system.locale', 'system.currency']) ;
 
 	const menus = makeAllMenus({categoryTree});
 
@@ -63,9 +68,9 @@ export const getServerSideProps: GetServerSideProps<IIndexPageProps> = async () 
 	};
 };
 
-interface IIndexPageProps {
-	products: IProduct[];
-	mainMenu: IMenuItem[];
-	footerMenu: IMenuItem[];
-	basicSettings: IBasicSettings;
-}
+// interface IIndexPageProps {
+// 	products: IProduct[];
+// 	mainMenu: IMenuItem[];
+// 	footerMenu: IMenuItem[];
+// 	basicSettings: IBasicSettings;
+// }
