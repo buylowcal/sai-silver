@@ -6,7 +6,11 @@ import { DirectionAwareHover } from '@components/ui/direction-aware-hover';
 import { cards } from './category';
 import useAsync from '@hooks/useAsync';
 import CategoryServices from "@services/CategoryServices";
+import { useKeenSlider } from 'keen-slider/react';
+import 'keen-slider/keen-slider.min.css';
 
+
+ 
 
 function CategoriesSlider({attributes}) {
   const categories = [

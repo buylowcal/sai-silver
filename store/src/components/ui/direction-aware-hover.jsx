@@ -54,13 +54,14 @@ export const DirectionAwareHover = ({
   };
 
   return (
-    (<motion.div
+    ( <motion.div
       onMouseEnter={handleMouseEnter}
       ref={ref}
       className={cn(
-        "md:h-96 w-60 h-60 md:w-96 bg-transparent rounded-lg overflow-hidden group/card relative",
+        " bg-transparent rounded-lg mx-3 overflow-hidden group/card relative",
         className
-      )}>
+      )}
+    >
       <AnimatePresence mode="wait">
         <motion.div
           className="relative h-full w-full"
