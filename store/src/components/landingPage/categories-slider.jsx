@@ -44,7 +44,7 @@ function CategoriesSlider({attributes}) {
   console.log('categories',data[0]?.children)
 
   return (
-    <section id="categories" className="py-12">
+    <section id="categories" className="py-12 overflow-auto">
       <h2 className="text-3xl font- text-center tracking-widest font-serif mb-8">Shop by Category</h2>
       <div className="w-full  mx-auto px-">
         {/* <DirectionAwareHover imageUrl={''}/> */}
