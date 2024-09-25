@@ -15,6 +15,7 @@ import CategoriesSlider from "./categories-slider";
 import FeaturedProducts from "./featured-products";
 import DiscountProducts from "./discounted-products";
 import FeatureCategory from "@components/category/FeatureCategory";
+import TestimonialSlider from "./testimonial-slider";
 
 
 
@@ -36,6 +37,7 @@ const LandingPage = ({discountProducts,popularProducts,attributes}) => {
       <FeaturedProducts attributes={attributes}  popularProducts={popularProducts} />
 
       <DiscountProducts  discountProducts={discountProducts} attributes={attributes} />
+      <TestimonialSlider/>
        {/* <Footer /> */}
       <br />
       {/* <div className="mt-6">
