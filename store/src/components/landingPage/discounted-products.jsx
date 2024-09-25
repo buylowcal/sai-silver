@@ -46,7 +46,7 @@ function DiscountProducts({discountProducts,attributes}) {
                       </p>
                        </>
                       ) : (
-                        <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+                        <div className="max-w-8xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
 
                           {discountProducts
                             ?.slice(

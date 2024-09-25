@@ -46,7 +46,7 @@ function CategoriesSlider({attributes}) {
   return (
     <section id="categories" className="py-12">
       <h2 className="text-3xl font- text-center tracking-widest font-serif mb-8">Shop by Category</h2>
-      <div className="max-w-  mx-auto px-4">
+      <div className="w-full  mx-auto px-">
         {/* <DirectionAwareHover imageUrl={''}/> */}
         <Slider {...settings}>
           {data[0]?.children.map((category, index) => (

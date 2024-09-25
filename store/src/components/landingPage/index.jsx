@@ -21,7 +21,7 @@ import TestimonialSlider from "./testimonial-slider";
 
 const LandingPage = ({discountProducts,popularProducts,attributes}) => {
   return (
-    <div className="bg-gary-50">
+    <div className="bg-gary-50 mx-auto w-full">
       {/* <Brand /> */}
       {/* <Category/> */}
       {/* <LovedDesigns/> */}
