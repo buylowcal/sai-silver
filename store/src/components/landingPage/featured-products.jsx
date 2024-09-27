@@ -27,7 +27,8 @@ function FeaturedProducts({ popularProducts, attributes }) {
     "storeCustomizationSetting?.home",
     storeCustomizationSetting?.home
   );
-
+ console.log("popular products:",popularProducts)
+ console.log("attributes",attributes)
   return (
     <section id="featured" className="py-12 bg-gray-50">
     <h2 className="text-3xl tracking-widest text-center mb-8">Featured Products</h2>
