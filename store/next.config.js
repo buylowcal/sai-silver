@@ -46,21 +46,22 @@ module.exports = withPWA({
     ],
   },
 
-  // images: {
-  //   domains: [
-  //     "images.unsplash.com",
-  //     "img.icons8.com",
-  //     "i.ibb.co",
-  //     "i.postimg.cc",
-  //     "fakestoreapi.com",
-  //     "res.cloudinary.com",
-  //     "lh3.googleusercontent.com",
-  //     "res.cloudinary.com",
-  //     "lh3.googleusercontent.com",
-  //     "",
-  //     "images.dashter.com",
-  //   ],
-  // },
+  images: {
+    domains: [
+      
+      "images.unsplash.com",
+      "img.icons8.com",
+      "i.ibb.co",
+      "i.postimg.cc",
+      "fakestoreapi.com",
+      "res.cloudinary.com",
+      "lh3.googleusercontent.com",
+      "res.cloudinary.com",
+      "lh3.googleusercontent.com",
+      "",
+      "images.dashter.com",
+    ],
+  },
   images: {
     remotePatterns: [
       {
