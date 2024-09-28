@@ -1,33 +1,33 @@
 // src/components/FeaturedProducts.jsx
 import ProductCard from "@components/product/ProductCard";
 import useGetSetting from "@hooks/useGetSetting";
-const popularProducts = [
-  {
-    _id: "1",
-    title: "Diamond Ring",
-    image: ["/images/diamond-ring.jpg"],
-    prices: { price: 2500, originalPrice: 3000 },
-    stock: 10,
-    unit: "piece",
-  },
-  {
-    _id: "2",
-    title: "Gold Necklace",
-    image: ["/images/gold-necklace.jpg"],
-    prices: { price: 1800, originalPrice: 2200 },
-    stock: 5,
-    unit: "piece",
-  },
-  {
-    _id: "3",
-    title: "Silver Earrings",
-    image: ["/images/silver-earrings.jpg"],
-    prices: { price: 350, originalPrice: 500 },
-    stock: 15,
-    unit: "pair",
-  },
-  // Add more products as necessary
-];
+// const popularProducts = [
+//   {
+//     _id: "1",
+//     title: "Diamond Ring",
+//     image: ["/images/diamond-ring.jpg"],
+//     prices: { price: 2500, originalPrice: 3000 },
+//     stock: 10,
+//     unit: "piece",
+//   },
+//   {
+//     _id: "2",
+//     title: "Gold Necklace",
+//     image: ["/images/gold-necklace.jpg"],
+//     prices: { price: 1800, originalPrice: 2200 },
+//     stock: 5,
+//     unit: "piece",
+//   },
+//   {
+//     _id: "3",
+//     title: "Silver Earrings",
+//     image: ["/images/silver-earrings.jpg"],
+//     prices: { price: 350, originalPrice: 500 },
+//     stock: 15,
+//     unit: "pair",
+//   },
+//   // Add more products as necessary
+// ];
 
 function FeaturedProducts({ popularProducts, attributes }) {
   
