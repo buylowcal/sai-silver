@@ -11,8 +11,8 @@
     "lint": "next lint"
   },
   "engines": {
-  "node": "18.20.4"  
-},
+    "node": "18.20.4"
+  },
   "dependencies": {
     "@headlessui/react": "^1.7.19",
     "@heroicons/react": "^1.0.6",
@@ -31,6 +31,7 @@
     "axios": "^1.4.0",
     "bootstrap": "^5.3.3",
     "browser-image-compression": "^2.0.2",
+    
     "clsx": "^2.1.1",
     "currency-symbol-map": "^5.0.1",
     "dayjs": "^1.10.7",
