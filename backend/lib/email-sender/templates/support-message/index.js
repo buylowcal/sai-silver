@@ -7,7 +7,7 @@ const sendSupportMessage = (option) => {
 >
 
   <head>
-    <title>Grossori</title>
+    <title> SaiSilver</title>
     <!--[if !mso]><!-->
     <meta http-equiv='X-UA-Compatible' content='IE=edge' />
     <!--<![endif]-->
@@ -105,7 +105,7 @@ const sendSupportMessage = (option) => {
                                           <img
                                             alt
                                             height='auto'
-                                            src='https://res.cloudinary.com/ahossain/image/upload/v1676296566/Grossori%20files/cc_v8jite.png'
+                                            src='https://res.cloudinary.com/ahossain/image/upload/v1676296566/ SaiSilver%20files/cc_v8jite.png'
                                             style='border:0;display:block;outline:none;text-decoration:none;height:auto;width:80px;font-size:13px;padding-bottom:30px;'
                                             width='80'
                                             height='80'
@@ -204,7 +204,7 @@ const sendSupportMessage = (option) => {
                           >
                             <!--start email_template -->
                             <h2>Hello ${option.name}</h2>
-                            <p>Thank you for contacting Grossori. We got the
+                            <p>Thank you for contacting  SaiSilver. We got the
                               following message from you.
                             </p>
 
@@ -226,7 +226,7 @@ const sendSupportMessage = (option) => {
                             >Thank you
                               <h4
                                 style='margin:1px; margin-bottom:0px; text-align:center;'
-                              >Grossori Team</h4></p>
+                              > SaiSilver Team</h4></p>
 
                             <!--end email_template -->
                           </div>
@@ -351,7 +351,7 @@ const sendSupportMessage = (option) => {
                                                         You are receiving this
                                                         email because you
                                                         registered with
-                                                        Grossori and agreed
+                                                         SaiSilver and agreed
                                                         to receive emails from
                                                         us regarding new
                                                         features, events and
@@ -359,7 +359,7 @@ const sendSupportMessage = (option) => {
                                                         <p
                                                           style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:11px;font-weight:400;line-height:16px;text-align:center;color:#303030;"
                                                         >
-                                                          &copy; Grossori,
+                                                          &copy;  SaiSilver,
                                                           All Rights Reserved.</p></div>
                                                     </td>
                                                   </tr>

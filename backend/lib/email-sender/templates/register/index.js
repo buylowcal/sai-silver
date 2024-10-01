@@ -7,7 +7,7 @@ const customerRegisterBody = (option) => {
 >
 
   <head>
-    <title>Grossori</title>
+    <title> SaiSilver</title>
     <!--[if !mso]><!-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!--<![endif]-->

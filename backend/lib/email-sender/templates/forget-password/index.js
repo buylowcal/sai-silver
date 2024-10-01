@@ -7,7 +7,7 @@ const forgetPasswordEmailBody = (option) => {
 >
 
   <head>
-    <title>Grossori</title>
+    <title> SaiSilver</title>
     <!--[if !mso]><!-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!--<![endif]-->
@@ -105,7 +105,7 @@ const forgetPasswordEmailBody = (option) => {
                                           <img
                                             alt
                                             height="auto"
-                                            src="https://res.cloudinary.com/ahossain/image/upload/v1676296566/Grossori%20files/cc_v8jite.png"
+                                            src="https://res.cloudinary.com/ahossain/image/upload/v1676296566/ SaiSilver%20files/cc_v8jite.png"
                                             style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:80px;font-size:13px;padding-bottom:30px;"
                                             width="80"
                                             height="80"
@@ -206,7 +206,7 @@ const forgetPasswordEmailBody = (option) => {
                             <h2>Hello ${option.email}</h2>
                             <p>A request has been received to change the
                               password for your
-                              <strong>Grossori</strong>
+                              <strong> SaiSilver</strong>
                               account.
                             </p>
 
@@ -230,7 +230,7 @@ const forgetPasswordEmailBody = (option) => {
                             >Thank you
                               <h4
                                 style="margin:1px; text-align:center;padding-bottom:0px;"
-                              >Grossori Team</h4></p>
+                              > SaiSilver Team</h4></p>
 
                             <!--end email_template -->
                           </div>
@@ -354,7 +354,7 @@ const forgetPasswordEmailBody = (option) => {
                                                       >
                                                         You are receiving this
                                                         email because you
-                                                        registered with Grossori
+                                                        registered with  SaiSilver
                                                         and agreed to receive
                                                         emails from us regarding
                                                         new features, events and
@@ -362,7 +362,7 @@ const forgetPasswordEmailBody = (option) => {
                                                         <p
                                                           style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:11px;font-weight:400;line-height:16px;text-align:center;color:#303030;"
                                                         >
-                                                          &copy; Grossori, All
+                                                          &copy;  SaiSilver, All
                                                           Rights Reserved.</p></div>
                                                     </td>
                                                   </tr>
