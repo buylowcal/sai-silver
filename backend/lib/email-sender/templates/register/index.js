@@ -204,7 +204,7 @@ const customerRegisterBody = (option) => {
                           >
                             <!--start email_template -->
                             <h2>Hello ${option.name}</h2>
-                            <p>Verify your email address to complete the signup and login into your <strong>KachaBazar</strong> account.
+                            <p>Verify your email address to complete the signup and login into your <strong> SaiSilver</strong> account.
                             </p>
 
                             <p style="margin-bottom:30px;"> <p>This link will expire in <strong> 15 minute</strong>.</p>
@@ -222,7 +222,7 @@ const customerRegisterBody = (option) => {
                             >Thank you
                               <h4
                                 style="margin:1px; margin-bottom:0px; text-align:center;"
-                              >KachaBazar Team</h4></p>
+                              > SaiSilver Team</h4></p>
 
                             <!--end email_template -->
                           </div>
@@ -346,7 +346,7 @@ const customerRegisterBody = (option) => {
                                                       >
                                                         You are receiving this
                                                         email because you
-                                                        registered with KachaBazar
+                                                        registered with  SaiSilver
                                                         and agreed to receive
                                                         emails from us regarding
                                                         new features, events and
@@ -354,7 +354,7 @@ const customerRegisterBody = (option) => {
                                                         <p
                                                           style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:11px;font-weight:400;line-height:16px;text-align:center;color:#303030;"
                                                         >
-                                                          &copy; KachaBazar, All
+                                                          &copy;  SaiSilver, All
                                                           Rights Reserved.</p></div>
                                                     </td>
                                                   </tr>

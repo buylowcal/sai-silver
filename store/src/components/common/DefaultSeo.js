@@ -16,7 +16,7 @@ const DefaultSeo = () => {
     <NextSeo
       title={
         globalSetting?.meta_title ||
-        "KachaBazar - React Grocery & Organic Food Store e-commerce Template"
+        " SaiSilver - React Grocery & Organic Food Store e-commerce Template"
       }
       openGraph={{
         type: "website",
@@ -24,7 +24,7 @@ const DefaultSeo = () => {
         url: globalSetting?.meta_url || "https://kachabazar-store.vercel.app/",
         site_name:
           globalSetting?.meta_title ||
-          "KachaBazar - React Grocery & Organic Food Store e-commerce Template",
+          " SaiSilver - React Grocery & Organic Food Store e-commerce Template",
       }}
       twitter={{
         handle: "@handle",
