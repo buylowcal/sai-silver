@@ -61,7 +61,7 @@ export default defineConfig({
         short_name: " SaiSilver - E-Commerce Website",
         name: " SaiSilver | React eCommerce Admin Dashboard",
         description:
-          " SaiSilver : React Grocery & Organic Food Store e-commerce Admin Dashboard",
+          " SaiSilver : Sai Silver  Admin Dashboard",
         icons: [
           {
             src: "favicon.ico",

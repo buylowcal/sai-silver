@@ -15,7 +15,7 @@ const PageTitle = ({ title, description }) => {
         content={
           description
             ? ` ${description} `
-            : " SaiSilver : React Grocery & Organic Food Store e-commerce Admin Dashboard"
+            : " SaiSilver : Sai Silver  Admin Dashboard"
         }
       />
     </Helmet>
