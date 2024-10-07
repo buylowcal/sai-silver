@@ -58,10 +58,10 @@ export default defineConfig({
         scope: ".",
         start_url: ".",
         id: ".",
-        short_name: "Grossori - E-Commerce Website",
-        name: "Grossori | React eCommerce Admin Dashboard",
+        short_name: " SaiSilver - E-Commerce Website",
+        name: " SaiSilver | React eCommerce Admin Dashboard",
         description:
-          "Grossori : React Grocery & Organic Food Store e-commerce Admin Dashboard",
+          " SaiSilver : Sai Silver  Admin Dashboard",
         icons: [
           {
             src: "favicon.ico",

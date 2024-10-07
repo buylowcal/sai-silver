@@ -241,7 +241,7 @@ const ProductScreen = ({ product, attributes, relatedProducts }) => {
         >
           <div className="px-0 py-10 lg:py-10">
             <div className="mx-auto px-3 lg:px-10 max-w-screen-2xl">
-              <div className="flex items-center pb-4">
+              <div className="flex items-center mt-12 pb-4">
                 <ol className="flex items-center w-full overflow-hidden font-serif">
                   <li className="text-sm pr-1 transition duration-200 ease-in cursor-pointer hover:text-emerald-500 font-semibold">
                     <Link href="/">Home</Link>
@@ -502,11 +502,11 @@ const ProductScreen = ({ product, attributes, relatedProducts }) => {
 
                       {/* shipping description card */}
 
-                      <div className="w-full xl:w-5/12 lg:w-6/12 md:w-5/12">
+                      {/* <div className="w-full xl:w-5/12 lg:w-6/12 md:w-5/12">
                         <div className="mt-6 md:mt-0 lg:mt-0 bg-gray-50 border border-gray-100 p-4 lg:p-8 rounded-lg">
                           <Card />
                         </div>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </div>

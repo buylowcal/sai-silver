@@ -70,7 +70,7 @@ function Navbar() {
             />
   
             {/* Center: Categories (hidden on small screens) */}
-            <div className="hidden md:flex items-center space-x-2">
+          { router?.pathname !== '/search' && <div className="hidden md:flex items-center space-x-2">
               {data[0]?.children?.slice(1, 5).map((category, index) => (
                 <div key={index} className="cursor-pointer group">
                   <h3
@@ -112,6 +112,7 @@ function Navbar() {
                 </div>
               ))}
             </div>
+          }
   
             {/* Right Side: Icons */}
             <div className="flex items-center space-x-4">

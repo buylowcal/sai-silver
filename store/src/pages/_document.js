@@ -21,7 +21,7 @@ class MyDocument extends Document {
             property="og:title"
             content={
               setting?.meta_title ||
-              "KachaBazar - React Grocery & Organic Food Store e-commerce Template"
+              " SaiSilver - Best Silver Jewellery in Tri City"
             }
           />
           <meta property="og:type" content="eCommerce Website" />
@@ -29,7 +29,7 @@ class MyDocument extends Document {
             property="og:description"
             content={
               setting?.meta_description ||
-              "React Grocery & Organic Food Store e-commerce Template"
+              "Best Silver Jewellery in Tri City"
             }
           />
           <meta

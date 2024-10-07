@@ -31,10 +31,10 @@ const LandingPage = ({ discountProducts, popularProducts, attributes }) => {
         popularProducts={popularProducts}
       />
 
-      <DiscountProducts
+      {/* <DiscountProducts
         discountProducts={discountProducts}
         attributes={attributes}
-      />
+      /> */}
       <TestimonialSlider />
       {/* <Footer /> */}
       <br />

@@ -43,7 +43,7 @@ function MyApp({ Component, pageProps }) {
 
       // Track page view on route change
       const handleRouteChange = (url) => {
-        handlePageView(`/${router.pathname}`, "Grossori");
+        handlePageView(`/${router.pathname}`, " SaiSilver");
       };
 
       // Set up event listeners
