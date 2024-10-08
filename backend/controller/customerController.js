@@ -38,47 +38,90 @@ const verifyEmailAddress = async (req, res) => {
   }
 };
 
+
+// controllers/customerController.js
+
 const registerCustomer = async (req, res) => {
-  const token = req.params.token;
-  const { name, email, password } = jwt.decode(token);
-  const isAdded = await Customer.findOne({ email: email });
+  try {
+    const { name, email, password } = req.body;
 
-  if (isAdded) {
-    const token = signInToken(isAdded);
-    return res.send({
+    // Check if user already exists
+    const existingUser = await Customer.findOne({ email });
+    if (existingUser) {
+      return res.status(400).send({ message: "Email already exists" });
+    }
+
+    // Create new user
+    const newUser = new Customer({
+      name,
+      email,
+      password: bcrypt.hashSync(password, 10), // Hash the password
+    });
+
+    await newUser.save();
+
+    // Optionally, generate a token
+    const token = signInToken(newUser);
+
+    res.status(201).send({
       token,
-      _id: isAdded._id,
-      name: isAdded.name,
-      email: isAdded.email,
-      message: "Email Already Verified!",
+      _id: newUser._id,
+      name: newUser.name,
+      email: newUser.email,
+      message: "Registration successful",
     });
-  }
-
-  if (token) {
-    jwt.verify(token, process.env.JWT_SECRET_FOR_VERIFY, (err, decoded) => {
-      if (err) {
-        return res.status(401).send({
-          message: "Token Expired, Please try again!",
-        });
-      } else {
-        const newUser = new Customer({
-          name,
-          email,
-          password: bcrypt.hashSync(password),
-        });
-        newUser.save();
-        const token = signInToken(newUser);
-        res.send({
-          token,
-          _id: newUser._id,
-          name: newUser.name,
-          email: newUser.email,
-          message: "Email Verified, Please Login Now!",
-        });
-      }
-    });
+  } catch (error) {
+    res.status(500).send({ message: error.message });
   }
 };
+
+module.exports = {
+  // Other controller functions...
+  registerCustomer,
+};
+
+
+// const registerCustomer = async (req, res) => {
+//   const token = req.params.token;
+//   const { name, email, password } = jwt.decode(token);
+//   const isAdded = await Customer.findOne({ email: email });
+
+//   if (isAdded) {
+//     const token = signInToken(isAdded);
+//     return res.send({
+//       token,
+//       _id: isAdded._id,
+//       name: isAdded.name,
+//       email: isAdded.email,
+//       message: "Email Already Verified!",
+//     });
+//   }
+
+//   if (token) {
+//     jwt.verify(token, process.env.JWT_SECRET_FOR_VERIFY, (err, decoded) => {
+//       if (err) {
+//         return res.status(401).send({
+//           message: "Token Expired, Please try again!",
+//         });
+//       } else {
+//         const newUser = new Customer({
+//           name,
+//           email,
+//           password: bcrypt.hashSync(password),
+//         });
+//         newUser.save();
+//         const token = signInToken(newUser);
+//         res.send({
+//           token,
+//           _id: newUser._id,
+//           name: newUser.name,
+//           email: newUser.email,
+//           message: "Email Verified, Please Login Now!",
+//         });
+//       }
+//     });
+//   }
+// };
 
 const addAllCustomers = async (req, res) => {
   try {
@@ -95,9 +138,10 @@ const addAllCustomers = async (req, res) => {
 };
 
 const loginCustomer = async (req, res) => {
+  console.log('login data:::',req.body)
   try {
     const customer = await Customer.findOne({ email: req.body.email });
-
+     
     // console.log("loginCustomer", req.body.password, "customer", customer);
 
     if (

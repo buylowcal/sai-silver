@@ -43,6 +43,7 @@ const Home = ({ popularProducts, discountProducts, attributes }) => {
           <LandingPage popularProducts={popularProducts} 
                        attributes={attributes} 
                        discountProducts={discountProducts} />
+                       
           <div className=" ">
             {/* <StickyCart /> */}
             {/* <div className="bg-white">

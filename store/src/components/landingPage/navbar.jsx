@@ -15,6 +15,7 @@ import CartDrawer from '@components/drawer/CartDrawer';
 import Sidebar from './sidebar';
 import { useCart } from 'react-use-cart';
 import CategoryDrawer from '@components/drawer/CategoryDrawer';
+import { signOut } from "next-auth/react";
 
 
 
@@ -29,6 +30,35 @@ function Navbar() {
     const { isLoading, setIsLoading, toggleCartDrawer , toggleCategoryDrawer } = useContext(SidebarContext);
     const { data, error } = useAsync(() => CategoryServices.getShowingCategory());
     const { totalItems } = useCart();
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  
+  const toggleDropdown = () => {
+    if (userInfo) {
+      setIsDropdownOpen(!isDropdownOpen);
+    } else {
+      router.push('/auth/login');
+    }
+  };
+
+  const handleLogout = async () => {
+    await signOut();
+    setIsDropdownOpen(false);
+  };
   
     // For demonstration, store last searches
     const [lastSearches, setLastSearches] = useState(['Diamond Ring', 'Gold Necklace']);
@@ -123,7 +153,7 @@ function Navbar() {
                 aria-label="Search"
               />
   
-              {/* Cart Icon */}
+              {/* Cart Icon */} 
               <div className="relative">
                 <FiShoppingCart
                   className="h-6 w-6 cursor-pointer text-gray-800 hover:text-emerald-500"
@@ -138,30 +168,43 @@ function Navbar() {
               </div>
   
               {/* Profile Icon */}
+              <div className="relative" ref={dropdownRef}>
               <button
                 className="text-black text-2xl font-bold"
                 aria-label="Login"
+                onClick={toggleDropdown}
               >
                 {userInfo?.image ? (
-                  <Link href="/user/dashboard">
-                    <Image
-                      width={29}
-                      height={29}
-                      src={userInfo?.image}
-                      alt="user"
-                      className="bg-white rounded-full"
-                    />
-                  </Link>
+                  <Image
+                    width={29}
+                    height={29}
+                    src={userInfo.image}
+                    alt="user"
+                    className="bg-white rounded-full"
+                  />
                 ) : userInfo?.name ? (
-                  <Link href="/user/dashboard" className="leading-none font-bold font-serif block">
-                    {userInfo?.name[0]}
-                  </Link>
+                  <span className="leading-none font-bold font-serif block">
+                    {userInfo.name[0]}
+                  </span>
                 ) : (
-                  <Link href="/auth/login">
-                    <FiUser className="h-6 w-6 cursor-pointer text-gray-800 hover:text-emerald-500" />
-                  </Link>
+                  <FiUser className="h-6 w-6 cursor-pointer text-gray-800 hover:text-emerald-500" />
                 )}
               </button>
+
+              {isDropdownOpen  && (
+                <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 transition-all duration-300 ease-in-out transform origin-top-right scale-100 opacity-100">
+                  <Link href="/user/dashboard" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    Dashboard
+                  </Link>
+                  <button
+                    onClick={handleLogout}
+                    className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    Logout
+                  </button>
+                </div>
+              )}
+            </div>
   
               {/* Burger Menu Icon (visible on small screens) */}
               <div className="md:hidden">

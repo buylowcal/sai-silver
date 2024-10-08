@@ -6,6 +6,7 @@ import Error from "@components/form/Error";
 import useLoginSubmit from "@hooks/useLoginSubmit";
 import InputArea from "@components/form/InputArea";
 import BottomNavigation from "@components/login/BottomNavigation";
+import Link from "next/link";
 
 const Login = () => {
   const { handleSubmit, submitHandler, register, errors, loading } =
@@ -57,7 +58,7 @@ const Login = () => {
                       <Error errorName={errors.password} />
                     </div>
 
-                    {/* <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between">
                       <div className="flex ms-auto">
                         <Link
                           href="/auth/forget-password"
@@ -66,7 +67,7 @@ const Login = () => {
                           Forgot password?
                         </Link>
                       </div>
-                    </div> */}
+                    </div>
                     {loading ? (
                       <button
                         disabled={loading}
