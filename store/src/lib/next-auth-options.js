@@ -27,14 +27,33 @@ export const getDynamicAuthOptions = async () => {
     Credentials({
       name: "Credentials",
       credentials: {
+        // name: {label: 'Name', type: 'name'},
         email: { label: "Email", type: "email" },
         password: { label: "Password", type: "password" },
       },
+      
       authorize: async (credentials) => {
-        const userInfo = await CustomerServices.loginCustomer(credentials);
-        return userInfo;
+        try {
+          console.log("Credentials received:", credentials);
+          const userInfo = await CustomerServices.loginCustomer(credentials);
+          console.log("User info received from backend:", userInfo);
+    
+          if (userInfo && userInfo.token) {
+            return userInfo;
+          } else {
+            console.log("Authentication failed: No user info or token");
+            // Return null to indicate authentication failed
+            return null;
+          }
+        } catch (error) {
+          console.log("Error in authorize function:", error);
+          // Return null to indicate authentication failed
+          return null;
+        }
       },
     }),
+    
+    
   ];
 
   const authOptions = {

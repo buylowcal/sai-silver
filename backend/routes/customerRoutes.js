@@ -40,7 +40,8 @@ router.put("/shipping/address/:userId/:shippingId", updateShippingAddress);
 router.delete("/shipping/address/:userId/:shippingId", deleteShippingAddress);
 
 //register a user
-router.post("/register/:token", registerCustomer);
+// router.post("/register/:token", registerCustomer);
+router.post("/register", registerCustomer);
 
 //login a user
 router.post("/login", loginCustomer);

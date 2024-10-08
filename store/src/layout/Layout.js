@@ -9,8 +9,9 @@ import Navbar from "@components/landingPage/navbar";
 import Footer from "@components/landingPage/footer";
   
 const Layout = ({ title, description, children }) => {
+
   return (
-    <>
+    <>  
       <ToastContainer />
 
       <div className="font-sans">
