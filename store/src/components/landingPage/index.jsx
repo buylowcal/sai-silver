@@ -15,6 +15,8 @@ import DiscountProducts from "./discounted-products";
 import FeatureCategory from "@components/category/FeatureCategory";
 import TestimonialSlider from "./testimonial-slider";
 import Category from "@components/landingPage/category";
+import FeaturesSection from "./feature";
+import GiftSection from "./gift";
 const LandingPage = ({ discountProducts, popularProducts, attributes }) => {
   return (
     <div className="bg-gary-50 mx-auto w-full">
@@ -25,12 +27,13 @@ const LandingPage = ({ discountProducts, popularProducts, attributes }) => {
       <Banner />
       {/* <FeatureCategory/> */}
       <CategoriesSlider attributes={attributes} />
+      <FeaturesSection />
       {/* <Category /> */}
       <FeaturedProducts
         attributes={attributes}
         popularProducts={popularProducts}
       />
-
+      <GiftSection />
       {/* <DiscountProducts
         discountProducts={discountProducts}
         attributes={attributes}
