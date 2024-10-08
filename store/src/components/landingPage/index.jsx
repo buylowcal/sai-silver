@@ -17,6 +17,7 @@ import TestimonialSlider from "./testimonial-slider";
 import Category from "@components/landingPage/category";
 import FeaturesSection from "./feature";
 import GiftSection from "./gift";
+import Community from "./community";
 const LandingPage = ({ discountProducts, popularProducts, attributes }) => {
   return (
     <div className="bg-gary-50 mx-auto w-full">
@@ -40,6 +41,7 @@ const LandingPage = ({ discountProducts, popularProducts, attributes }) => {
       /> */}
       <TestimonialSlider />
       {/* <Footer /> */}
+      <Community/>
       <br />
       {/* <div className="mt-6">
         <ToolsResources />
