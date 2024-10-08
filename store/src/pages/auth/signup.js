@@ -11,6 +11,8 @@ import useRegisterSubmit from "@hooks/useRegisterSubmit";
 
 import { useForm } from "react-hook-form";
 
+
+//sign up form
 const SignUp = () => {
   const {
     handleSubmit,
