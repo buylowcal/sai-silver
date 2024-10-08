@@ -13,7 +13,7 @@ module.exports = {
       // New Font Families for Heading and Body
       heading: ['"Playfair Display"', 'serif'],
       body: ['Roboto', 'sans-serif'],
-      
+      baskerville: ['"Baskerville Old Face"', 'serif'],
       // Retain existing font families if needed
       sans: ["Open Sans", "sans-serif"],
       DejaVu: ["DejaVu Sans", "Arial", "sans-serif"],

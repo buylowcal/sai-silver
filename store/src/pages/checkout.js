@@ -32,7 +32,7 @@ const Checkout = () => {
   const { storeCustomizationSetting } = useGetSetting();
   const { showingTranslateValue } = useUtilsFunction();
   const { data: storeSetting } = useAsync(SettingServices.getStoreSetting);
-
+  const [isHovered, setIsHovered] = useState(false);
   const {
     error,
     stripe,
@@ -68,15 +68,16 @@ const Checkout = () => {
   // );
 
   // console.log("storeCustomizationSetting", storeCustomizationSetting);
+  
 
   return (
     <>
       <Layout title="Checkout" description="this is checkout page">
-        <div className="mx-auto max-w-screen-2xl px-3 sm:px-10">
+        <div className="mx-auto max-w-screen-2xl px-3 sm:px-10 overflow-x-hidden">
           <div className="py-10 lg:py-12 px-0 2xl:max-w-screen-2xl w-full xl:max-w-screen-xl flex flex-col md:flex-row lg:flex-row">
             <div className="md:w-full lg:w-3/5 flex h-full flex-col order-2 sm:order-1 lg:order-1">
               <div className="mt-5 md:mt-0 md:col-span-2">
-                <form onSubmit={handleSubmit(submitHandler)}>
+                <form onSubmit={handleSubmit(submitHandler)} className="mt-14">
                   {hasShippingAddress && (
                     <div className="flex justify-end my-2">
                       <SwitchToggle
@@ -88,8 +89,8 @@ const Checkout = () => {
                     </div>
                   )}
                   <div className="form-group">
-                    <h2 className="font-semibold font-serif text-base text-gray-700 pb-3">
-                      01.{" "}
+                    <h2 className="font-medium tracking-wider font-serif text-base text-gray-700 pb-3">
+                      Personal Details
                       {showingTranslateValue(
                         storeCustomizationSetting?.checkout?.personal_details
                       )}
@@ -154,8 +155,8 @@ const Checkout = () => {
                   </div>
 
                   <div className="form-group mt-12">
-                    <h2 className="font-semibold font-serif text-base text-gray-700 pb-3">
-                      02.{" "}
+                    <h2 className="font-medium tracking-wider font-serif text-base text-gray-700 pb-3">
+                      Shipping Details
                       {showingTranslateValue(
                         storeCustomizationSetting?.checkout?.shipping_details
                       )}
@@ -272,8 +273,8 @@ const Checkout = () => {
                     </div>
                   </div>
                   <div className="form-group mt-12">
-                    <h2 className="font-semibold text-base text-gray-700 pb-3">
-                      03.{" "}
+                    <h2 className="font-medium tracking-wider  text-base text-gray-700 pb-3">
+                      Payment Method
                       {showingTranslateValue(
                         storeCustomizationSetting?.checkout?.payment_method
                       )}
@@ -312,17 +313,17 @@ const Checkout = () => {
                       )}
 
                       {storeSetting?.razorpay_status && (
-                      <div className="">
-                        <InputPayment
-                          setShowCard={setShowCard}
-                          register={register}
-                          name="RazorPay"
-                          value="RazorPay"
-                          Icon={ImCreditCard}
-                        />
-                        <Error errorMessage={errors.paymentMethod} />
-                      </div>
-                       )}  
+                        <div className="">
+                          <InputPayment
+                            setShowCard={setShowCard}
+                            register={register}
+                            name="RazorPay"
+                            value="RazorPay"
+                            Icon={ImCreditCard}
+                          />
+                          <Error errorMessage={errors.paymentMethod} />
+                        </div>
+                      )}
                     </div>
                   </div>
 
@@ -378,9 +379,10 @@ const Checkout = () => {
               </div>
             </div>
 
-            <div className="md:w-full lg:w-2/5 lg:ml-10 xl:ml-14 md:ml-6 flex flex-col h-full md:sticky lg:sticky top-28 md:order-2 lg:order-2">
-              <div className="border p-5 lg:px-8 lg:py-8 rounded-lg bg-white order-1 sm:order-2">
-                <h2 className="font-semibold font-serif text-lg pb-4">
+            <div className="md:w-full mt-14 lg:w-2/5 lg:ml-10 xl:ml-14 md:ml-6 flex flex-col h-full md:sticky lg:sticky top-28 md:order-2 lg:order-2">
+              <div className="border p-5 lg:px-8 lg:py-8 rounded-xl bg-white order-1 sm:order-2 mt-10">
+                <h2 className="font-semibold tracking-widest uppercase font-serif text-lg pb-4">
+                  Order Summary
                   {showingTranslateValue(
                     storeCustomizationSetting?.checkout?.order_summary
                   )}
@@ -396,7 +398,7 @@ const Checkout = () => {
                       <span className="flex justify-center my-auto text-gray-500 font-semibold text-4xl">
                         <IoBagHandle />
                       </span>
-                      <h2 className="font-medium font-serif text-sm pt-2 text-gray-600">
+                      <h2 className="font-medium uppercase font-serif text-sm pt-2 text-gray-300 tracking-widest">
                         No Item Added Yet!
                       </h2>
                     </div>
@@ -419,13 +421,13 @@ const Checkout = () => {
                           ref={couponRef}
                           type="text"
                           placeholder={t("common:couponCode")}
-                          className="form-input py-2 px-3 md:px-4 w-full appearance-none transition ease-in-out border text-input text-sm rounded-md h-12 duration-200 bg-white border-gray-200 focus:ring-0 focus:outline-none focus:border-emerald-500 placeholder-gray-500 placeholder-opacity-75"
+                          className="form-input py-2 px-3 md:px-4 w-full appearance-none transition ease-in-out border text-input text-sm rounded-md h-12 duration-200 bg-white border-gray-200 focus:ring-0 focus:outline-none focus:border-emerald-500 placeholder-gray-500 placeholder-opacity-25 tracking-wider font-serif"
                         />
                         {isCouponAvailable ? (
                           <button
                             disabled={isCouponAvailable}
                             type="submit"
-                            className="md:text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold text-center justify-center border border-gray-200 rounded-md placeholder-white focus-visible:outline-none focus:outline-none px-5 md:px-6 lg:px-8 py-3 md:py-3.5 lg:py-3 mt-3 sm:mt-0 sm:ml-3 md:mt-0 md:ml-3 lg:mt-0 lg:ml-3 hover:text-white hover:bg-emerald-500 h-12 text-sm lg:text-base w-full sm:w-auto"
+                            className="md:text-sm leading-4 text-gray-900 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold text-center justify-center border border-gray-200 rounded-md placeholder-white focus-visible:outline-none focus:outline-none px-5 md:px-6 lg:px-8 py-3 md:py-3.5 lg:py-3 mt-3 sm:mt-0 sm:ml-3 md:mt-0 md:ml-3 lg:mt-0 lg:ml-3 hover:text-white hover:bg-emerald-500 h-12 text-sm lg:text-base w-full sm:w-auto"
                           >
                             <img
                               src="/loader/spinner.gif"
@@ -439,11 +441,40 @@ const Checkout = () => {
                           <button
                             disabled={isCouponAvailable}
                             onClick={handleCouponCode}
-                            className="md:text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold text-center justify-center border border-gray-200 rounded-md placeholder-white focus-visible:outline-none focus:outline-none px-5 md:px-6 lg:px-8 py-3 md:py-3.5 lg:py-3 mt-3 sm:mt-0 sm:ml-3 md:mt-0 md:ml-3 lg:mt-0 lg:ml-3 hover:text-white hover:bg-emerald-500 h-12 text-sm lg:text-base w-full sm:w-auto"
+                            className="md:text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold text-center justify-center border border-gray-200 rounded-md placeholder-white focus-visible:outline-none focus:outline-none px-5 md:px-6 lg:px-8 py-3 md:py-3.5 lg:py-3 mt-3 sm:mt-0 sm:ml-3 md:mt-0 md:ml-3 lg:mt-0 lg:ml-3 overflow-hidden relative w-32 p-2 h-12 bg-black text-white border-none rounded-md font-bold cursor-pointer relative z-10 group flex justify-center items-center lg:text-base  sm:w-auto"
                           >
+                            <svg
+                              className="w-10 h-10 text-white"
+                              aria-hidden="true"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                stroke="currentColor"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="m7 16 4-4-4-4m6 8 4-4-4-4"
+                              />
+                            </svg>
+
+                            <span className="absolute w-36 h-32 -top-8 -left-2 bg-white rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-left"></span>
+                            <span
+                              className="absolute w-36 h-32 -top-8 -left-2 bg-orange-400
+    rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-left"
+                            ></span>
+                            <span className="absolute w-36 h-32 -top-8 -left-2 bg-[#ff6b01]  rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-1000 duration-500 origin-left"></span>
+
                             {showingTranslateValue(
                               storeCustomizationSetting?.checkout?.apply_button
                             )}
+                            <span className="w-fit group-hover:opacity-100 group-hover:duration-1000 duration-100 opacity-10 uppercase tracking-wide absolute top-2.5 z-10">
+                              
+                              applied!
+                            </span>
                           </button>
                         )}
                       </div>
@@ -482,7 +513,7 @@ const Checkout = () => {
                     {showingTranslateValue(
                       storeCustomizationSetting?.checkout?.total_cost
                     )}
-                    <span className="font-serif font-extrabold text-lg">
+                    <span className="font-serif  font-extrabold text-lg">
                       {currency}
                       {parseFloat(total).toFixed(2)}
                     </span>
