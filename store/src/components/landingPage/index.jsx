@@ -51,7 +51,7 @@ const LandingPage = ({ discountProducts, popularProducts, attributes }) => {
         alt="Jewellery Banner"
       />
 
-      {/* <TestimonialSlider /> */}
+      <TestimonialSlider />
       {/* <Footer /> */}
       <Community />
       <Footer />
