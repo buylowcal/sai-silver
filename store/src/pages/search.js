@@ -51,16 +51,16 @@ const Search = ({ products, attributes }) => {
                   </h2>
                 </div>
               ) : (
-                <div className="flex justify-between my-3 bg-orange-100 border border-gray-100 rounded p-3">
-                  <h6 className="text-sm font-serif">
+                <div className="flex justify-between my-3 bg-[#ff6b01] text-white border border-gray-100  rounded p-3">
+                  <h6 className="text-[19px] font-sans tracking-widest">
                     {t("common:totalI")}{" "}
                     <span className="font-bold">{productData?.length}</span>{" "}
                     {t("common:itemsFound")}
                   </h6>
-                  <span className="text-sm font-serif">
+                  <span className="text-sm font-sans tracking-widest">
                     <select
                       onChange={(e) => setSortedField(e.target.value)}
-                      className="py-0 text-sm font-serif font-medium block w-full rounded border-0 bg-white pr-10 cursor-pointer focus:ring-0"
+                      className="py-0 text-[19px] font-sans  font-medium  w-full rounded-md border-0 border-black bg-black text-white pr-10  "
                     >
                       <option className="px-3" value="All" defaultValue hidden>
                         {t("common:sortByPrice")}

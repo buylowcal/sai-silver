@@ -91,20 +91,27 @@ function Navbar() {
       <CategoryDrawer className="w-6 h-6 drop-shadow-xl text-white " />
 
       <nav
-        className={`fixed flex justify-between gap-4 sapce-x-4 w-full z-40 transition-all duration-300 p-4 bg-black`}
+        className={`fixed flex justify-between gap-4 sapce-x-4 w-full z-40 transition-all duration-300 p-4 bg-black flex-wrap sm:flex-nowrap`}
       >
-        <div className="max-w-7xl  px-4 flex justify-start items-center h-16">
-          {/* Left Side: Logo */}
+        <div className="max-w-7xl px-4 flex justify-start items-center h-16">
+          {/* Left Side: Logo for larger screens */}
           <img
             onClick={() => router.push("/")}
             src="/logo/logo-color.png"
-            className="cursor-pointer w-72 h-auto object-contain"
+            className="cursor-pointer min-w-72 h-auto object-contain hidden sm:block "
             alt="Brand Logo"
           />
 
+          {/* Logo for small screens */}
+          <img
+            onClick={() => router.push("/")}
+            src="/logo/saii.png"
+            className="cursor-pointer w-12 h-auto object-contain sm:hidden"
+            alt="Brand Logo"
+          />
+        </div>
 
-</div>
-<div className="flex justify-end ">
+        <div className="flex justify-end ">
           {/* Center: Categories (hidden on small screens) */}
           {router?.pathname !== "/search" && (
             <div className="hidden md:flex flex items-center space-x-2">

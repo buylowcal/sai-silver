@@ -21,9 +21,9 @@ const features = [
 const FeaturesSection = () => {
   return (
     <div className="bg-[#ff6b01] py-6 flex justify-center">
-      <div className="max-w-6xl w-full grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-18 space-x-8 px-4">
+      <div className="max-w-6xl w-full grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-16 space-x-8 px-4">
         {features.map((feature, index) => (
-          <div key={index} className="flex flex-col items-center">
+          <div key={index} className="flex flex-col items-center gap-3">
             {feature.icon}
             <p className="text-center text-white text-[22px] font-thin font-sans tracking-wider leading-9">{feature.text}</p>
           </div>

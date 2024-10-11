@@ -170,7 +170,7 @@ const ProductCard = ({ product, attributes }) => {
               <button
                 onClick={() => handleAddItem(product)}
                 aria-label="Add to cart"
-                className="h-12 w-12 flex items-center justify-center border border-gray-300 rounded-md text-emerald-600 hover:border-emerald-600 hover:bg-emerald-600 hover:text-white transition-all"
+                className="h-12 w-12 flex items-center justify-center border border-gray-300 rounded-md text-[#ff6b01] hover:border-[#ff6b01] hover:bg-[#ff6b01] hover:text-white transition-all"
               >
                 <span className="text-2xl">
                   <IoBagAddSharp />
