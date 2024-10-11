@@ -98,7 +98,7 @@ function Navbar() {
           <img
             onClick={() => router.push("/")}
             src="/logo/logo-color.png"
-            className="cursor-pointer min-w-72 h-auto object-contain hidden sm:block "
+            className="cursor-pointer w-80 h-auto object-contain hidden sm:block "
             alt="Brand Logo"
           />
 
@@ -261,7 +261,7 @@ function Navbar() {
             </div>
 
             {/* Burger Menu Icon (visible on small screens) */}
-            <div className="md:hidden">
+            <div className="md:hidden lg:hidden">
               <FiMenu
                 className="h-6 w-6 cursor-pointer text-white hover:text-[#ff6b01]"
                 onClick={toggleCategoryDrawer}
