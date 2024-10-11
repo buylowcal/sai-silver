@@ -19,7 +19,7 @@ import FeaturesSection from "./feature";
 import GiftSection from "./gift";
 import Community from "./community";
 import Showroom from "./showroom";
-
+import Testimonials from "./testimonials";
 const LandingPage = ({ discountProducts, popularProducts, attributes }) => {
   return (
     <div className="bg-gary-50 mx-auto w-full overflow-hidden">
@@ -51,7 +51,8 @@ const LandingPage = ({ discountProducts, popularProducts, attributes }) => {
         alt="Jewellery Banner"
       />
 
-      <TestimonialSlider />
+      {/* <TestimonialSlider /> */}
+      <Testimonials/>
       {/* <Footer /> */}
       <Community />
       <Footer />
