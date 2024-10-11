@@ -22,7 +22,7 @@ const Testimonials = () => {
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-24 mx-auto">
-        <h1 className="text-3xl font-medium title-font text-gray-900 mb-12 text-center">What Our Customers Say</h1>
+        <h1 className="text-3xl font-medium title-font text-gray-900 mb-12 text-center uppercase">What Our Customers Say</h1>
         <div className="flex flex-wrap -m-4">
           {testimonials.map(({ image, name, text }, index) => (
             <div key={index} className="p-4 w-full md:w-1/2 lg:w-1/3">
