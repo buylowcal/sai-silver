@@ -14,10 +14,10 @@ const Login = () => {
 
   return (
     <Layout title="Login" description="This is login page">
-      <div className="mx-auto max-w-screen-2xl px-3 sm:px-10 mt-14">
+      <div className="mx-auto max-w-screen-2xl px-3 sm:px-10 mt-24 ">
         <div className="py-4 flex flex-col lg:flex-row w-full">
           <div className="w-full sm:p-5 lg:p-8">
-            <div className="mx-auto text-left justify-center rounded-md w-full max-w-lg px-4 py-8 sm:p-10 overflow-hidden align-middle transition-all transform bg-white shadow-xl rounded-2x">
+            <div className="mx-auto text-left justify-center rounded-md w-full max-w-lg px-4 py-8 sm:p-10 overflow-hidden align-middle transition-all transform bg-white shadow-2xl rounded-2x">
               <div className="overflow-hidden mx-auto">
                 <div className="text-center mb-6">
                   <h2 className="text-3xl font-medium tracking-widest font-sans uppercase">Login</h2>
