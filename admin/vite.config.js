@@ -48,7 +48,7 @@ export default defineConfig({
         "src/assets/img/*.png",
         "src/assets/img/*.jepg",
         "src/assets/img/*.webp",
-        "favicon.ico",
+        "favicon.png",
       ],
       manifest: {
         theme_color: "#FFFFFF",
