@@ -44,7 +44,7 @@ export default defineConfig({
       // // static assets in the public folder
       // includeAssets: ["**/*"],
       includeAssets: [
-        "src/assets/img/logo/*.png",
+        "src/assets/img/logo/*saii.png",
         "src/assets/img/*.png",
         "src/assets/img/*.jepg",
         "src/assets/img/*.webp",
