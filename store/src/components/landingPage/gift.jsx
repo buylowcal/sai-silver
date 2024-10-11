@@ -24,7 +24,7 @@ const GiftSection = () => {
             <img
               src="/jewellery/box.jpeg"
               alt="Gift Box"
-              className="w-60 sm:w-80 h-auto rounded-lg object-cover"
+              className="w-[400px] sm:w-80 h-[400px] rounded-lg object-cover"
             />
 
             {/* Text and button */}
