@@ -10,7 +10,7 @@ function Banner() {
         <div className="w-full h-full">
         <img
           className="w-full h-auto object-cover 2xl:object-contain"  // Ensures the image covers the entire space without white gaps
-          src="/jewellery/banner1.png"
+          src="/Jewellery/banner1.png"
           alt="Jewellery Banner"
         />
         </div>
