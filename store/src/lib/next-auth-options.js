@@ -31,7 +31,7 @@ export const getDynamicAuthOptions = async () => {
         email: { label: "Email", type: "email" },
         password: { label: "Password", type: "password" },
       },
-      
+      // test comment
       authorize: async (credentials) => {
         try {
           console.log("Credentials received:", credentials);
