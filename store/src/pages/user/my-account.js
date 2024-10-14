@@ -104,7 +104,7 @@ const MyAccount = () => {
             <div className="flex h-full relative">
               <Link
                 href="/user/add-shipping-address"
-                className="flex items-center bg-cyan-600 text-white hover:bg-cyan-700 w-full rounded-lg py-3 px-4 text-center relative"
+                className="flex items-center bg-[#ff6b01] text-white hover:bg-cyan-700 w-full rounded-lg py-3 px-4 text-center relative"
               >
                 <FiPlus className="text-xl font-bold text-center mr-4" /> Add
                 Default Shipping Address
