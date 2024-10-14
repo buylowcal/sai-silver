@@ -22,7 +22,7 @@ const GiftSection = () => {
           <div className="flex flex-col md:flex-row justify-center items-center gap-8">
             {/* Image */}
             <img
-              src="/Jewellery/box.jpeg"
+              src="/jewel/box.jpeg"
               alt="Gift Box"
               className="w-[400px] sm:w-80 h-[400px] rounded-lg object-cover"
             />
