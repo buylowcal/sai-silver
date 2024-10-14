@@ -5,20 +5,20 @@ const OrderHistory = ({ order, currency }) => {
   return (
     <>
       <td className="px-5 py-3 leading-6 whitespace-nowrap">
-        <span className="uppercase text-sm font-medium">
+        <span className="uppercase text-[19px] text-gray-500 font-normal">
           {order?._id?.substring(20, 24)}
         </span>
       </td>
       <td className="px-5 py-3 leading-6 text-center whitespace-nowrap">
-        <span className="text-sm">
+        <span className="text-[19px] text-gray-500 font-normal">
           {dayjs(order.createdAt).format("MMMM D, YYYY")}
         </span>
       </td>
 
       <td className="px-5 py-3 leading-6 text-center whitespace-nowrap">
-        <span className="text-sm">{order.paymentMethod}</span>
+        <span className="text-[19px] text-gray-500 font-normal">{order.paymentMethod}</span>
       </td>
-      <td className="px-5 py-3 leading-6 text-center whitespace-nowrap font-medium text-sm">
+      <td className="px-5 py-3 leading-6 text-center whitespace-nowrap font-medium text-[19px] font-normal">
         {order.status === "Delivered" && (
           <span className="text-emerald-500">{order.status}</span>
         )}
@@ -33,7 +33,7 @@ const OrderHistory = ({ order, currency }) => {
         )}
       </td>
       <td className="px-5 py-3 leading-6 text-center whitespace-nowrap">
-        <span className="text-sm font-bold">
+        <span className="text-[19px] text-gray-500 font-normal font-bold">
           {currency}
           {parseFloat(order?.total).toFixed(2)}
         </span>

@@ -39,7 +39,7 @@ const RecentOrder = ({ data, loading, error }) => {
             </div>
           ) : (
             <div className="flex flex-col">
-              <h3 className="text-lg font-serif font-medium mb-5">
+              <h3 className="text-lg font-sans font-medium mb-5">
                 {showingTranslateValue(
                   storeCustomizationSetting?.dashboard?.recent_order
                 )}
@@ -52,38 +52,38 @@ const RecentOrder = ({ data, loading, error }) => {
                         <tr className="bg-gray-100">
                           <th
                             scope="col"
-                            className="text-left text-xs font-serif font-semibold px-6 py-2 text-gray-700 uppercase tracking-wider"
+                            className="text-left text-lg font-serif font-semibold px-6 py-2 text-gray-700 uppercase tracking-wider"
                           >
                             ID
                           </th>
                           <th
                             scope="col"
-                            className="text-center text-xs font-serif font-semibold px-6 py-2 text-gray-700 uppercase tracking-wider"
+                            className="text-center text-lg font-serif font-semibold px-6 py-2 text-gray-700 uppercase tracking-wider"
                           >
-                            OrderTime
+                            Order Time
                           </th>
 
                           <th
                             scope="col"
-                            className="text-center text-xs font-serif font-semibold px-6 py-2 text-gray-700 uppercase tracking-wider"
+                            className="text-center text-lg font-serif font-semibold px-6 py-2 text-gray-700 uppercase tracking-wider"
                           >
                             Method
                           </th>
                           <th
                             scope="col"
-                            className="text-center text-xs font-serif font-semibold px-6 py-2 text-gray-700 uppercase tracking-wider"
+                            className="text-center text-lg font-serif font-semibold px-6 py-2 text-gray-700 uppercase tracking-wider"
                           >
                             Status
                           </th>
                           <th
                             scope="col"
-                            className="text-center text-xs font-serif font-semibold px-6 py-2 text-gray-700 uppercase tracking-wider"
+                            className="text-center text-lg font-serif font-semibold px-6 py-2 text-gray-700 uppercase tracking-wider"
                           >
                             Total
                           </th>
                           <th
                             scope="col"
-                            className="text-right text-xs font-serif font-semibold px-6 py-2 text-gray-700 uppercase tracking-wider"
+                            className="text-right text-lg font-serif font-semibold px-6 py-2 text-gray-700 uppercase tracking-wider"
                           >
                             Action
                           </th>
@@ -93,9 +93,9 @@ const RecentOrder = ({ data, loading, error }) => {
                         {data?.orders?.map((order) => (
                           <tr key={order._id}>
                             <OrderHistory order={order} />
-                            <td className="px-5 py-3 whitespace-nowrap text-right text-sm">
+                            <td className="px-5 py-3 whitespace-nowrap text-right text-lg">
                               <Link
-                                className="px-3 py-1 bg-emerald-100 text-xs text-emerald-600 hover:bg-emerald-500 hover:text-white transition-all font-semibold rounded-full"
+                                className="px-3 py-1 bg-[#ff6b01] text-[19px] text-white hover:bg-black hover:text-white transition-all font-semibold rounded-full"
                                 href={`/order/${order._id}`}
                               >
                                 Details

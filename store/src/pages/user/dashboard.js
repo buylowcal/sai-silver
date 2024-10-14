@@ -79,41 +79,45 @@ const Dashboard = ({ title, description, children }) => {
   }, []);
 
   const userSidebar = [
-    // {
-    //   title: showingTranslateValue(
-    //     storeCustomizationSetting?.dashboard?.dashboard_title
-    //   ),
-    //   href: "/user/dashboard",
-    //   icon: FiGrid,
-    // },
+    {
+      // title: showingTranslateValue(
+      //   storeCustomizationSetting?.dashboard?.dashboard_title
+      // ),
+      title: "Dashboard",
+      href: "/user/dashboard",
+      icon: FiGrid,
+    },
 
-    // {
-    //   title: showingTranslateValue(
-    //     storeCustomizationSetting?.dashboard?.my_order
-    //   ),
-    //   href: "/user/my-orders",
-    //   icon: FiList,
-    // },
+    {
+      // title: showingTranslateValue(
+      //   storeCustomizationSetting?.dashboard?.my_order
+      // ),
+      title: "My Orders",
+      href: "/user/my-orders",
+      icon: FiList,
+    },
     {
       title: "My Account",
       href: "/user/my-account",
       icon: FiUser,
     },
 
-    // {
-    //   title: showingTranslateValue(
-    //     storeCustomizationSetting?.dashboard?.update_profile
-    //   ),
-    //   href: "/user/update-profile",
-    //   icon: FiSettings,
-    // },
-    // {
-    //   title: showingTranslateValue(
-    //     storeCustomizationSetting?.dashboard?.change_password
-    //   ),
-    //   href: "/user/change-password",
-    //   icon: FiFileText,
-    // },
+    {
+      // title: showingTranslateValue(
+      //   storeCustomizationSetting?.dashboard?.update_profile
+      // ),
+      title: "Update Profile",
+      href: "/user/update-profile",
+      icon: FiSettings,
+    },
+    {
+      // title: showingTranslateValue(
+      //   storeCustomizationSetting?.dashboard?.change_password
+      // ),
+      title: "Change Password",
+      href: "/user/change-password",
+      icon: FiFileText,
+    },
   ];
 
   return (
@@ -132,7 +136,7 @@ const Dashboard = ({ title, description, children }) => {
                   {userSidebar?.map((item) => (
                     <span
                       key={item.title}
-                      className="p-2 my-2 flex font-serif items-center rounded-md hover:bg-gray-50 w-full hover:text-emerald-600"
+                      className="p-2 my-2 flex font-serif items-center rounded-md hover:bg-gray-100 w-full hover:text-black hover:text-black"
                     >
                       <item.icon
                         className="flex-shrink-0 h-5 w-5"
@@ -140,19 +144,19 @@ const Dashboard = ({ title, description, children }) => {
                       />
                       <Link
                         href={item.href}
-                        className="inline-flex items-center justify-between ml-2 text-[19px] font-medium w-full hover:text-emerald-600"
+                        className="inline-flex items-center justify-between ml-2 text-[19px] font-medium w-full hover:text-black hover:text-black"
                       >
                         {item.title}
                       </Link>
                     </span>
                   ))}
-                  <span className="p-2 flex font-serif items-center rounded-md hover:bg-gray-50 w-full hover:text-emerald-600">
+                  <span className="p-2 flex font-serif items-center rounded-md hover:bg-gray-100 w-full hover:text-black hover:text-black">
                     {/* <span className="mr-2">
                       <IoLockOpenOutline />
                     </span>{" "} */}
                     <button
                       onClick={handleLogOut}
-                      className="inline-flex items-center justify-between text-[19px] font-medium w-full hover:text-emerald-600"
+                      className="inline-flex items-center justify-between text-[19px] font-medium w-full hover:text-black hover:text-black"
                     >
                       {showingTranslateValue(
                         storeCustomizationSetting?.navbar?.logout
