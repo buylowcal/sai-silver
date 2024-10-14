@@ -22,7 +22,7 @@ const Layout = ({ title, description, children }) => {
               : "Sai Silver - Best Silver Jewellery in Tri City"}
           </title>
           {description && <meta name="description" content={description} />}
-          <link ref="icon" href="/favicon.png" type="image/png" sizes="48x48" className="rounded-full border-2 border-[#767676]"/>
+          <link ref="icon" href="/saii.png" type="image/png" sizes="48x48" className="rounded-full border-2 border-[#767676]"/>
         </Head>
         {/* <NavBarTop /> */}
         <Navbar />
