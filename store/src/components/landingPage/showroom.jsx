@@ -12,7 +12,7 @@ const Showroom = () => {
         playsInline
         preload="auto"
       >
-        <source src="/Jewellery/jewells.mp4" type="video/mp4" />
+        <source src="/jewel/jewel.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 

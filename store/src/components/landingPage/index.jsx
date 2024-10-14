@@ -47,7 +47,7 @@ const LandingPage = ({ discountProducts, popularProducts, attributes }) => {
       /> */}
       <img
         className="w-full h-auto max-h-screen object-cover"
-        src="/Jewellery/banner2.png"
+        src="/jewel/banner2.png"
         alt="Jewellery Banner"
       />
 
