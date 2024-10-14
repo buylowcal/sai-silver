@@ -175,33 +175,37 @@ const Dashboard = ({ title, description, children }) => {
                     </h2>
                     <div className="grid gap-4 mb-8 md:grid-cols-2 xl:grid-cols-4">
                       <Card
-                        title={showingTranslateValue(
-                          storeCustomizationSetting?.dashboard?.total_order
-                        )}
+                        // title={showingTranslateValue(
+                        //   storeCustomizationSetting?.dashboard?.total_order
+                        // )}
+                        title="Dashboard"
                         Icon={FiShoppingCart}
                         quantity={data?.totalDoc}
                         className="text-red-600  bg-red-200"
                       />
                       <Card
-                        title={showingTranslateValue(
-                          storeCustomizationSetting?.dashboard?.pending_order
-                        )}
+                        // title={showingTranslateValue(
+                        //   storeCustomizationSetting?.dashboard?.pending_order
+                        // )}
+                        title="Pending Orders"
                         Icon={FiRefreshCw}
                         quantity={data?.pending}
                         className="text-orange-600 bg-orange-200"
                       />
                       <Card
-                        title={showingTranslateValue(
-                          storeCustomizationSetting?.dashboard?.processing_order
-                        )}
+                        // title={showingTranslateValue(
+                        //   storeCustomizationSetting?.dashboard?.processing_order
+                        // )}
+                        title="Processing Orders"
                         Icon={FiTruck}
                         quantity={data?.processing}
                         className="text-indigo-600 bg-indigo-200"
                       />
                       <Card
-                        title={showingTranslateValue(
-                          storeCustomizationSetting?.dashboard?.complete_order
-                        )}
+                        // title={showingTranslateValue(
+                        //   storeCustomizationSetting?.dashboard?.complete_order
+                        // )}
+                        title="Delivered Orders"
                         Icon={FiCheck}
                         quantity={data?.delivered}
                         className="text-emerald-600 bg-emerald-200"
