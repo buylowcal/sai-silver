@@ -24,24 +24,24 @@ const MyAccount = () => {
 
   return (
     <Dashboard title="my-account" description="This is my account page">
-      <div className="overflow-hidden">
-        <div className="grid gap-4 mb-8 sm:grid-cols-2 grid-cols-1">
+      <div className="overflow-hidden mt-14">
+        <div className="grid gap-4 mb-8 sm:grid-cols-2 grid-cols-1 ">
           {/* User Info Card */}
           <div className="flex h-full relative">
             <div className="flex items-center border border-gray-200 w-full rounded-lg p-4 relative">
               <Link
                 href="/user/update-profile"
-                className="absolute top-2 right-2 bg-cyan-600 text-white px-3 py-1 rounded hover:bg-cyan-700"
+                className="absolute top-2 right-2 bg-[#ff6b01] text-white tracking-widest px-3 py-1 rounded hover:bg-black"
               >
                 Edit
               </Link>
-              <div className="flex items-center justify-center rounded-full text-xl text-center mr-4 bg-gray-200">
+              <div className="flex items-center justify-center rounded-full text-xl text-center mr-4  ">
                 {userInfo?.image ? (
                   <img
                     src={userInfo.image}
                     width={64}
                     height={64}
-                    className="h-16 w-16 rounded-full bg-gray-50"
+                    className="h-20 w-20 rounded-full p-2 text-center bg-gray-50 "
                     alt={userInfo?.name[0]}
                   />
                 ) : (
@@ -51,11 +51,11 @@ const MyAccount = () => {
                 )}
               </div>
               <div>
-                <h5 className="leading-none mb-2 text-base font-medium text-gray-700">
+                <h5 className="leading-none mb-2 text-lg font-semibold text-gray-700">
                   {userInfo?.name}
                 </h5>
-                <p className="text-sm text-gray-500">{userInfo?.email}</p>
-                <p className="text-sm text-gray-500">{userInfo?.phone}</p>
+                <p className="text-base text-gray-400">{userInfo?.email}</p>
+                <p className="text-base text-gray-400">{userInfo?.phone}</p>
               </div>
             </div>
           </div>
@@ -66,7 +66,7 @@ const MyAccount = () => {
               <div className="flex items-center border border-gray-200 w-full rounded-lg p-4 relative">
                 <Link
                   href={`/user/add-shipping-address?id=${userInfo?.id}`}
-                  className="absolute top-2 right-2 bg-cyan-600 text-white px-3 py-1 rounded hover:bg-cyan-700"
+                  className="absolute top-2 right-2  bg-[#ff6b01] text-white tracking-widest px-3 py-1 rounded hover:bg-black"
                 >
                   Edit
                 </Link>
@@ -75,19 +75,21 @@ const MyAccount = () => {
                     <Error errorName={error} />
                   ) : (
                     <>
-                      <h5 className="leading-none mb-2 text-base font-medium text-gray-700">
+                      <h5 className="leading-none mb-2 text-lg font-semibold text-gray-700">
                         {data?.shippingAddress?.name}{" "}
                         <span className="text-xs text-gray-500">
                           (Default Shipping Address)
                         </span>
                       </h5>
-                      <p className="text-sm text-gray-500">
+                      <p className="text-base text-gray-500">
+                        <span className="text-base font-semibold text-gray-500">Contact:</span>{" "}
                         {data?.shippingAddress?.contact}{" "}
                       </p>
-                      <p className="text-sm text-gray-500">
+                      <p className="text-base text-gray-500">
+                        <span className="text-base font-semibold text-gray-500">Address:</span>{" "}
                         {data?.shippingAddress?.address}{" "}
                       </p>
-                      <p className="text-sm text-gray-500">
+                      <p className="text-base text-gray-500">
                         {data?.shippingAddress?.country},{" "}
                         {data?.shippingAddress?.city},{" "}
                         {data?.shippingAddress?.area} -
