@@ -12,18 +12,18 @@ const Invoice = ({ data, printRef, globalSetting, currency }) => {
   const { getNumberTwo } = useUtilsFunction();
 
   return (
-    <div ref={printRef}>
-      <div className="bg-indigo-50 p-8 rounded-t-xl">
+    <div ref={printRef} className="overflow-x-hidden">
+      <div className="bg-black p-8 rounded-t-xl">
         <div className="flex lg:flex-row md:flex-row flex-col lg:items-center justify-between pb-4 border-b border-gray-50">
           <div>
-            <h1 className="font-bold font-serif text-2xl uppercase">Invoice</h1>
-            <h6 className="text-gray-700">
+            <h1 className="font-extrabold text-white font-sans text-2xl uppercase">Invoice</h1>
+            <h6 className="text-white text-[17px] tracking-widest">
               Status :{" "}
               {data.status === "Delivered" && (
                 <span className="text-emerald-500">{data.status}</span>
               )}
               {data.status === "POS-Completed" && (
-                <span className="text-emerald-500">{data.status}</span>
+                <span className="text-emerald-400">{data.status}</span>
               )}
               {data.status === "Pending" && (
                 <span className="text-orange-500">{data.status}</span>
@@ -40,7 +40,7 @@ const Invoice = ({ data, printRef, globalSetting, currency }) => {
             </h6>
           </div>
           <div className="lg:text-right text-left">
-            <h2 className="text-lg font-serif font-semibold mt-4 lg:mt-0 md:mt-0">
+            <h2 className="text-lg font-sans font-medium mt-4 lg:mt-0 md:mt-0">
               <Link href="/">
                 {/* <Image
                   width={110}
@@ -50,7 +50,7 @@ const Invoice = ({ data, printRef, globalSetting, currency }) => {
                 /> */}
               </Link>
             </h2>
-            <p className="text-sm text-gray-500">
+            <p className="text-[17px] text-white">
               {globalSetting?.address ||
                 "Cecilia Chapman, 561-4535 Nulla LA, <br /> United States 96522"}
             </p>
@@ -58,28 +58,28 @@ const Invoice = ({ data, printRef, globalSetting, currency }) => {
         </div>
         <div className="flex lg:flex-row md:flex-row flex-col justify-between pt-4">
           <div className="mb-3 md:mb-0 lg:mb-0 flex flex-col">
-            <span className="font-bold font-serif text-sm uppercase text-gray-600 block">
+            <span className="font-bold font-sans text-[17px] uppercase text-[#ff6b01] block tracking-widest">
               Date
             </span>
-            <span className="text-sm text-gray-500 block">
+            <span className="text-[17px] text-white block">
               {data.createdAt !== undefined && (
                 <span>{dayjs(data?.createdAt).format("MMMM D, YYYY")}</span>
               )}
             </span>
           </div>
           <div className="mb-3 md:mb-0 lg:mb-0 flex flex-col">
-            <span className="font-bold font-serif text-sm uppercase text-gray-600 block">
+            <span className="font-bold font-sans text-[17px] uppercase text-[#ff6b01] block">
               Invoice No.
             </span>
-            <span className="text-sm text-gray-500 block">
+            <span className="text-[17px] text-white block">
               #{data?.invoice}
             </span>
           </div>
           <div className="flex flex-col lg:text-right text-left">
-            <span className="font-bold font-serif text-sm uppercase text-gray-600 block">
+            <span className="font-bold font-sans text-[17px] uppercase text-[#ff6b01] block">
               Invoice To.
             </span>
-            <span className="text-sm text-gray-500 block">
+            <span className="text-[17px] text-white block">
               {data?.user_info?.name} <br />
               {data?.user_info?.email}{" "}
               <span className="ml-2">{data?.user_info?.contact}</span>
@@ -96,35 +96,35 @@ const Invoice = ({ data, printRef, globalSetting, currency }) => {
           <div className="-my-2 overflow-x-auto">
             <table className="table-auto min-w-full border border-gray-100 divide-y divide-gray-200">
               <thead className="bg-gray-50">
-                <tr className="text-xs bg-gray-100">
+                <tr className="text-base bg-[#ff6b01]">
                   <th
                     scope="col"
-                    className="font-serif font-semibold px-6 py-2 text-gray-700 uppercase tracking-wider text-left"
+                    className="font-sans font-medium px-6 py-2 text-white uppercase tracking-wider text-left"
                   >
                     Sr.
                   </th>
                   <th
                     scope="col"
-                    className="font-serif font-semibold px-6 py-2 text-gray-700 uppercase tracking-wider text-left"
+                    className="font-sans font-medium px-6 py-2 text-white uppercase tracking-wider text-left"
                   >
                     Product Name
                   </th>
                   <th
                     scope="col"
-                    className="font-serif font-semibold px-6 py-2 text-gray-700 uppercase tracking-wider text-center"
+                    className="font-sans font-medium px-6 py-2 text-white uppercase tracking-wider text-center"
                   >
                     Quantity
                   </th>
                   <th
                     scope="col"
-                    className="font-serif font-semibold px-6 py-2 text-gray-700 uppercase tracking-wider text-center"
+                    className="font-sans font-medium px-6 py-2 text-white uppercase tracking-wider text-center"
                   >
                     Item Price
                   </th>
 
                   <th
                     scope="col"
-                    className="font-serif font-semibold px-6 py-2 text-gray-700 uppercase tracking-wider text-right"
+                    className="font-sans font-medium px-6 py-2 text-white uppercase tracking-wider text-right"
                   >
                     Amount
                   </th>
@@ -136,39 +136,39 @@ const Invoice = ({ data, printRef, globalSetting, currency }) => {
         </div>
       </div>
 
-      <div className="border-t border-b border-gray-100 p-10 bg-emerald-50">
+      <div className="border-t border-b border-gray-100 p-10 bg-gray-200">
         <div className="flex lg:flex-row md:flex-row flex-col justify-between pt-4">
           <div className="mb-3 md:mb-0 lg:mb-0  flex flex-col sm:flex-wrap">
-            <span className="mb-1 font-bold font-serif text-sm uppercase text-gray-600 block">
+            <span className="mb-1 font-bold font-sans text-[17px] uppercase  tracking-widest text-black block">
               Payment Method
             </span>
-            <span className="text-sm text-gray-500 font-semibold font-serif block">
+            <span className="text-[17px] text-black font-medium font-sans block">
               {data?.paymentMethod}
             </span>
           </div>
           <div className="mb-3 md:mb-0 lg:mb-0  flex flex-col sm:flex-wrap">
-            <span className="mb-1 font-bold font-serif text-sm uppercase text-gray-600 block">
+            <span className="mb-1 font-bold font-sans text-[17px] uppercase tracking-widest text-black block">
               Shipping Cost
             </span>
-            <span className="text-sm text-gray-500 font-semibold font-serif block">
+            <span className="text-[17px] text-black font-medium font-sans block">
               {currency}
               {getNumberTwo(data.shippingCost)}
             </span>
           </div>
           <div className="mb-3 md:mb-0 lg:mb-0  flex flex-col sm:flex-wrap">
-            <span className="mb-1 font-bold font-serif text-sm uppercase text-gray-600 block">
+            <span className="mb-1 font-bold font-sans text-[17px] uppercase tracking-widest text-black block">
               Discount
             </span>
-            <span className="text-sm text-gray-500 font-semibold font-serif block">
+            <span className="text-[17px] text-black font-medium font-sans block">
               {currency}
               {getNumberTwo(data.discount)}
             </span>
           </div>
           <div className="flex flex-col sm:flex-wrap">
-            <span className="mb-1 font-bold font-serif text-sm uppercase text-gray-600 block">
+            <span className="mb-1 font-bold font-sans text-[17px] uppercase tracking-widest text-black block">
               Total Amount
             </span>
-            <span className="text-2xl font-serif font-bold text-red-500 block">
+            <span className="text-2xl font-sans font-bold text-[#ff6b01] block">
               {currency}
               {getNumberTwo(data.total)}
             </span>

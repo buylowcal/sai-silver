@@ -34,13 +34,13 @@ const Order = ({ params }) => {
           {error}
         </h2>
       ) : (
-        <div className="max-w-screen-2xl mx-auto py-10 px-3 sm:px-6 mt-10">
-          <div className="bg-emerald-100 rounded-md mb-5 px-4 py-3">
+        <div className="max-w-screen-2xl mx-auto py-10 px-3 sm:px-6 m-6 overflow-hidden">
+          <div className="bg-gray-200 rounded-md mb-5 px-4 py-3 mt-20">
             <label>
               {showingTranslateValue(
                 storeCustomizationSetting?.dashboard?.invoice_message_first
               )}{" "}
-              <span className="font-bold text-emerald-600">
+              <span className="font-bold text-black tracking-widest font-sans text-[19px]">
                 {data?.user_info?.name},
               </span>{" "}
               {showingTranslateValue(
@@ -72,11 +72,11 @@ const Order = ({ params }) => {
                     loading ? (
                       "Loading..."
                     ) : (
-                      <button className="mb-3 sm:mb-0 md:mb-0 lg:mb-0 flex items-center justify-center bg-emerald-500  text-white transition-all font-serif text-sm font-semibold h-10 py-2 px-5 rounded-md">
+                      <button className="mb-3 sm:mb-0 md:mb-0 lg:mb-0 flex items-center justify-center bg-black hover:bg-[#ff6b01]  text-white transition-all font-serif text-[19px] font-semibold h-10 py-2 px-5 rounded-md">
                         {showingTranslateValue(
                           storeCustomizationSetting?.dashboard?.download_button
                         )}{" "}
-                        <span className="ml-2 text-base">
+                        <span className="text-[19px]">
                           <IoCloudDownloadOutline />
                         </span>
                       </button>
@@ -86,11 +86,11 @@ const Order = ({ params }) => {
 
                 <ReactToPrint
                   trigger={() => (
-                    <button className="mb-3 sm:mb-0 md:mb-0 lg:mb-0 flex items-center justify-center bg-emerald-500  text-white transition-all font-serif text-sm font-semibold h-10 py-2 px-5 rounded-md">
+                    <button className="mb-3 sm:mb-0 md:mb-0 lg:mb-0 flex items-center justify-center bg-black hover:bg-[#ff6b01] text-white transition-all font-serif text-[19px] font-semibold h-10 py-2 px-5 rounded-md">
                       {showingTranslateValue(
                         storeCustomizationSetting?.dashboard?.print_button
                       )}{" "}
-                      <span className="ml-2">
+                      <span className="text-[19px]">
                         <IoPrintOutline />
                       </span>
                     </button>
