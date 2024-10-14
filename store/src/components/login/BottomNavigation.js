@@ -36,7 +36,7 @@ const BottomNavigation = ({ or, route, desc, pageName, loginTitle }) => {
               }
             >
               {/* <ImGoogle className="text-2xl" /> */}
-              <img src="/Jewellery/icons/google.png" className="h-6 w-6"/>
+              <img src="/jewel/icons/google.png" className="h-6 w-6"/>
               <span className="ml-2 text-[19px] tracking-widest ">{loginTitle} With Google</span>
             </button>
           )}

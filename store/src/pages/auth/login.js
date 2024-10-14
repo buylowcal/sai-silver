@@ -79,7 +79,7 @@ const Login = () => {
                           src="/loader/spinner.gif"
                           alt="Loading"
                           width={20}
-                          height={10}
+                          height={20}
                         />
                         <span className="font-serif ml-2 font-light">
                           Processing
