@@ -113,9 +113,10 @@ const UpdateProfile = () => {
                       <div className="col-span-6 sm:col-span-3">
                         <InputArea
                           register={register}
-                          label={showingTranslateValue(
-                            storeCustomizationSetting?.dashboard?.full_name
-                          )}
+                          // label={showingTranslateValue(
+                          //   storeCustomizationSetting?.dashboard?.full_name
+                          // )}
+                          label="Full Name"
                           name="name"
                           type="text"
                           placeholder={showingTranslateValue(
@@ -128,9 +129,10 @@ const UpdateProfile = () => {
                       <div className="col-span-6 sm:col-span-3">
                         <InputArea
                           register={register}
-                          label={showingTranslateValue(
-                            storeCustomizationSetting?.dashboard?.address
-                          )}
+                          // label={showingTranslateValue(
+                          //   storeCustomizationSetting?.dashboard?.address
+                          // )}
+                          label="Address"
                           name="address"
                           type="text"
                           placeholder={showingTranslateValue(
@@ -143,9 +145,10 @@ const UpdateProfile = () => {
                       <div className="col-span-6 sm:col-span-3">
                         <InputArea
                           register={register}
-                          label={showingTranslateValue(
-                            storeCustomizationSetting?.dashboard?.user_phone
-                          )}
+                          // label={showingTranslateValue(
+                          //   storeCustomizationSetting?.dashboard?.user_phone
+                          // )}
+                          label="Contact Number"
                           name="phone"
                           type="tel"
                           placeholder={showingTranslateValue(
@@ -160,11 +163,12 @@ const UpdateProfile = () => {
                           register={register}
                           name="email"
                           type="email"
+                          label="Email"
                           readOnly={true}
                           defaultValue={session?.user?.email}
-                          label={showingTranslateValue(
-                            storeCustomizationSetting?.dashboard?.user_email
-                          )}
+                          // label={showingTranslateValue(
+                          //   storeCustomizationSetting?.dashboard?.user_email
+                          // )}
                           placeholder={showingTranslateValue(
                             storeCustomizationSetting?.dashboard?.user_email
                           )}

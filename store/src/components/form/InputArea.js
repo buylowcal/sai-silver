@@ -27,7 +27,7 @@ const InputArea = ({
         )}
         <input
           {...register(`${name}`, {
-            required: required ? `label is required!` : false,
+            required: required ? `${label} is required!` : false,
           })}
           type={type}
           name={name}
