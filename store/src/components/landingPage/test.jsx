@@ -10,11 +10,16 @@ import { useRouter } from "next/router";
 import useUtilsFunction from "@hooks/useUtilsFunction";
 import { SidebarContext } from "@context/SidebarContext";
 
+
 function CategoriesSlider({ attributes }) {
-  const { isLoading, setIsLoading } = useContext(SidebarContext);
-  const { showingTranslateValue } = useUtilsFunction();
+  const { isLoading, setIsLoading} = useContext(SidebarContext); // Move this inside the component
+  const { showingTranslateValue } =  useUtilsFunction();
   const router = useRouter();
-  const { data, error, loading } = useAsync(CategoryServices.getShowingCategory);
+  const { data, error, loading } = useAsync(
+    CategoryServices.getShowingCategory
+  );
+
+  // Placeholder categories in case data is not yet loaded
   const placeholderCategories = [
     {
       name: "Personalized Jewellery",
@@ -41,20 +46,6 @@ function CategoriesSlider({ attributes }) {
         "https://images.diamondstuds.com/productimages/medium/PCU075-1W-M4.jpg",
     },
   ];
-  // Use fetched categories if available, otherwise fallback to placeholders
-  const categories = data?.[0]?.children?.length > 0 ? data[0].children : placeholderCategories;
-
-  console.log("categories: ", categories);
-
-  const handleCategoryClick = (id, category) => {
-    const category_name = showingTranslateValue(category)
-      ?.toLowerCase()
-      .replace(/[^A-Z0-9]+/gi, "-");
-
-    router.push(`/search?category=${category_name}&_id=${id}`);
-    setIsLoading(!isLoading);
-  };
- 
   // Slick slider settings
   const settings = {
     dots: false,
@@ -69,6 +60,19 @@ function CategoriesSlider({ attributes }) {
       { breakpoint: 768, settings: { slidesToShow: 2 } },
       { breakpoint: 640, settings: { slidesToShow: 1 } },
     ],
+  };
+
+  // Use fetched categories if available, otherwise fallback to placeholders
+  const categories = data?.[0]?.children && placeholderCategories
+  
+  console.log("categories: ", data?.[0]?.children)
+  const handleCategoryClick = (id, category) => {
+    const category_name = showingTranslateValue(categories)
+      ?.toLowerCase()
+      .replace(/[^A-Z0-9]+/gi, "-");
+
+    router.push(`/search?category=${category_name}&_id=${id}`);
+    setIsLoading(!isLoading);
   };
 
   return (
@@ -86,7 +90,10 @@ function CategoriesSlider({ attributes }) {
             categories?.map((category, index) => (
               <div
                 key={index}
-                onClick={() => handleCategoryClick(category?._id, category.name)}
+                onClick={() =>
+                  handleCategoryClick(category?._id, category.name)
+                }
+                // onClick={() => handleCategoryClick(`/categories/${category._id}` || "#" )}
                 className="block"
               >
                 <DirectionAwareHover
@@ -95,6 +102,7 @@ function CategoriesSlider({ attributes }) {
                 />
               </div>
             ))}
+          
         </Slider>
       </div>
     </section>
