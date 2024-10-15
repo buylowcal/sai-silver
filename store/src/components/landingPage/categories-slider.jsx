@@ -90,10 +90,10 @@ function CategoriesSlider({ attributes }) {
             categories?.map((category, index) => (
               <div
                 key={index}
-                onClick={() =>
-                  handleCategoryClick(category?._id, category.name)
-                }
-                // onClick={() => handleCategoryClick(`/categories/${category._id}` || "#" )}
+                // onClick={() =>
+                //   handleCategoryClick(category?._id, category.name)
+                // }
+                onClick={() => handleCategoryClick(`/categories/${category._id}` || "#" )}
                 className="block"
               >
                 <DirectionAwareHover
