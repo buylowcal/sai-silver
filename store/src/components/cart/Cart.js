@@ -88,7 +88,9 @@ const Cart = () => {
               Proceed To Checkout
             </span>
             <span className="rounded-md text-[19px] font-medium py-2 px-3 bg-[#ff6b01] text-white">
-              {currency}{" "}
+              {/* {currency}
+              {" "} */}
+              ₹ {" "}
               {cartTotal.toFixed(2)}
             </span>
           </button>

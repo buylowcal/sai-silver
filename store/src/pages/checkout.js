@@ -93,7 +93,7 @@ console.log("@@",showingTranslateValue(
                     </div>
                   )}
                   <div className="form-group">
-                    <h2 className="font-medium tracking-wider font-serif text-base text-gray-700 pb-3">
+                    <h2 className="font-medium tracking-wider font-sans text-base text-gray-700 pb-3">
                       Personal Details
                       {showingTranslateValue(
                         storeCustomizationSetting?.checkout?.personal_details
@@ -165,7 +165,7 @@ console.log("@@",showingTranslateValue(
                   </div>
 
                   <div className="form-group mt-12">
-                    <h2 className="font-medium tracking-wider font-serif text-base text-gray-700 pb-3">
+                    <h2 className="font-medium tracking-wider font-sans text-base text-gray-700 pb-3">
                       Shipping Details
                       {showingTranslateValue(
                         storeCustomizationSetting?.checkout?.shipping_details
@@ -233,9 +233,10 @@ console.log("@@",showingTranslateValue(
                     </div>
 
                     <Label
-                      label={showingTranslateValue(
-                        storeCustomizationSetting?.checkout?.shipping_cost
-                      )}
+                      // label={showingTranslateValue(
+                      //   storeCustomizationSetting?.checkout?.shipping_cost
+                      // )}
+                      label="Shipping Cost"
                     />
                     <div className="grid grid-cols-6 gap-6">
                       <div className="col-span-6 sm:col-span-3">
@@ -257,7 +258,7 @@ console.log("@@",showingTranslateValue(
                             Number(
                               storeCustomizationSetting?.checkout
                                 ?.shipping_one_cost
-                            ) || 0
+                            ) || 60
                           }
                         />
                         <Error errorName={errors.shippingOption} />
@@ -265,7 +266,8 @@ console.log("@@",showingTranslateValue(
 
                       <div className="col-span-6 sm:col-span-3">
                         <InputShipping
-                          currency={currency}
+                          // currency={currency}
+                          // currency="₹ "
                           handleShippingCost={handleShippingCost}
                           register={register}
                           value={showingTranslateValue(
@@ -276,12 +278,12 @@ console.log("@@",showingTranslateValue(
                             storeCustomizationSetting?.checkout
                               ?.shipping_two_desc
                           )}
-                          // time="7 Days"
+                          time="7 Days"
                           cost={
                             Number(
                               storeCustomizationSetting?.checkout
                                 ?.shipping_two_cost
-                            ) || 0
+                            ) || 20
                           }
                         />
                         <Error errorName={errors.shippingOption} />
@@ -347,21 +349,21 @@ console.log("@@",showingTranslateValue(
                     <div className="col-span-6 sm:col-span-3">
                       <Link
                         href="/"
-                        className="bg-indigo-50 border border-indigo-100 rounded py-3 text-center text-sm font-medium text-gray-700 hover:text-gray-800 hover:border-gray-300 transition-all flex justify-center font-serif w-full"
+                        className="bg-gray-200 border border-indigo-100 rounded py-3 capitalize  tracking-wider text-center text-sm font-medium text-gray-700 hover:text-gray-800 hover:border-gray-300 transition-all flex justify-center font-sans w-full"
                       >
                         <span className="text-xl mr-2">
                           <IoReturnUpBackOutline />
                         </span>
-                        {showingTranslateValue(
+                        {/* {showingTranslateValue(
                           storeCustomizationSetting?.checkout?.continue_button
-                        )}
+                        )} */}  shop more
                       </Link>
                     </div>
                     <div className="col-span-6 sm:col-span-3">
                       <button
                         type="submit"
                         disabled={isEmpty || isCheckoutSubmit}
-                        className="bg-emerald-500 hover:bg-emerald-600 border border-emerald-500 transition-all rounded py-3 text-center text-sm font-serif font-medium text-white flex justify-center w-full"
+                        className="bg-[#ff6b01] hover:bg-black  transition-all rounded py-3 text-center text-sm font-sans font-medium text-white flex justify-center w-full"
                       >
                         {isCheckoutSubmit ? (
                           <span className="flex justify-center text-center">
@@ -397,16 +399,18 @@ console.log("@@",showingTranslateValue(
 
             <div className="md:w-full mt-14 lg:w-2/5 lg:ml-10 xl:ml-14 md:ml-6 flex flex-col h-full md:sticky lg:sticky top-28 md:order-2 lg:order-2">
               <div className="border p-5 lg:px-8 lg:py-8 rounded-xl bg-white order-1 sm:order-2 mt-10">
-                <h2 className="font-semibold tracking-widest uppercase font-serif text-lg pb-4">
+                <h2 className="font-semibold tracking-widest uppercase font-sans text-lg pb-4">
                   Order Summary
-                  {showingTranslateValue(
+                  {/* {showingTranslateValue(
                     storeCustomizationSetting?.checkout?.order_summary
-                  )}
+                  )} */}
                 </h2>
 
                 <div className="overflow-y-scroll flex-grow scrollbar-hide w-full max-h-64 bg-gray-50 block">
                   {items.map((item) => (
-                    <CartItem key={item.id} item={item} currency={currency} />
+                    <CartItem key={item.id} item={item} currency="₹ " 
+                    // currency ={currency}
+                    />
                   ))}
 
                   {isEmpty && (
@@ -414,7 +418,7 @@ console.log("@@",showingTranslateValue(
                       <span className="flex justify-center my-auto text-gray-500 font-semibold text-4xl">
                         <IoBagHandle />
                       </span>
-                      <h2 className="font-medium uppercase font-serif text-sm pt-2 text-gray-300 tracking-widest">
+                      <h2 className="font-medium uppercase font-sans text-sm pt-2 text-gray-300 tracking-widest">
                         No Item Added Yet!
                       </h2>
                     </div>
@@ -437,7 +441,7 @@ console.log("@@",showingTranslateValue(
                           ref={couponRef}
                           type="text"
                           placeholder={t("common:couponCode")}
-                          className="form-input py-2 px-3 md:px-4 w-full appearance-none transition ease-in-out border text-input text-sm rounded-md h-12 duration-200 bg-white border-gray-200 focus:ring-0 focus:outline-none focus:border-emerald-500 placeholder-gray-500 placeholder-opacity-25 tracking-wider font-serif"
+                          className="form-input py-2 px-3 md:px-4 w-full appearance-none transition ease-in-out border text-input text-sm rounded-md h-12 duration-200 bg-white border-gray-200 focus:ring-0 focus:outline-none focus:border-emerald-500 placeholder-gray-500 placeholder-opacity-25 tracking-wider font-sans"
                         />
                         {isCouponAvailable ? (
                           <button
@@ -497,40 +501,48 @@ console.log("@@",showingTranslateValue(
                     )}
                   </form>
                 </div>
-                <div className="flex items-center py-2 text-sm w-full font-semibold text-gray-500 last:border-b-0 last:text-base last:pb-0">
-                  {showingTranslateValue(
+                <div className="flex items-center py-2 tracking-wider text-base w-full font-medium text-gray-500 last:border-b-0 last:text-base last:pb-0">
+                  {/* {showingTranslateValue(
                     storeCustomizationSetting?.checkout?.sub_total
-                  )}
+                  )} */}
+                  Sub Total
                   <span className="ml-auto flex-shrink-0 text-gray-800 font-bold">
-                    {currency}
+                    {/* {currency} */}
+                    ₹{" "}
                     {cartTotal?.toFixed(2)}
                   </span>
                 </div>
-                <div className="flex items-center py-2 text-sm w-full font-semibold text-gray-500 last:border-b-0 last:text-base last:pb-0">
-                  {showingTranslateValue(
+                <div className="flex items-center py-2 tracking-wider text-base w-full font-medium text-gray-500 last:border-b-0 last:text-base last:pb-0">
+                  {/* {showingTranslateValue(
                     storeCustomizationSetting?.checkout?.shipping_cost
-                  )}
+                  )} */}
+                  Shipping Cost
                   <span className="ml-auto flex-shrink-0 text-gray-800 font-bold">
-                    {currency}
+                    {/* {currency} */}
+                    ₹ {" "}
                     {shippingCost?.toFixed(2)}
                   </span>
                 </div>
-                <div className="flex items-center py-2 text-sm w-full font-semibold text-gray-500 last:border-b-0 last:text-base last:pb-0">
-                  {showingTranslateValue(
+                <div className="flex items-center tracking-wider py-2 text-base w-full font-medium text-gray-500 last:border-b-0 last:text-base last:pb-0">
+                  {/* {showingTranslateValue(
                     storeCustomizationSetting?.checkout?.discount
-                  )}
+                  )} */}
+                  Discount
                   <span className="ml-auto flex-shrink-0 font-bold text-orange-400">
-                    {currency}
+                    {/* {currency} */}
+                    ₹ {" "}
                     {discountAmount.toFixed(2)}
                   </span>
                 </div>
                 <div className="border-t mt-4">
-                  <div className="flex items-center font-bold font-serif justify-between pt-5 text-sm uppercase">
-                    {showingTranslateValue(
+                  <div className="flex items-center font-bold font-sans justify-between pt-5 text-sm uppercase">
+                    {/* {showingTranslateValue(
                       storeCustomizationSetting?.checkout?.total_cost
-                    )}
-                    <span className="font-serif  font-extrabold text-lg">
-                      {currency}
+                    )} */}
+                    Total Cost
+                    <span className="font-sans  font-extrabold text-lg">
+                      {/* {currency} */}
+                      ₹ {" "}
                       {parseFloat(total).toFixed(2)}
                     </span>
                   </div>

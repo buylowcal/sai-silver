@@ -5,7 +5,7 @@ const SwitchToggle = ({ id, title, handleProcess, processOption }) => {
     <>
       <div className={`${"mb-3"}`}>
         <div className="flex flex-wrap items-center">
-          <label className="text-sm font-semibold text-gray-600 mr-1">
+          <label className="text-sm tracking-widest  font-medium text-gray-400 mr-1">
             {title}
           </label>
 
@@ -23,18 +23,18 @@ const SwitchToggle = ({ id, title, handleProcess, processOption }) => {
                   height: "100%",
                   fontSize: 14,
                   color: "white",
-                  paddingRight: 5,
+                  paddingRight: 4,
                   paddingTop: 1,
                 }}
               >
-                No
+                NO
               </div>
             }
             width={80}
             height={30}
             handleDiameter={28}
-            offColor="#E53E3E"
-            onColor="#2F855A"
+            offColor="#ff6b01"
+            onColor="#000000"
             checkedIcon={
               <div
                 style={{
@@ -48,7 +48,7 @@ const SwitchToggle = ({ id, title, handleProcess, processOption }) => {
                   paddingTop: 1,
                 }}
               >
-                Yes
+                YES
               </div>
             }
           />

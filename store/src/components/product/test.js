@@ -119,8 +119,7 @@ const ProductCard = ({ product, attributes }) => {
             <Price
               card
               product={product}
-              // currency={currency}
-              currency="₹"
+              currency={currency}
               price={
                 product?.isCombination
                   ? product?.variants[0]?.price

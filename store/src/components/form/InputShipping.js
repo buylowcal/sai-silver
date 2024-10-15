@@ -20,13 +20,14 @@ const InputShipping = ({
                 <FiTruck />
               </span>
               <div>
-                <h6 className="font-serif font-medium text-sm text-gray-600">
+                <h6 className="font-sans font-medium text-base text-gray-600">
                   {value}
                 </h6>
-                <p className="text-xs text-gray-500 font-medium">
+                <p className="text-[15px] text-gray-500 font-medium">
                   {description}
                   <span className="font-medium text-gray-600">
-                    {currency}
+                    {/* {currency} */}
+                    ₹{" "}
                     {parseFloat(cost).toFixed(2)}
                   </span>
                 </p>
