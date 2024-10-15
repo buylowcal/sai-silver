@@ -23,12 +23,12 @@ const Category = () => {
   return (
     <div className="flex flex-col w-full h-full  backdrop-blur-xl bg-white/30 cursor-pointer scrollbar-hide">
       {categoryDrawerOpen && (
-        <div className="w-full flex justify-between items-center h-16 px-6 py-4 bg-emerald-500 text-white border-b border-gray-100">
+        <div className="w-full flex justify-between items-center h-16 px-6 py-4 bg-black text-white border-b border-gray-100">
           <h2 className="font-semibold font-serif text-lg m-0 text-heading flex align-center">
             <Link href="/" className="mr-10">
               <Image
-                width={50}
-                height={38}
+                width={72}
+                height={72}
                 src="/logo/logo-color.png"
                 alt="logo"
               />
@@ -36,7 +36,7 @@ const Category = () => {
           </h2>
           <button
             onClick={closeCategoryDrawer}
-            className="flex text-xl items-center justify-center w-8 h-8 rounded-full bg-gray-50 text-red-500 p-2 focus:outline-none transition-opacity hover:text-red-600"
+            className="flex text-xl items-center justify-center w-8 h-8 rounded-full  text-[#ff6b01] p-2 focus:outline-none transition-opacity hover:text-red-600"
             aria-label="close"
           >
             <IoClose />
@@ -45,7 +45,7 @@ const Category = () => {
       )}
       <div className="w-full max-h-full">
         {categoryDrawerOpen && (
-          <h2 className="font-semibold font-serif text-lg m-0 text-heading flex align-center border-b px-8 py-3">
+          <h2 className="font-semibold tracking-widest font-sans text-lg m-0 text-heading flex align-center border-b px-8 py-3">
             All Categories
           </h2>
         )}
