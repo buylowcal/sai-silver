@@ -121,22 +121,22 @@ const CategoryCarousel = () => {
                     </div>
                   </div> */}
 
-
-
-<h3
-  className="
+                  <h3
+                    className="
   
     relative 
-    text-xs 
-    sm:text-xs 
-    md:text-xs 
-    
+    text-[14px] 
+    sm:text-[14px] 
+    md:text-[14px] 
+    border border-2
     mt-2 
+    
     whitespace-nowrap
     tracking-widest 
-    font-serif 
+    font-sans 
     group-hover:text-emerald-500 
-    leading-tight      
+    leading-loose  
+    p-2    
     px-2               
     mx-2                 
     after:content-[' ']  
@@ -151,23 +151,17 @@ const CategoryCarousel = () => {
     after:scale-x-0 
     after:origin-center
     hover:after:scale-x-100
-    w-full                /* Full width on small screens */
-    sm:w-auto             /* Auto width on small screens and above */
-    sm:inline-block       /* Inline-block on small screens and above */
-    flex-shrink-0         /* Prevents shrinking to avoid overlap */
-    max-w-xs              /* Sets a maximum width to prevent overflow */
-    text-center           /* Centers text within the element */
-              /* Allows long words to break and wrap */
+    w-full              
+    sm:w-auto           
+    sm:inline-block      
+    flex-shrink-0         
+    max-w-xs             
+    text-center           
+              
   "
->
-  {showingTranslateValue(category?.name).toUpperCase()}
-</h3>
-
-
-
-
-
-
+                  >
+                    {showingTranslateValue(category?.name).toUpperCase()}
+                  </h3>
                 </div>
               </SwiperSlide>
             ))}

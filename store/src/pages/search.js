@@ -51,7 +51,7 @@ const Search = ({ products, attributes }) => {
                   </h2>
                 </div>
               ) : (
-                <div className="flex justify-between my-3 bg-[#ff6b01] text-white border border-gray-100  rounded p-3">
+                <div className="flex justify-between my-3 bg-gray-200 text-black border border-gray-100  rounded p-3">
                   <h6 className="text-[19px] font-sans tracking-widest">
                     {t("common:totalI")}{" "}
                     <span className="font-bold">{productData?.length}</span>{" "}
@@ -60,7 +60,7 @@ const Search = ({ products, attributes }) => {
                   <span className="text-sm font-sans tracking-widest">
                     <select
                       onChange={(e) => setSortedField(e.target.value)}
-                      className="py-0 text-[19px] font-sans  font-medium  w-full rounded-md border-0 border-black bg-black text-white pr-10  "
+                      className="py-1.5 text-[17px] font-sans tracking-wider font-medium  w-full rounded-md border-0 border-black bg-black text-white pr-10  "
                     >
                       <option className="px-3" value="All" defaultValue hidden>
                         {t("common:sortByPrice")}
@@ -80,7 +80,7 @@ const Search = ({ products, attributes }) => {
                 <Loading loading={isLoading} />
               ) : (
                 <>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-2 md:gap-3 lg:gap-3">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-2 md:gap-4 lg:gap-3">
                     {productData?.slice(0, visibleProduct).map((product, i) => (
                       <ProductCard
                         key={i + 1}

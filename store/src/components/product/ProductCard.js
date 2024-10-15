@@ -108,7 +108,7 @@ const ProductCard = ({ product, attributes }) => {
             <span className="text-gray-500 font-medium text-sm block mb-1">
               {product.unit}
             </span>
-            <h2 className="text-sm truncate mb-1 block  font-light text-gray-700">
+            <h2 className="text-[16px] truncate mb-1 block  font-light text-gray-700">
               <span className="line-clamp-2 tracking-widest">
                 {showingTranslateValue(product?.title).charAt(0).toUpperCase()+ showingTranslateValue(product?.title).slice(1)}
               </span>
