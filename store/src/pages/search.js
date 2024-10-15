@@ -113,23 +113,34 @@ const Search = ({ products, attributes }) => {
 export default Search;
 
 export const getServerSideProps = async (context) => {
-  const { query, _id } = context.query;
+  try {
+    const { query, _id } = context.query;
 
-  const [data, attributes] = await Promise.all([
-    ProductServices.getShowingStoreProducts({
-      category: _id ? _id : "",
-      title: query ? encodeURIComponent(query) : "",
-    }),
-    AttributeServices.getShowingAttributes({}),
-  ]);
+    const [data, attributes] = await Promise.all([
+      ProductServices.getShowingStoreProducts({
+        category: _id ? _id : "",
+        title: query ? encodeURIComponent(query) : "",
+      }),
+      AttributeServices.getShowingAttributes({}),
+    ]);
 
-  return {
-    props: {
-      products: data?.products,
-      attributes,
-    },
-  };
+    return {
+      props: {
+        products: data?.products || [],
+        attributes: attributes || [],
+      },
+    };
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return {
+      props: {
+        products: [],
+        attributes: [],
+      },
+    };
+  }
 };
+
 
 // export const getServerSideProps = async (context) => {
 //   const { query } = context.query;
