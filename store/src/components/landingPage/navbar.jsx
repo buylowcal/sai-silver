@@ -126,7 +126,7 @@ function Navbar() {
                       whitespace-nowrap
                       tracking-widest 
                       font-serif 
-                      leading-tight      
+                      leading-loose      
                       px-2               
                       mx-2                 
                       after:content-['']  

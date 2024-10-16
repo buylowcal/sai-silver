@@ -42,7 +42,7 @@ const CategoryCarousel = () => {
           swiper.navigation.init();
           swiper.navigation.update();
         }}
-        spaceBetween={80}
+        spaceBetween={0}
         navigation={true}
         allowTouchMove={false}
         loop={true}
@@ -66,27 +66,27 @@ const CategoryCarousel = () => {
           // when window width is >= 768px
           768: {
             width: 768,
-            slidesPerView: 6,
+            slidesPerView: 5,
           },
 
           // when window width is >= 768px
           991: {
             width: 991,
-            slidesPerView: 5,
+            slidesPerView: 6,
           },
 
           // when window width is >= 768px
           1140: {
             width: 1140,
-            slidesPerView: 6,
+            slidesPerView: 7,
           },
           1680: {
             width: 1680,
-            slidesPerView: 5,
+            slidesPerView: 8,
           },
           1920: {
             width: 1920,
-            slidesPerView: 7,
+            slidesPerView: 9,
           },
         }}
         modules={[Navigation]}
@@ -128,13 +128,12 @@ const CategoryCarousel = () => {
     text-[14px] 
     sm:text-[14px] 
     md:text-[14px] 
-    border border-2
+   
     mt-2 
-    
     whitespace-nowrap
     tracking-widest 
     font-sans 
-    group-hover:text-emerald-500 
+    group-hover:text-[#ff6b01]
     leading-loose  
     p-2    
     px-2               
