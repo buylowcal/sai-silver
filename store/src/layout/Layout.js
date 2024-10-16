@@ -26,7 +26,7 @@ const Layout = ({ title, description, children }) => {
         </Head>
         {/* <NavBarTop /> */}
         <Navbar />
-        <div className="bg-gray-50 w-screen h-screen overflow-auto">{children}</div>
+        <div className="bg-gray-50 h-screen ">{children}</div>
         {/* <MobileFooter /> */}
         <div className="w-full">
           {/* <FooterTop /> */}
