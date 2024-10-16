@@ -295,7 +295,7 @@ const useCheckoutSubmit = (storeSetting) => {
             const orderData = {
               ...orderInfo,
               total: total,
-              cardCharge: cardCharge,
+              // cardCharge: cardCharge,
               razorpay,
             };
 

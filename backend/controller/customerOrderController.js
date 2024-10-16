@@ -86,24 +86,38 @@ const createPaymentIntent = async (req, res) => {
 
 const createOrderByRazorPay = async (req, res) => {
   try {
-    const storeSetting = await Setting.findOne({ name: "storeSetting" });
-    // console.log("createOrderByRazorPay", storeSetting?.setting);
 
+    console.log("req.body",req.body)
+    console.log("createOrderByRazorPay");
+
+    const storeSetting = await Setting.findOne({ name: "storeSetting" });
+    console.log("createOstoreSettingrderByRazorPay", storeSetting);
+    console.log("storeSetting", storeSetting)
+
+    
+    // const instance = new Razorpay({
+    //   key_id: storeSetting?.setting?.razorpay_id,
+    //   key_secret: storeSetting?.setting?.razorpay_secret,
+    // });
     const instance = new Razorpay({
-      key_id: storeSetting?.setting?.razorpay_id,
-      key_secret: storeSetting?.setting?.razorpay_secret,
+      key_id:     process.env.RAZORPAY_ID,
+      key_secret: process.env.RAZORPAY_SECRET,
     });
 
+    console.log("we are here !!!!");
     const options = {
-      amount: req.body.amount * 100,
+      amount: (+req.body.amount) * 100,
       currency: "INR",
     };
     const order = await instance.orders.create(options);
+    console.log("orderssssss", order);
+    if (!order){
 
-    if (!order)
       return res.status(500).send({
         message: "Error occurred when creating order!",
-      });
+      })
+    }
+  else
     res.send(order);
   } catch (err) {
     res.status(500).send({

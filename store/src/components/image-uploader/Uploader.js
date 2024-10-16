@@ -43,11 +43,11 @@ const Uploader = ({ setImageUrl, imageUrl }) => {
     const uploadURL = uploadUrl;
     const uploadPreset = upload_Preset;
     if (files) {
-      files.forEach((file) => {
+      files.forEach(async (file) => {
         const formData = new FormData();
         formData.append("file", file);
         formData.append("upload_preset", uploadPreset);
-        axios({
+        await axios({
           url: uploadURL,
           method: "POST",
           headers: {

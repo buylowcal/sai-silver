@@ -44,7 +44,7 @@ function CategoriesSlider({ attributes }) {
   // Use fetched categories if available, otherwise fallback to placeholders
   const categories = data?.[0]?.children?.length > 0 ? data[0].children : placeholderCategories;
 
-  console.log("categories: ", categories);
+  console.log("categories: ", data[0]?.children);
 
   const handleCategoryClick = (id, category) => {
     const category_name = showingTranslateValue(category)
@@ -86,13 +86,14 @@ function CategoriesSlider({ attributes }) {
             categories?.map((category, index) => (
               <div
                 key={index}
-                onClick={() => handleCategoryClick(category?._id, category.name)}
+                onClick={() => handleCategoryClick(category?._id, category.name || "#")}
                 className="block"
               >
                 <DirectionAwareHover
                   children={category.name?.en || category.name}
-                  imageUrl={category.icon || category.image}
+                  imageUrl={category.image || category.icon}
                 />
+            
               </div>
             ))}
         </Slider>
