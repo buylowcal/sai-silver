@@ -12,6 +12,7 @@ import CategoryCarousel from "@components/carousel/CategoryCarousel";
 import { SidebarContext } from "@context/SidebarContext";
 import Loading from "@components/preloader/Loading";
 import AttributeServices from "@services/AttributeServices";
+import BestSellingProducts from "@components/category/bestSeller";
 
 const Search = ({ products, attributes }) => {
   const { t } = useTranslation();
@@ -35,6 +36,7 @@ const Search = ({ products, attributes }) => {
               </div> */}
               <div className="relative ">
                 <CategoryCarousel />
+                <BestSellingProducts/>
               </div>
               {productData?.length === 0 ? (
                 <div className="mx-auto mt-8 p-5 my-5 ">

@@ -54,8 +54,9 @@ const CategoryCarousel = () => {
                   text-black
                   text-[14px]
                   sm:text-[12px]
-                  md:text-[10px]
+                  md:text-[12px]
                   mt-2
+                
                   whitespace-nowrap
                   tracking-widest
                   font-sans
