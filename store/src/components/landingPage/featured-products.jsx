@@ -36,7 +36,7 @@ function FeaturedProducts({ popularProducts, attributes }) {
 
   return (
     <>
-      <section id="featured" className="py-12 bg-gray-50">
+      <section id="featured" className="py-12 bg-white">
         <h2 className="text-3xl tracking-widest text-center mb-8 uppercase ">
           Featured Products
         </h2>

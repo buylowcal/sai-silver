@@ -42,55 +42,13 @@ const CategoryCarousel = () => {
           swiper.navigation.init();
           swiper.navigation.update();
         }}
-        spaceBetween={0}
+        spaceBetween={10}
         navigation={true}
-        allowTouchMove={false}
+        allowTouchMove={true}
         loop={true}
-        breakpoints={{
-          // when window width is >= 640px
-          375: {
-            width: 375,
-            slidesPerView: 2,
-          },
-          // when window width is >= 768px
-          414: {
-            width: 414,
-            slidesPerView: 3,
-          },
-          // when window width is >= 768px
-          660: {
-            width: 660,
-            slidesPerView: 4,
-          },
-
-          // when window width is >= 768px
-          768: {
-            width: 768,
-            slidesPerView: 5,
-          },
-
-          // when window width is >= 768px
-          991: {
-            width: 991,
-            slidesPerView: 6,
-          },
-
-          // when window width is >= 768px
-          1140: {
-            width: 1140,
-            slidesPerView: 7,
-          },
-          1680: {
-            width: 1680,
-            slidesPerView: 8,
-          },
-          1920: {
-            width: 1920,
-            slidesPerView: 9,
-          },
-        }}
+       
         modules={[Navigation]}
-        className="mySwiper category-slider my-10"
+        className="mySwiper category-slider my-8"
       >
         {error ? (
           <p className="flex justify-center align-middle items-center m-auto text-xl text-red-500">
@@ -104,7 +62,7 @@ const CategoryCarousel = () => {
                   onClick={() =>
                     handleCategoryClick(category?._id, category.name)
                   }
-                  className="text-center cursor-pointer p-5 bg rounded-lg"
+                  className="text-center cursor-pointer p-3 bg rounded-lg"
                 >
                   {/* <div className="bg-white p-2 mx-auto w-10 h-10 rounded-full shadow-md">
                     <div className="relative w-9 h-9">
