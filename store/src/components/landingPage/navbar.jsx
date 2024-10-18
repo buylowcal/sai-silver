@@ -106,7 +106,7 @@ function Navbar() {
           <img
             onClick={() => router.push("/")}
             src="/logo/saii.png"
-            className="cursor-pointer w-12 h-auto object-contain sm:hidden"
+            className="cursor-pointer w-12 h-12 object-contain sm:hidden"
             alt="Brand Logo"
           />
         </div>
@@ -114,13 +114,13 @@ function Navbar() {
         <div className="flex justify-end ">
           {/* Center: Categories (hidden on small screens) */}
           {router?.pathname !== "/search" && (
-            <div className="hidden md:flex flex items-center space-x-2">
+            <div className="hidden sm:hidden md:flex flex items-center space-x-2">
               {data[0]?.children?.slice(1, 7).map((category, index) => (
                 <div key={index} className="cursor-pointer group">
                   <h3
                     className="
                     text-white
-                      relative 
+                      
                       text-base 
                       mt-2 
                       whitespace-nowrap

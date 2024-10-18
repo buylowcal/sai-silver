@@ -7,11 +7,10 @@ import MobileFooter from "@layout/footer/MobileFooter";
 import FeatureCard from "@components/feature-card/FeatureCard";
 import Navbar from "@components/landingPage/navbar";
 import Footer from "@components/landingPage/footer";
-  
-const Layout = ({ title, description, children }) => {
 
+const Layout = ({ title, description, children }) => {
   return (
-    <>  
+    <>
       <ToastContainer />
 
       <div className="font-sans">
@@ -22,23 +21,30 @@ const Layout = ({ title, description, children }) => {
               : "Sai Silver - Best Silver Jewellery in Tri City"}
           </title>
           {description && <meta name="description" content={description} />}
-          <link ref="icon" href="/saii.png" type="image/png" sizes="48x48" className="rounded-full border-2 border-[#767676]"/>
+          <link
+            rel="icon"
+            href="/saii.png"
+            type="image/png"
+            sizes="48x48"
+            className="rounded-full border-2 border-[#767676]"
+          />
         </Head>
+        {/* Make the top navigation sticky */}
+        
+        <div className="sticky top-0 z-50">
         {/* <NavBarTop /> */}
-        <Navbar />
-        <div className="bg-white h-screen ">{children}</div>
-        {/* <MobileFooter /> */}
-        <div className="w-full">
-          {/* <FooterTop /> */}
-         
-         
-          <div className="border-t border-gray-100 w-full">
-            {/* <Footer  /> */}
+
+          <div className="flex flex-col">
+            <Navbar />
           </div>
-          {/* <hr className="hr-line"></hr>
-          <div className="hidden relative lg:block mx-auto max-w-screen-2xl py-6 px-3 sm:px-10">
-            <FeatureCard />
-          </div> */}
+        </div>
+
+        <div className="bg-white h-screen">{children}</div>
+
+        <div className="w-full">
+          <div className="border-t border-gray-100 w-full">
+            <Footer />
+          </div>
         </div>
       </div>
     </>
