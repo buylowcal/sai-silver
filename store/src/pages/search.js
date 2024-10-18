@@ -50,44 +50,37 @@ const Search = ({ products, attributes }) => {
                   </h2>
                 </div>
               ) : (
-                <div className="flex justify-between my-3  text-[#ff6b01] font-medium ">
-                  <h6 className="text-[14px] font-sans tracking-widest uppercase">
-                    {/* {t("common:totalI")}{" "} */}
-                    <span className="font-medium ml-1">
-                      {productData?.length}
-                    </span>{" "}
-                    {t("common:itemsFound")}
-                  </h6>
-                  <span className="relative inline-block text-[14px] font-sans tracking-widest">
-                    {/* <label htmlFor="underline_select" className="sr-only">
-                      Underline select
-                    </label> */}
-                    <select
-                      onChange={(e) => setSortedField(e.target.value)}
-                      className="block py-1 px-4 w-full text-[14px] text-[#ff6b01] bg-transparent tracking-widest border-0 border-b-2 border-[#ff6b01] appearance-none peer"
-                    >
-                      <option className="" selected defaultValue>
-                        Sort Product
-                      </option>
-                      {/* <option className="px-8" value="All" defaultValue hidden>
-                        {t("common:sortByPrice")}
-                      </option> */}
-                      <option className="px-3" value="Low">
-                        {t("common:lowToHigh")}
-                      </option>
-                      <option className="px-3" value="High">
-                        {t("common:highToLow")}
-                      </option>
-                      <option className="px-12" value="AlphabeticalAZ">
-                        {t("Alphabetically, A-Z")}
-                      </option>
-                      <option className="px-6" value="AlphabeticalZA">
-                        {t("Alphabetically, Z-A")}
-                      </option>
-                    </select>
-                   
+                <div className="flex flex-col sm:flex-row sm:justify-between my-3 text-[#ff6b01] font-medium">
+                <h6 className="text-[14px] font-sans tracking-widest uppercase">
+                  <span className="font-medium ml-1">
+                    {productData?.length} {" "}
                   </span>
-                </div>
+                  {t("common:itemsFound")}
+                </h6>
+                <span className="relative inline-block text-[14px] font-sans tracking-widest mt-3 sm:mt-0">
+                  <select
+                    onChange={(e) => setSortedField(e.target.value)}
+                    className="block py-1 px-4 w-full text-[14px] text-[#ff6b01] bg-transparent tracking-widest border-0 border-b-2 border-[#ff6b01] appearance-none peer"
+                  >
+                    <option selected defaultValue>
+                      Sort Product
+                    </option>
+                    <option value="Low">
+                      {t("common:lowToHigh")}
+                    </option>
+                    <option value="High">
+                      {t("common:highToLow")}
+                    </option>
+                    <option value="AlphabeticalAZ">
+                      {t("Alphabetically, A-Z")}
+                    </option>
+                    <option value="AlphabeticalZA">
+                      {t("Alphabetically, Z-A")}
+                    </option>
+                  </select>
+                </span>
+              </div>
+              
               )}
 
               {isLoading ? (
