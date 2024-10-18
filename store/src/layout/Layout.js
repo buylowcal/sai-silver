@@ -39,7 +39,7 @@ const Layout = ({ title, description, children }) => {
           </div>
         </div>
 
-        <div className="bg-white h-screen">{children}</div>
+        <div className="bg-white">{children}</div>
 
         <div className="w-full">
           <div className="border-t border-gray-100 w-full">

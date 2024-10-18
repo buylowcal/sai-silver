@@ -7,17 +7,17 @@ import SocialIcons from "@components/socials/icon";
 const Footer = () => {
   const footerLinks = [
     {
-      src: "/logo/request-catalog.jpg",
+      src: "https://i.etsystatic.com/33174367/r/il/04d084/4227469026/il_570xN.4227469026_mpsz.jpg",
       alt: "Request a Catalog",
       text: "Request a Catalog",
     },
     {
-      src: "/logo/visit-showroom.jpg",
+      src: "https://m.media-amazon.com/images/I/91a6XGqKlmL._AC_UY1100_.jpg",
       alt: "Visit Our Showroom",
       text: "Visit Our Showroom",
     },
     {
-      src: "/logo/limited-time-offer.jpg",
+      src: "https://rnbjewellery.com/cdn/shop/files/MODEL-DH50.jpg?v=1722983707&width=2000",
       alt: "View Limited-Time Offer",
       text: "View Limited-Time Offer",
     },
@@ -53,13 +53,13 @@ const Footer = () => {
               >
                 {item.text}
               </Link>
-              {/* <Image
+              <Image
                 src={item.src}
                 alt={item.alt}
                 className="object-cover mb-2"
                 width={140}
                 height={140}
-              /> */}
+              />
             </div>
           ))}
         </div>
