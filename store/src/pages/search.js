@@ -29,7 +29,6 @@ const Search = ({ products, attributes }) => {
       <div className="mx-auto max-w-screen-2xl px-3 sm:px-10 ">
         <div className="flex py-10 lg:py-12">
           <div className="flex w-full">
-            
             <div className="w-full">
               {/* <div className="w-full grid grid-col gap-4 grid-cols-1 2xl:gap-6 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2">
                 <Card />
@@ -51,27 +50,42 @@ const Search = ({ products, attributes }) => {
                   </h2>
                 </div>
               ) : (
-                <div className="flex justify-between my-3 bg-gray-200 text-black border border-gray-100  rounded p-3">
-                  <h6 className="text-[19px] font-sans tracking-widest">
-                    {t("common:totalI")}{" "}
-                    <span className="font-bold">{productData?.length}</span>{" "}
+                <div className="flex justify-between my-3  text-[#ff6b01] font-medium ">
+                  <h6 className="text-[14px] font-sans tracking-widest uppercase">
+                    {/* {t("common:totalI")}{" "} */}
+                    <span className="font-medium ml-1">
+                      {productData?.length}
+                    </span>{" "}
                     {t("common:itemsFound")}
                   </h6>
-                  <span className="text-sm font-sans tracking-widest">
+                  <span className="relative inline-block text-[14px] font-sans tracking-widest">
+                    {/* <label htmlFor="underline_select" className="sr-only">
+                      Underline select
+                    </label> */}
                     <select
                       onChange={(e) => setSortedField(e.target.value)}
-                      className="py-1.5 text-[17px] font-sans tracking-wider font-medium  w-full rounded-md border-0 border-black bg-black text-white pr-10  "
+                      className="block py-1 px-4 w-full text-[14px] text-[#ff6b01] bg-transparent tracking-widest border-0 border-b-2 border-[#ff6b01] appearance-none peer"
                     >
-                      <option className="px-3" value="All" defaultValue hidden>
-                        {t("common:sortByPrice")}
+                      <option className="" selected defaultValue>
+                        Sort Product
                       </option>
+                      {/* <option className="px-8" value="All" defaultValue hidden>
+                        {t("common:sortByPrice")}
+                      </option> */}
                       <option className="px-3" value="Low">
                         {t("common:lowToHigh")}
                       </option>
                       <option className="px-3" value="High">
                         {t("common:highToLow")}
                       </option>
+                      <option className="px-12" value="AlphabeticalAZ">
+                        {t("Alphabetically, A-Z")}
+                      </option>
+                      <option className="px-6" value="AlphabeticalZA">
+                        {t("Alphabetically, Z-A")}
+                      </option>
                     </select>
+                   
                   </span>
                 </div>
               )}
@@ -140,7 +154,6 @@ export const getServerSideProps = async (context) => {
     };
   }
 };
-
 
 // export const getServerSideProps = async (context) => {
 //   const { query } = context.query;

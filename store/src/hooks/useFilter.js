@@ -12,6 +12,7 @@ const useFilter = (data) => {
 
   const productData = useMemo(() => {
     let services = data;
+    console.log("datalllll",data)
     //filter user order
     if (router.pathname === "/user/dashboard") {
       const orderPending = services?.filter(
@@ -41,7 +42,17 @@ const useFilter = (data) => {
         (a, b) => a.prices.price > b.prices.price && -1
       );
     }
-
+    if (sortedField === "AlphabeticalAZ") {
+      services = services?.sort((a, b) => 
+        (a.title?.en && b.title?.en ? a.title.en.localeCompare(b.title.en) : 0)
+      );
+    }
+    if (sortedField === "AlphabeticalZA") {
+      services = services?.sort((a, b) => 
+        (a.title?.en && b.title?.en ? b.title.en.localeCompare(a.title.en) : 0)
+      );
+    }
+    
     return services;
 
     // eslint-disable-next-line react-hooks/exhaustive-deps

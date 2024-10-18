@@ -62,7 +62,7 @@ const ProductCard = ({ product, attributes }) => {
         />
       )}
 
-      <div className="group box-border overflow-hidden flex  rounded-lg shadow-md flex-col items-center bg-white relative w-full h-full max-w-sm">
+      <div className="group box-border overflow-hidden flex  shadow-xl border border-2 border-gray-50 flex-col items-center bg-gray-50 relative w-full h-full max-w-sm">
         {/* Header Section */}
         <div className="w-full flex justify-between px-4 py-2">
           {/* <Stock product={product} stock={product.stock} card /> */}
@@ -140,7 +140,7 @@ const ProductCard = ({ product, attributes }) => {
                     item.id === product._id && (
                       <div
                         key={item.id}
-                        className="h-12 w-auto flex items-center justify-evenly py-2 px-3 bg-emerald-600 text-white rounded-md"
+                        className="h-12 w-auto flex items-center justify-evenly py-2 px-3 bg-[#ff6b01] text-white rounded-md"
                       >
                         <button
                           onClick={() =>

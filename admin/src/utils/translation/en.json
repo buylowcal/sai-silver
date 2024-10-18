@@ -55,6 +55,8 @@
   "Price": "Price",
   "LowtoHigh": "Low to High",
   "HightoLow": "High to Low",
+  "AlphabeticalA-Z": "Aplhabetical A-Z",
+  "AlphabeticalZ-A": "Aplhabetical Z-A",
   "AddProduct": "Add Product",
   "BulkAction": "Bulk Action",
   "DropCSVfile": "Drop CSV file",
