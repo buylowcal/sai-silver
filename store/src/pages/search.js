@@ -37,7 +37,7 @@ const Search = ({ products, attributes }) => {
                 <CategoryCarousel />
               </div>
               {productData?.length === 0 ? (
-                <div className="mx-auto p-5 my-5 ">
+                <div className="mx-auto mt-8 p-5 my-5 ">
                   <Image
                     className="my-4 mx-auto"
                     src="/no-result.svg"
@@ -50,7 +50,7 @@ const Search = ({ products, attributes }) => {
                   </h2>
                 </div>
               ) : (
-                <div className="flex flex-col sm:flex-row sm:justify-between my-3 text-[#ff6b01] font-medium">
+                <div className="flex flex-col sm:flex-row sm:justify-between my-3 mt-20 text-gray-700 font-medium">
                 <h6 className="text-[14px] font-sans tracking-widest uppercase">
                   <span className="font-medium ml-1">
                     {productData?.length} {" "}
@@ -60,7 +60,7 @@ const Search = ({ products, attributes }) => {
                 <span className="relative inline-block text-[14px] font-sans tracking-widest mt-3 sm:mt-0">
                   <select
                     onChange={(e) => setSortedField(e.target.value)}
-                    className="block py-1 px-4 w-full text-[14px] text-[#ff6b01] bg-transparent tracking-widest border-0 border-b-2 border-[#ff6b01] appearance-none peer"
+                    className="block py-1 px-4 w-full text-[14px] text-gray-700 bg-transparent tracking-widest border-0 border-b-2 border-gray-700 appearance-none peer"
                   >
                     <option selected defaultValue>
                       Sort Product
