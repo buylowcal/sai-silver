@@ -20,9 +20,11 @@ const BestSellingProducts = () => {
   };
 
   return (
-    <div className="text-center my-10">
-      <h2 className="text-2xl font-bold mb-5">OUR BEST SELLING PRODUCTS</h2>
-      <div className="flex justify-center space-x-4">
+    <div className="text-center my-10 mt-14">
+      <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-2xl font-normal tracking-wide mb-5">
+        OUR BEST SELLING PRODUCTS
+      </h2>
+      <div className="flex flex-wrap justify-center gap-4">
         {error ? (
           <p className="text-red-500">Failed to load categories</p>
         ) : (
@@ -30,7 +32,7 @@ const BestSellingProducts = () => {
             <button
               key={index}
               onClick={() => handleCategoryClick(category?._id, category.name)}
-              className="border border-gray-400 px-4 py-2 hover:bg-[#ff6b01] hover:text-white hover:border-[#ff6b01] tracking-widest transition duration-200"
+              className="border border-gray-400 px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 text-xs sm:text-sm md:text-base hover:bg-[#ff6b01] hover:text-white hover:border-[#ff6b01] tracking-widest transition duration-200"
             >
               {showingTranslateValue(category?.name).toUpperCase()}
             </button>
