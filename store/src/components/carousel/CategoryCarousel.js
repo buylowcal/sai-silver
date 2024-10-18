@@ -35,9 +35,9 @@ const CategoryCarousel = () => {
 
   return (
     <>
-      <div className="flex overflow-x-auto whitespace-nowrap hidden sm:flex">
+      <div className="flex overflow-x-hidden whitespace-nowrap hidden sm:flex">
         {error ? (
-          <p className="flex justify-center align-middle items-center m-auto text-xl text-red-500">
+          <p className="flex lg:block justify-center align-middle items-center m-auto text-xl text-red-500">
             <span> {error}</span>
           </p>
         ) : (
@@ -53,8 +53,8 @@ const CategoryCarousel = () => {
                   className="
                   text-black
                   text-[14px]
-                  sm:text-[14px]
-                  md:text-[14px]
+                  sm:text-[12px]
+                  md:text-[10px]
                   mt-2
                   whitespace-nowrap
                   tracking-widest
