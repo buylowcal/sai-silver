@@ -40,7 +40,7 @@ const Showroom = () => {
         </p>
 
         {/* Button */}
-        <button className="w-fit text-black whitespace-nowrap bg-white border border-white hover:bg-black hover:border-black hover:text-white font-normal tracking-widest rounded-full text-base px-6 py-2 text-center">
+        <button className="w-fit text-black whitespace-nowrap bg-transparent text-white border border-white hover:bg-[#ff6b01] hover:border-black hover:text-white font-normal tracking-widest rounded-full text-base px-6 py-2 text-center">
           Explore Showroom
         </button>
       </div>
