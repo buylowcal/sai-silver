@@ -4,7 +4,7 @@ import React from "react";
 const Community = () => {
   return (
     <div>
-      <div className="bg-gray-50 text-black py-10">
+      <div className="bg-white text-black py-10">
         <div className="flex justify-center mb-6">
           <svg
             className="w-10 h-10 text-black"
