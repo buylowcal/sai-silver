@@ -14,12 +14,12 @@ const Stock = ({ stock, card }) => {
           <span
             className={`${
               card
-                ? "bg-gray-100 absolute z-10 text-green-500 rounded-full text-xs px-2 py-0 font-medium"
-                : "bg-green-100 text-green-500 rounded-full inline-flex items-center justify-center px-2 py-0 text-xs font-semibold font-serif"
+                ? "bg-gray-100 absolute z-10 text-green-500 rounded-full text-base tracking-wider px-2 py-0 font-semibold"
+                : "bg-lime-50 text-green-500 rounded-full inline-flex items-center justify-center px-2.5 py-0.5 text-base font-semibold font-sans"
             }`}
           >
-            {t("common:stock")} :
-            <span className="text-orange-700 pl-1 font-bold">{stock} </span>
+            {t("common:stock")}:
+            <span className="text-green-500 pl-1 font-semibold">{stock} </span>
           </span>
         </>
       )}

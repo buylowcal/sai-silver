@@ -251,7 +251,7 @@ const ProductModal = ({
                 <Link href={`/product/${product.slug}`} passHref>
                   <h1
                     onClick={() => setModalOpen(false)}
-                    className="text-heading text-lg md:text-xl lg:text-2xl font-semibold font-serif hover:text-black cursor-pointer"
+                    className="text-heading text-lg md:text-xl lg:text-2xl font-medium font-sans tracking-wider hover:text-black cursor-pointer"
                   >
                     {showingTranslateValue(product?.title)}
                   </h1>
@@ -264,14 +264,15 @@ const ProductModal = ({
                   <Stock stock={stock} />
                 </div>
               </div>
-              <p className="text-sm leading-6 text-gray-500 md:leading-6">
+              <p className="text-[14px] leading-6 text-justify tracking-wider text-gray-500 md:leading-6">
                 {showingTranslateValue(product?.description)}
               </p>
               <div className="flex items-center my-4">
                 <Price
                   product={product}
                   price={price}
-                  currency={currency}
+                  // currency={currency}
+                  currency ="₹"
                   originalPrice={originalPrice}
                 />
               </div>
@@ -329,7 +330,7 @@ const ProductModal = ({
                   <button
                     onClick={() => handleAddToCart(product)}
                     disabled={product.quantity < 1}
-                    className="text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-serif text-center justify-center border-0 border-transparent rounded-md focus-visible:outline-none focus:outline-none text-white px-4 ml-4 md:px-6 lg:px-8 py-4 md:py-3.5 lg:py-4 hover:text-white bg-emerald-500 hover:bg-emerald-600 w-full h-12"
+                    className="text-base leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-sans text-center justify-center border-0 border-transparent rounded-md focus-visible:outline-none focus:outline-none text-white px-4 ml-4 md:px-6 lg:px-8 py-4 md:py-3.5 lg:py-4 border border-2 hover:border-black bg-black hover:bg-white hover:text-black w-full h-12"
                   >
                     {t("common:addToCart")}
                   </button>
