@@ -55,7 +55,7 @@ const LandingPage = ({ discountProducts, popularProducts, attributes }) => {
       <Testimonials/>
       {/* <Footer /> */}
       <Community />
-      <Footer />
+      {/* <Footer /> */}
       <br />
       {/* <div className="mt-6">
         <ToolsResources />
