@@ -11,7 +11,7 @@ const CMSkeletonTwo = ({
 }) => {
   return (
     <div className={textAlign ? "text-right" : "text-center"}>
-      <Skeleton
+      {/* <Skeleton
         count={count || 6}
         height={height || 22}
         width={`${width}%` || "100%"}
@@ -19,7 +19,8 @@ const CMSkeletonTwo = ({
         baseColor={color || "#f1f5f9"}
         // direction="left"
         highlightColor={highlightColor || "#cbd5e1"}
-      />
+      /> */}
+    
     </div>
   );
 };
