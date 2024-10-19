@@ -94,11 +94,11 @@ function Navbar() {
         className={`fixed flex justify-between gap-4 sapce-x-4 w-full z-40 transition-all duration-300 p-4 bg-black flex-wrap sm:flex-nowrap`}
       >
         <div className="max-w-7xl px-4 flex justify-start items-center h-16">
-          {/* Left Side: Logo for larger screens */}
+          {/* Logo for larger screens */}
           <img
             onClick={() => router.push("/")}
             src="/logo/logo-color.png"
-            className="cursor-pointer w-80 h-auto object-contain hidden sm:block "
+            className="cursor-pointer w-80 h-auto object-contain md:block hidden" // Adjust width for medium screens
             alt="Brand Logo"
           />
 
@@ -106,7 +106,7 @@ function Navbar() {
           <img
             onClick={() => router.push("/")}
             src="/logo/saii.png"
-            className="cursor-pointer w-12 h-12 object-contain sm:hidden"
+            className="cursor-pointer w-8 h-8 object-contain md:hidden block"
             alt="Brand Logo"
           />
         </div>
@@ -116,43 +116,43 @@ function Navbar() {
           {router?.pathname !== "/search" && (
             <div className="hidden sm:hidden md:flex flex items-center space-x-2">
               {data[0]?.children?.slice(1, 7).map((category, index) => (
-                <div key={index} className="cursor-pointer group">
+                <div
+                  key={index}
+                  onClick={() =>
+                    handleCategoryClick(category?._id, category.name)
+                  }
+                  className="cursor-pointer group"
+                >
                   <h3
                     className="
-                    text-white
-                      
-                      text-base 
-                      mt-2 
-                      whitespace-nowrap
-                      tracking-widest 
-                      font-serif 
-                      leading-loose      
-                      px-2               
-                      mx-2                 
-                      after:content-['']  
-                      after:absolute 
-                      after:left-0 
-                      after:bottom-0 
-                      after:h-0.5 
-                      after:w-full      
-                      after:bg-current 
-                      after:transition-transform 
-                      after:duration-500 
-                      after:scale-x-0 
-                      after:origin-center
-                      hover:text-[#ff6b01] 
-                      hover:after:scale-x-100
-                      w-full                
-                      sm:w-auto             
-                      sm:inline-block       
-                      flex-shrink-0         
-                      max-w-xs              
-                      text-center     
-                      cursor-pointer      
-                    "
-                    onClick={() =>
-                      handleCategoryClick(category?._id, category.name)
-                    }
+                  text-white
+                  text-[14px]
+                  sm:text-[13px]
+                  md:text-[13px]
+                  mt-2
+                
+                  whitespace-nowrap
+                  tracking-widest
+                  font-sans
+                  group-hover:text-[#ff6b01]
+                  leading-loose
+                  p-2
+                  px-2
+                  mx-2
+                  relative
+                  after:content-[' ']
+                  after:absolute
+                  after:left-0
+                  after:bottom-0
+                  after:h-0.5
+                  after:w-full
+                  after:bg-current
+                  after:transition-transform
+                  after:duration-500
+                  after:scale-x-0
+                  after:origin-center
+                  hover:after:scale-x-100
+                "
                   >
                     {showingTranslateValue(category?.name).toUpperCase()}
                   </h3>
@@ -162,10 +162,10 @@ function Navbar() {
           )}
 
           {/* Right Side: Icons */}
-          <div className="flex items-center space-x-8">
+          <div className="flex items-center space-x-4">
             {/* Search Icon */}
             <FiSearch
-              className="h-6 w-6 cursor-pointer text-white hover:text-[#ff6b01]"
+              className="h-4 w-4 md:h-6 md:w-6 cursor-pointer text-white hover:text-[#ff6b01]"
               onClick={() => setShowSearch(true)}
               aria-label="Search"
             />
@@ -173,12 +173,12 @@ function Navbar() {
             {/* Cart Icon */}
             <div className="relative">
               <FiShoppingCart
-                className="h-6 w-6 cursor-pointer text-white hover:text-[#ff6b01]"
+                className="h-4 w-4 md:h-6 md:w-6 cursor-pointer text-white hover:text-[#ff6b01]"
                 onClick={toggleCartDrawer}
                 aria-label="Cart"
               />
               {totalItems > 0 && (
-                <span className="absolute -top-2 -right-2 inline-flex items-center justify-center p-1 h-5 w-5 text-xs font-medium leading-none text-white bg-red-500 rounded-full">
+                <span className="absolute -top-2 -right-2 inline-flex items-center justify-center p-1 h-4 w-4 text-xs font-medium leading-none text-white bg-[#ff6b01] rounded-full">
                   {totalItems}
                 </span>
               )}
@@ -200,11 +200,11 @@ function Navbar() {
                     className="ring ring-[#ff6b01] ring-2 rounded-full px-2 py-1 hover:ring-white"
                   />
                 ) : userInfo?.name ? (
-                  <span className="leading-none font-bold font-serif block">
+                  <span className="leading-none font-bold font-baskerville block mt-0 ring-2 ring-white hover:ring-[#ff6b01] rounded-full px-2 py-1">
                     {userInfo.name[0]}
                   </span>
                 ) : (
-                  <FiUser className="h-6 w-6 cursor-pointer text-white hover:text-[#ff6b01]" />
+                  <FiUser className="h-4 w-4 md:h-6 md:w-6 cursor-pointer text-white hover:text-[#ff6b01]" />
                 )}
               </button>
 
@@ -261,9 +261,9 @@ function Navbar() {
             </div>
 
             {/* Burger Menu Icon (visible on small screens) */}
-            <div className="md:hidden lg:hidden">
+            <div className="md:hidden block">
               <FiMenu
-                className="h-6 w-6 cursor-pointer text-white hover:text-[#ff6b01]"
+                className="h-4 w-4 md:h-6 md:w-6 cursor-pointer text-white hover:text-[#ff6b01]"
                 onClick={toggleCategoryDrawer}
                 aria-label="Menu"
               />
