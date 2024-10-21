@@ -32,7 +32,7 @@ const Layout = ({ title, description, children }) => {
         {/* Make the top navigation sticky */}
         
         <div className="sticky top-0 z-50">
-        {/* <NavBarTop /> */}
+    
 
           <div className="flex flex-col">
             <Navbar />
@@ -43,7 +43,6 @@ const Layout = ({ title, description, children }) => {
 
         <div className="w-full">
           <div className="border-t border-gray-100 w-full">
-            
             <Footer />
           </div>
         </div>

@@ -93,20 +93,20 @@ const NavBarTop = () => {
       <div className="block bg-black py-2.5 md:px-3">
         <div className="min-w-screen mx-auto">
           <div
-            className={`text-gray-700 font-sans text-[11px] md:text-xs font-medium flex justify-between items-center 
+            className={`text-gray-700 font-sans text-[12px] md:text-xs font-medium flex justify-between items-center 
                ${isMobile ? currentClass : ''} 
               `}
           >
-            <div className="flex items-center font-karla text-[11px] lg:text-xs text-white font-semibold uppercase whitespace-nowrap min-w-full md:min-w-fit md:w-fit justify-center">
+            <div className="flex items-center font-sans tracking-wider text-[12px] lg:text-xs text-white font-semibold uppercase whitespace-nowrap min-w-full md:min-w-fit md:w-fit justify-center">
               1 YEAR WARRANTY | WEAR EVERYDAY
             </div>
 
-            <div className="flex items-center font-karla text-[11px] lg:text-xs text-white font-semibold uppercase whitespace-nowrap min-w-full md:min-w-fit md:w-fit justify-center ">
+            <div className="flex items-center font-sans tracking-wider text-[12px] lg:text-xs text-white font-semibold uppercase whitespace-nowrap min-w-full md:min-w-fit md:w-fit justify-center ">
               50000+ HAPPY CUSTOMERS
             </div>
 
-            <div className="flex items-center font-karla text-[11px] lg:text-xs text-white font-semibold uppercase whitespace-nowrap min-w-full md:min-w-fit md:w-fit justify-center">
-              Tarini's "A Part of Me" Collection is Live - Shop Now
+            <div className="flex items-center font-sans tracking-wider text-[12px] lg:text-xs text-white font-semibold uppercase whitespace-nowrap min-w-full md:min-w-fit md:w-fit justify-center">
+              Sai's "A Part of Me" Collection is Live - Shop Now
             </div>
           </div>
         </div>

@@ -27,6 +27,7 @@ import { SidebarContext } from "@context/SidebarContext";
 import Loading from "@components/preloader/Loading";
 import useGetSetting from "@hooks/useGetSetting";
 import useUtilsFunction from "@hooks/useUtilsFunction";
+import NavBarTop from "@layout/navbar/NavBarTop";
 
 const Dashboard = ({ title, description, children }) => {
   const router = useRouter();
@@ -129,6 +130,7 @@ const Dashboard = ({ title, description, children }) => {
           title={title ? title : "Dashboard"}
           description={description ? description : "This is User Dashboard"}
         >
+          <NavBarTop />
           <div className="mx-auto max-w-screen-2xl px-3 sm:px-10 mt-14">
             <div className="py-10 lg:py-12 flex flex-col lg:flex-row w-full">
               <div className="flex-shrink-0 w-full lg:w-80 mr-7 lg:mr-10  xl:mr-10 ">

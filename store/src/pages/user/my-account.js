@@ -8,6 +8,7 @@ import useAsync from "@hooks/useAsync";
 import { getUserSession } from "@lib/auth";
 import Dashboard from "@pages/user/dashboard";
 import CustomerServices from "@services/CustomerServices";
+import NavBarTop from "@layout/navbar/NavBarTop";
 
 const MyAccount = () => {
   const userInfo = getUserSession();
@@ -24,6 +25,7 @@ const MyAccount = () => {
 
   return (
     <Dashboard title="my-account" description="This is my account page">
+     
       <div className="overflow-hidden mt-14">
         <div className="grid gap-4 mb-8 sm:grid-cols-2 grid-cols-1 ">
           {/* User Info Card */}
@@ -82,11 +84,15 @@ const MyAccount = () => {
                         </span>
                       </h5>
                       <p className="text-base text-gray-500">
-                        <span className="text-base font-semibold text-gray-500">Contact:</span>{" "}
+                        <span className="text-base font-semibold text-gray-500">
+                          Contact:
+                        </span>{" "}
                         {data?.shippingAddress?.contact}{" "}
                       </p>
                       <p className="text-base text-gray-500">
-                        <span className="text-base font-semibold text-gray-500">Address:</span>{" "}
+                        <span className="text-base font-semibold text-gray-500">
+                          Address:
+                        </span>{" "}
                         {data?.shippingAddress?.address}{" "}
                       </p>
                       <p className="text-base text-gray-500">

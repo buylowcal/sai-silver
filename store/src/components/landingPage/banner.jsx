@@ -9,7 +9,7 @@ function Banner() {
       >
         <div className="w-full h-full relative">
           <img
-            className="w-full h-full object-cover" // Change to 'object-contain' to prevent cropping
+            className="w-full h-auto md:h-full object-cover" 
             src="/jewel/banner3.png"
             alt="Jewellery Banner"
           />

@@ -26,7 +26,9 @@ const LandingPage = ({ discountProducts, popularProducts, attributes }) => {
       {/* <Category/> */}
       {/* <LovedDesigns/> */}
 
-      {/* <Navbar /> */}
+      <div className="flex flex-col">
+        <Navbar />
+      </div>
       <Banner />
       {/* <FeatureCategory/> */}
       <CategoriesSlider attributes={attributes} />
@@ -52,7 +54,7 @@ const LandingPage = ({ discountProducts, popularProducts, attributes }) => {
       />
 
       {/* <TestimonialSlider /> */}
-      <Testimonials/>
+      <Testimonials />
       {/* <Footer /> */}
       <Community />
       {/* <Footer /> */}
@@ -60,7 +62,6 @@ const LandingPage = ({ discountProducts, popularProducts, attributes }) => {
       {/* <div className="mt-6">
         <ToolsResources />
       </div> */}
-      
     </div>
   );
 };
