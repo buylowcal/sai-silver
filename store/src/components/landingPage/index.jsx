@@ -1,7 +1,6 @@
 import React from "react";
 import Services from "@components/landingPage/services";
 import ToolsResources from "@components/landingPage/toolsResources";
-import Footer from "@components/landingPage/footer";
 import Journey from "@components/landingPage/journey";
 import Innovations from "@components/landingPage/innovations";
 import Connect from "@components/landingPage/connect";
@@ -20,6 +19,7 @@ import GiftSection from "./gift";
 import Community from "./community";
 import Showroom from "./showroom";
 import Testimonials from "./testimonials";
+
 const LandingPage = ({ discountProducts, popularProducts, attributes }) => {
   return (
     <div className="bg-gary-50 mx-auto w-full overflow-hidden">
@@ -60,6 +60,7 @@ const LandingPage = ({ discountProducts, popularProducts, attributes }) => {
       {/* <div className="mt-6">
         <ToolsResources />
       </div> */}
+      
     </div>
   );
 };

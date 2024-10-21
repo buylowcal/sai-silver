@@ -6,7 +6,7 @@ import FooterTop from "@layout/footer/FooterTop";
 import MobileFooter from "@layout/footer/MobileFooter";
 import FeatureCard from "@components/feature-card/FeatureCard";
 import Navbar from "@components/landingPage/navbar";
-import Footer from "@components/landingPage/footer";
+import Footer from "@layout/footer/Footer";
 
 const Layout = ({ title, description, children }) => {
   return (
@@ -43,6 +43,7 @@ const Layout = ({ title, description, children }) => {
 
         <div className="w-full">
           <div className="border-t border-gray-100 w-full">
+            
             <Footer />
           </div>
         </div>
