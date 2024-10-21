@@ -5,7 +5,7 @@ import { SidebarContext } from "@context/SidebarContext";
 import CategoryServices from "@services/CategoryServices";
 import useUtilsFunction from "@hooks/useUtilsFunction";
 import { useRouter } from "next/router";
-import { ShoppingCartIcon, UserIcon } from "@heroicons/react/outline"; // Import icons
+import { ShoppingCartIcon, UserIcon } from "@heroicons/react/outline"; 
 import { FiShoppingCart, FiUser, FiSearch, FiMenu } from "react-icons/fi"; // Import FiMenuimport { useCart } from "react-use-cart";
 import { getUserSession } from "@lib/auth";
 import Link from "next/link";
