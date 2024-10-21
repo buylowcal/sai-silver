@@ -17,7 +17,7 @@ import CategoryDrawer from "@components/drawer/CategoryDrawer";
 import { signOut } from "next-auth/react";
 
 function Navbar() {
-  const [navBg, setNavBg] = useState("bg-transparent");
+  const [navBg, setNavBg] = useState("bg-black");
   const [showSearch, setShowSearch] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false); // State for sidebar
   const router = useRouter();
@@ -79,7 +79,7 @@ function Navbar() {
         // Change this condition as necessary
         setNavBg("bg-black");
       } else {
-        setNavBg("bg-transparent");
+        setNavBg("bg-black");
       }
     };
 
@@ -93,9 +93,9 @@ function Navbar() {
   return (
     <>
       <nav
-        className={`fixed flex justify-between gap-4 space-x-4 w-full z-40 transition-all duration-300 p-4 ${navBg}`}
+        className={`fixed flex justify-between gap-4 space-x-4 w-full z-40 transition-all duration-300 p-4  ${navBg}`}
       >
-        <div className="max-w-7xl px-4 flex justify-start items-center h-16">
+        <div className="max-w-7xl px-4 flex justify-start items-center h-16 ml-4">
           <img
             onClick={() => router.push("/")}
             src="/logo/logo-color.png"
