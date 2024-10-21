@@ -24,7 +24,7 @@ const BestSellingProducts = () => {
       <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-2xl font-normal tracking-wide mb-5">
         OUR BEST SELLING PRODUCTS
       </h2>
-      <div className="flex flex-wrap justify-center gap-4">
+      <div className="flex gap-4 overflow-x-auto whitespace-nowrap px-4 sm:px-6 md:px-8 scrollbar-hide scroll-smooth">
         {error ? (
           <p className="text-red-500">Failed to load categories</p>
         ) : (
