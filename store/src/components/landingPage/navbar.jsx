@@ -6,6 +6,8 @@ import useUtilsFunction from "@hooks/useUtilsFunction";
 import { useRouter } from "next/router";
 import { ShoppingCartIcon, UserIcon } from "@heroicons/react/outline";
 import { FiShoppingCart, FiUser, FiSearch, FiMenu } from "react-icons/fi"; // Import FiMenuimport { useCart } from "react-use-cart";
+import { BsSearchHeart, BsCart4 } from "react-icons/bs";
+import { ImUser } from "react-icons/im";
 import { getUserSession } from "@lib/auth";
 import Link from "next/link";
 import Image from "next/image";
@@ -165,7 +167,7 @@ function Navbar() {
           {/* Right Side: Icons */}
           <div className="flex items-center space-x-4">
             {/* Search Icon */}
-            <FiSearch
+            <BsSearchHeart
               className="h-4 w-4 md:h-6 md:w-6 cursor-pointer text-white hover:text-[#ff6b01]"
               onClick={() => setShowSearch(true)}
               aria-label="Search"
@@ -173,8 +175,8 @@ function Navbar() {
 
             {/* Cart Icon */}
             <div className="relative">
-              <FiShoppingCart
-                className="h-4 w-4 md:h-6 md:w-6 cursor-pointer text-white hover:text-[#ff6b01]"
+              <BsCart4
+                className="h-3 w-3 md:h-5 md:w-5 cursor-pointer text-white hover:text-[#ff6b01]"
                 onClick={toggleCartDrawer}
                 aria-label="Cart"
               />
@@ -205,7 +207,7 @@ function Navbar() {
                     {userInfo.name[0]}
                   </span>
                 ) : (
-                  <FiUser className="h-4 w-4 md:h-6 md:w-6 cursor-pointer text-white hover:text-[#ff6b01]" />
+                  < ImUser className="h-4 w-4 md:h-6 md:w-6 mt-2 cursor-pointer text-white hover:text-[#ff6b01]" />
                 )}
               </button>
 
