@@ -33,10 +33,10 @@ const Footer = () => {
               Everyone who shops from us is one of us, we will never ghost you.
               Reach out to us & we promise to help you out in the best way possible.
             </p>
-            <p className="text-base mb-2">
-              Email - <a href="mailto:help@saiSilver.com" className="underline">help@saiSilver.com</a>
+            <p className="text-base mb-2 hover:text-gray-500">
+              Email - <a href="mailto:help@saiSilver.com" className="hover:underline">help@saiSilver.com</a>
             </p>
-            <p className="text-base font-semibold">Mon - Sat (10 AM - 7 PM)</p>
+            {/* <p className="text-base font-semibold">Mon - Sat (10 AM - 7 PM)</p> */}
           </div>
 
           {/* About Us Section */}
