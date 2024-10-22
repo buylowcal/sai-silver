@@ -230,7 +230,8 @@ const ProductScreen = ({ product, attributes, relatedProducts }) => {
     .replace(/[^A-Z0-9]+/gi, "-");
 
   // console.log("discount", discount);
-
+const rout = useRouter();
+console.log("oooooo",rout)
   return (
     <>
       {isLoading ? (
