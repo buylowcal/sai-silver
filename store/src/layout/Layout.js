@@ -34,9 +34,9 @@ const Layout = ({ title, description, children }) => {
         <div className="sticky top-0 z-50">
     
 
-          <div className="flex flex-col">
+          {/* <div className="flex flex-col">
             <Navbar />
-          </div>
+          </div> */}
         </div>
 
         <div className="bg-white">{children}</div>

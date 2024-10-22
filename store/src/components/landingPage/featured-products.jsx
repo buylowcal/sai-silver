@@ -37,7 +37,7 @@ function FeaturedProducts({ popularProducts, attributes }) {
   return (
     <>
       <section id="featured" className="py-12 bg-white">
-        <h2 className="text-3xl sm:text-xl md:text-2xl tracking-widest text-center mb-8 uppercase ">
+        <h2 className="text-2xl sm:text-xl md:text-3xl tracking-widest text-center mb-8 uppercase ">
           Featured Products
         </h2>
         <div className="mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-8 gap-x-12 justify-items-center">
