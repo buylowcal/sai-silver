@@ -1,12 +1,13 @@
+// src/components/Navbar.jsx
 import React, { useState, useEffect, useContext, useRef } from "react";
 import useAsync from "@hooks/useAsync";
 import { SidebarContext } from "@context/SidebarContext";
 import CategoryServices from "@services/CategoryServices";
 import useUtilsFunction from "@hooks/useUtilsFunction";
 import { useRouter } from "next/router";
-import { ShoppingCartIcon, UserIcon } from "@heroicons/react/outline";
+import { ShoppingCartIcon, UserIcon } from "@heroicons/react/outline"; // Import icons
 import { FiShoppingCart, FiUser, FiSearch, FiMenu } from "react-icons/fi"; // Import FiMenuimport { useCart } from "react-use-cart";
-import { BsSearchHeart, BsCart4 } from "react-icons/bs";
+import { BsCart4 } from "react-icons/bs";
 import { ImUser } from "react-icons/im";
 import { getUserSession } from "@lib/auth";
 import Link from "next/link";
@@ -70,40 +71,40 @@ function Navbar() {
       ?.toLowerCase()
       .replace(/[^A-Z0-9]+/gi, "-");
 
-    router.push(`/search?category=${category_name}&_id=${id}`);
+      router.push(`/search?category=${category_name}&_id=${id}`);
     setIsLoading(!isLoading);
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      // Check the scroll position
-      if (window.scrollY > window.innerHeight) {
-        // Change this condition as necessary
-        setNavBg("bg-black");
-      } else {
-        setNavBg("bg-black");
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     if (window.scrollY > 50) {
+  //       setNavBg("bg-white text-black shadow-md");
+  //     } else {
+  //       setNavBg("bg-white text-black");
+  //     }
+  //   };
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
 
   return (
     <>
+      <CartDrawer />
+      <CategoryDrawer className="w-6 h-6 drop-shadow-xl text-white " />
+
       <nav
-        className={`fixed flex justify-between gap-4 space-x-4 w-full z-40 transition-all duration-300 p-4  ${navBg}`}
+        className={`fixed flex justify-between gap-4 sapce-x-4 w-full z-40 transition-all duration-300 p-4 bg-black flex-wrap sm:flex-nowrap`}
       >
-        <div className="max-w-7xl px-4 flex justify-start items-center h-16 ml-4">
+        <div className="max-w-7xl px-4 flex justify-start items-center h-16">
+          {/* Logo for larger screens */}
           <img
             onClick={() => router.push("/")}
             src="/logo/logo-color.png"
-            className="cursor-pointer w-80 h-auto object-contain md:block hidden"
+            className="cursor-pointer w-80 h-auto object-contain md:block hidden" // Adjust width for medium screens
             alt="Brand Logo"
           />
+
+          {/* Logo for small screens */}
           <img
             onClick={() => router.push("/")}
             src="/logo/saii.png"
@@ -111,8 +112,6 @@ function Navbar() {
             alt="Brand Logo"
           />
         </div>
-
-        {/* Remaining Navbar content... */}
 
         <div className="flex justify-end ">
           {/* Center: Categories (hidden on small screens) */}
@@ -167,7 +166,7 @@ function Navbar() {
           {/* Right Side: Icons */}
           <div className="flex items-center space-x-4">
             {/* Search Icon */}
-            <BsSearchHeart
+            <FiSearch
               className="h-4 w-4 md:h-6 md:w-6 cursor-pointer text-white hover:text-[#ff6b01]"
               onClick={() => setShowSearch(true)}
               aria-label="Search"
@@ -176,8 +175,11 @@ function Navbar() {
             {/* Cart Icon */}
             <div className="relative">
               <BsCart4
-                className="h-3 w-3 md:h-5 md:w-5 cursor-pointer text-white hover:text-[#ff6b01]"
-                onClick={toggleCartDrawer}
+                className="h-4 w-4 md:h-6 md:w-6 cursor-pointer text-white hover:text-[#ff6b01]"
+                onClick={() => {
+                  console.log("Cart icon clicked");
+                  toggleCartDrawer();
+                }}
                 aria-label="Cart"
               />
               {totalItems > 0 && (
@@ -207,7 +209,7 @@ function Navbar() {
                     {userInfo.name[0]}
                   </span>
                 ) : (
-                  < ImUser className="h-4 w-4 md:h-6 md:w-6 mt-2 cursor-pointer text-white hover:text-[#ff6b01]" />
+                  <ImUser  className="h-4 w-4 mt-2 md:h-6 md:w-6 cursor-pointer text-white hover:text-[#ff6b01]" />
                 )}
               </button>
 
@@ -274,6 +276,7 @@ function Navbar() {
           </div>
         </div>
       </nav>
+
       {/* Sidebar Component */}
       {showSidebar && (
         <Sidebar
@@ -295,4 +298,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default React.memo(Navbar);

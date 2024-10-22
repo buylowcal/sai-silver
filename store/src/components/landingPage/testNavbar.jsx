@@ -6,6 +6,8 @@ import useUtilsFunction from "@hooks/useUtilsFunction";
 import { useRouter } from "next/router";
 import { ShoppingCartIcon, UserIcon } from "@heroicons/react/outline";
 import { FiShoppingCart, FiUser, FiSearch, FiMenu } from "react-icons/fi"; // Import FiMenuimport { useCart } from "react-use-cart";
+import { BsSearchHeart, BsCart4 } from "react-icons/bs";
+import { ImUser } from "react-icons/im";
 import { getUserSession } from "@lib/auth";
 import Link from "next/link";
 import Image from "next/image";
@@ -17,7 +19,7 @@ import CategoryDrawer from "@components/drawer/CategoryDrawer";
 import { signOut } from "next-auth/react";
 
 function Navbar() {
-  const [navBg, setNavBg] = useState("bg-transparent");
+  const [navBg, setNavBg] = useState("bg-black");
   const [showSearch, setShowSearch] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false); // State for sidebar
   const router = useRouter();
@@ -26,6 +28,7 @@ function Navbar() {
   const { showingTranslateValue } = useUtilsFunction();
   const { isLoading, setIsLoading, toggleCartDrawer, toggleCategoryDrawer } =
     useContext(SidebarContext);
+    console.log('Cart Drawer Open:', toggleCartDrawer);
   const { data, error } = useAsync(() => CategoryServices.getShowingCategory());
   const { totalItems } = useCart();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -79,7 +82,7 @@ function Navbar() {
         // Change this condition as necessary
         setNavBg("bg-black");
       } else {
-        setNavBg("bg-transparent");
+        setNavBg("bg-black");
       }
     };
 
@@ -93,9 +96,9 @@ function Navbar() {
   return (
     <>
       <nav
-        className={`fixed flex justify-between gap-4 space-x-4 w-full z-40 transition-all duration-300 p-4 ${navBg}`}
+        className={`fixed flex justify-between gap-4 space-x-4 w-full z-40 transition-all duration-300 p-4  ${navBg}`}
       >
-        <div className="max-w-7xl px-4 flex justify-start items-center h-16">
+        <div className="max-w-7xl px-4 flex justify-start items-center h-16 ml-4">
           <img
             onClick={() => router.push("/")}
             src="/logo/logo-color.png"
@@ -165,7 +168,7 @@ function Navbar() {
           {/* Right Side: Icons */}
           <div className="flex items-center space-x-4">
             {/* Search Icon */}
-            <FiSearch
+            <BsSearchHeart
               className="h-4 w-4 md:h-6 md:w-6 cursor-pointer text-white hover:text-[#ff6b01]"
               onClick={() => setShowSearch(true)}
               aria-label="Search"
@@ -173,9 +176,12 @@ function Navbar() {
 
             {/* Cart Icon */}
             <div className="relative">
-              <FiShoppingCart
-                className="h-4 w-4 md:h-6 md:w-6 cursor-pointer text-white hover:text-[#ff6b01]"
-                onClick={toggleCartDrawer}
+              <BsCart4
+                className="h-3 w-3 md:h-5 md:w-5 cursor-pointer text-white hover:text-[#ff6b01]"
+                onClick={() => {
+                  console.log("Cart icon clicked");
+                  toggleCartDrawer();
+                }}
                 aria-label="Cart"
               />
               {totalItems > 0 && (
@@ -205,7 +211,7 @@ function Navbar() {
                     {userInfo.name[0]}
                   </span>
                 ) : (
-                  <FiUser className="h-4 w-4 md:h-6 md:w-6 cursor-pointer text-white hover:text-[#ff6b01]" />
+                  < ImUser className="h-4 w-4 md:h-6 md:w-6 mt-2 cursor-pointer text-white hover:text-[#ff6b01]" />
                 )}
               </button>
 
