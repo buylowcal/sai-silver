@@ -1,12 +1,13 @@
+// src/components/Navbar.jsx
 import React, { useState, useEffect, useContext, useRef } from "react";
 import useAsync from "@hooks/useAsync";
 import { SidebarContext } from "@context/SidebarContext";
 import CategoryServices from "@services/CategoryServices";
 import useUtilsFunction from "@hooks/useUtilsFunction";
 import { useRouter } from "next/router";
-import { ShoppingCartIcon, UserIcon } from "@heroicons/react/outline";
+import { ShoppingCartIcon, UserIcon } from "@heroicons/react/outline"; // Import icons
 import { FiShoppingCart, FiUser, FiSearch, FiMenu } from "react-icons/fi"; // Import FiMenuimport { useCart } from "react-use-cart";
-import { BsSearchHeart, BsCart4 } from "react-icons/bs";
+import { BsCart4 } from "react-icons/bs";
 import { ImUser } from "react-icons/im";
 import { getUserSession } from "@lib/auth";
 import Link from "next/link";
@@ -19,7 +20,7 @@ import CategoryDrawer from "@components/drawer/CategoryDrawer";
 import { signOut } from "next-auth/react";
 
 function Navbar() {
-  const [navBg, setNavBg] = useState("bg-black");
+  const [navBg, setNavBg] = useState("bg-transparent");
   const [showSearch, setShowSearch] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false); // State for sidebar
   const router = useRouter();
@@ -28,7 +29,6 @@ function Navbar() {
   const { showingTranslateValue } = useUtilsFunction();
   const { isLoading, setIsLoading, toggleCartDrawer, toggleCategoryDrawer } =
     useContext(SidebarContext);
-    console.log('Cart Drawer Open:', toggleCartDrawer);
   const { data, error } = useAsync(() => CategoryServices.getShowingCategory());
   const { totalItems } = useCart();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -77,34 +77,54 @@ function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Check the scroll position
-      if (window.scrollY > window.innerHeight) {
-        // Change this condition as necessary
+      console.log("handle scroll bhggg raha hai ")
+      // Check the scroll position and update the navbar background if not on the search page
+      if (
+        window.scrollY > window.innerHeight
+        //  &&
+        // !router.pathname.includes("/search")
+      ) {
+        console.log("setnavbg:",setNavBg)
+        console.log("setnavbggggggggg:")
+
         setNavBg("bg-black");
       } else {
-        setNavBg("bg-black");
+        setNavBg("bg-transparent");
       }
     };
 
+    // Check if the current route is the search page
+    if (router.pathname.includes("/search") || ("/product/[slug]")) {
+      setNavBg("bg-black"); // Set navbar to black for all category search pages
+    } else {
+      // Add scroll event listener if not on the search page
+      
+    }
     window.addEventListener("scroll", handleScroll);
-
+    // Cleanup the event listener on component unmount or route change
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [router.pathname]);
 
   return (
     <>
+      <CartDrawer />
+      <CategoryDrawer className="w-6 h-6 drop-shadow-xl text-white " />
+
       <nav
-        className={`fixed flex justify-between gap-4 space-x-4 w-full z-40 transition-all duration-300 p-4  ${navBg}`}
+        className={`fixed flex justify-between gap-4 sapce-x-4 w-full z-40 mb-5 transition-all duration-300 p-1.5 bg-black flex-wrap sm:flex-nowrap mb-4 ${navBg}`}
       >
-        <div className="max-w-7xl px-4 flex justify-start items-center h-16 ml-4">
+        <div className="max-w-7xl px-4 flex justify-start items-center h-16">
+          {/* Logo for larger screens */}
           <img
             onClick={() => router.push("/")}
             src="/logo/logo-color.png"
-            className="cursor-pointer w-80 h-auto object-contain md:block hidden"
+            className="cursor-pointer w-80 h-auto object-contain md:block hidden" // Adjust width for medium screens
             alt="Brand Logo"
           />
+
+          {/* Logo for small screens */}
           <img
             onClick={() => router.push("/")}
             src="/logo/saii.png"
@@ -113,12 +133,10 @@ function Navbar() {
           />
         </div>
 
-        {/* Remaining Navbar content... */}
-
         <div className="flex justify-end ">
           {/* Center: Categories (hidden on small screens) */}
           {router?.pathname !== "/search" && (
-            <div className="hidden sm:hidden md:flex flex items-center space-x-2">
+            <div className="hidden sm:hidden lg:flex flex items-center space-x-2">
               {data[0]?.children?.slice(1, 7).map((category, index) => (
                 <div
                   key={index}
@@ -131,8 +149,8 @@ function Navbar() {
                     className="
                   text-white
                   text-[14px]
-                  sm:text-[13px]
-                  md:text-[13px]
+                  sm:text-[12px]
+                  md:text-[12px]
                   mt-2
                 
                   whitespace-nowrap
@@ -168,7 +186,7 @@ function Navbar() {
           {/* Right Side: Icons */}
           <div className="flex items-center space-x-4">
             {/* Search Icon */}
-            <BsSearchHeart
+            <FiSearch
               className="h-4 w-4 md:h-6 md:w-6 cursor-pointer text-white hover:text-[#ff6b01]"
               onClick={() => setShowSearch(true)}
               aria-label="Search"
@@ -177,7 +195,7 @@ function Navbar() {
             {/* Cart Icon */}
             <div className="relative">
               <BsCart4
-                className="h-3 w-3 md:h-5 md:w-5 cursor-pointer text-white hover:text-[#ff6b01]"
+                className="h-4 w-4 md:h-6 md:w-6 cursor-pointer text-white hover:text-[#ff6b01]"
                 onClick={() => {
                   console.log("Cart icon clicked");
                   toggleCartDrawer();
@@ -211,7 +229,7 @@ function Navbar() {
                     {userInfo.name[0]}
                   </span>
                 ) : (
-                  < ImUser className="h-4 w-4 md:h-6 md:w-6 mt-2 cursor-pointer text-white hover:text-[#ff6b01]" />
+                  <ImUser className="h-4 w-4 mt-2 md:h-6 md:w-6 cursor-pointer text-white hover:text-[#ff6b01]" />
                 )}
               </button>
 
@@ -268,7 +286,7 @@ function Navbar() {
             </div>
 
             {/* Burger Menu Icon (visible on small screens) */}
-            <div className="md:hidden block">
+            <div className="lg:hidden block">
               <FiMenu
                 className="h-4 w-4 md:h-6 md:w-6 cursor-pointer text-white hover:text-[#ff6b01]"
                 onClick={toggleCategoryDrawer}
@@ -278,6 +296,7 @@ function Navbar() {
           </div>
         </div>
       </nav>
+
       {/* Sidebar Component */}
       {showSidebar && (
         <Sidebar
@@ -299,4 +318,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default React.memo(Navbar);
