@@ -54,7 +54,7 @@ const Footer = () => {
             <ul className="text-base space-y-2 tracking-widest">
               {careLinks.map((item, index) => (
                 <li key={index}>
-                  <a href={item.url} className="hover:underline hover:text-gray-500">
+                  <a href={item.url} className="hover:underline underline-offset-4 hover:text-gray-500">
                     {item.name}
                   </a>
                 </li>
@@ -68,7 +68,7 @@ const Footer = () => {
             <ul className="text-base space-y-2 tracking-widest">
               {shopLinks.map((item, index) => (
                 <li key={index}>
-                  <a href={item.url} className="hover:underline hover:text-gray-500">
+                  <a href={item.url} className="hover:underline underline-offset-4  hover:text-gray-500">
                     {item.name}
                   </a>
                 </li>
