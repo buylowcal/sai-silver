@@ -20,7 +20,7 @@ const BestSellingProducts = () => {
   };
 
   return (
-    <div className="text-center my-10 mt-14">
+    <div className="text-center my-10 mt-8">
       <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-2xl font-normal tracking-wide mb-5">
         OUR BEST SELLING PRODUCTS
       </h2>

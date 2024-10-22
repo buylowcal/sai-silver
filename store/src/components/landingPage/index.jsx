@@ -26,9 +26,9 @@ const LandingPage = ({ discountProducts, popularProducts, attributes }) => {
       {/* <Category/> */}
       {/* <LovedDesigns/> */}
 
-      <div className="flex flex-col">
+      {/* <div className="flex flex-col">
         <Navbar />
-      </div>
+      </div> */}
       <Banner />
       {/* <FeatureCategory/> */}
       <CategoriesSlider attributes={attributes} />

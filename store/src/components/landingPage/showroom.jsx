@@ -22,17 +22,17 @@ const Showroom = () => {
       {/* Text and button on top of the video */}
       <div className="absolute bottom-10 left-10 z-10 text-white">
         {/* Subtitle */}
-        <span className="uppercase tracking-widest font-normal text-[15px] flex justify-start mb-6">
+        <span className="uppercase tracking-widest font-normal text-[15px] text-[#ff6b01] flex justify-start mb-2">
           an Experience like no other
         </span>
 
         {/* Title */}
-        <h2 className="text-5xl font-serif tracking-wide mb-6">
+        <h2 className="text-5xl font-baskerville tracking-widest  mb-3">
           Showroom
         </h2>
 
         {/* Paragraph */}
-        <p className="text-[19px] tracking-widest leading-relaxed w-full px-4 sm:max-w-lg sm:px-0  mb-8 text-justify">
+        <p className="text-[19px] tracking-widest leading-relaxed w-full font-sans px-4 sm:max-w-lg sm:px-0  mb-8 text-justify">
           From custom-made to personalized touch to love, earrings, rings, and much more 
           have become an essential part of our daily lives. With the
           right ornaments, you can make your love and life  a true oasis of comfort

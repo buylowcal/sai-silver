@@ -20,7 +20,7 @@ import CategoryDrawer from "@components/drawer/CategoryDrawer";
 import { signOut } from "next-auth/react";
 
 function Navbar() {
-  const [navBg, setNavBg] = useState("bg-black");
+  const [navBg, setNavBg] = useState("bg-transparent");
   const [showSearch, setShowSearch] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false); // State for sidebar
   const router = useRouter();
@@ -71,21 +71,41 @@ function Navbar() {
       ?.toLowerCase()
       .replace(/[^A-Z0-9]+/gi, "-");
 
-      router.push(`/search?category=${category_name}&_id=${id}`);
+    router.push(`/search?category=${category_name}&_id=${id}`);
     setIsLoading(!isLoading);
   };
 
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     if (window.scrollY > 50) {
-  //       setNavBg("bg-white text-black shadow-md");
-  //     } else {
-  //       setNavBg("bg-white text-black");
-  //     }
-  //   };
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => window.removeEventListener("scroll", handleScroll);
-  // }, []);
+  useEffect(() => {
+    const handleScroll = () => {
+      console.log("handle scroll bhggg raha hai ")
+      // Check the scroll position and update the navbar background if not on the search page
+      if (
+        window.scrollY > window.innerHeight
+        //  &&
+        // !router.pathname.includes("/search")
+      ) {
+        console.log("setnavbg:",setNavBg)
+        console.log("setnavbggggggggg:")
+
+        setNavBg("bg-black");
+      } else {
+        setNavBg("bg-transparent");
+      }
+    };
+
+    // Check if the current route is the search page
+    if (router.pathname.includes("/search") || ("/product/[slug]")) {
+      setNavBg("bg-black"); // Set navbar to black for all category search pages
+    } else {
+      // Add scroll event listener if not on the search page
+      
+    }
+    window.addEventListener("scroll", handleScroll);
+    // Cleanup the event listener on component unmount or route change
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [router.pathname]);
 
   return (
     <>
@@ -93,7 +113,7 @@ function Navbar() {
       <CategoryDrawer className="w-6 h-6 drop-shadow-xl text-white " />
 
       <nav
-        className={`fixed flex justify-between gap-4 sapce-x-4 w-full z-40 transition-all duration-300 p-4 bg-black flex-wrap sm:flex-nowrap`}
+        className={`fixed flex justify-between gap-4 sapce-x-4 w-full z-40 mb-4 transition-all duration-300 p-1.5 bg-black flex-wrap sm:flex-nowrap mb-4 ${navBg}`}
       >
         <div className="max-w-7xl px-4 flex justify-start items-center h-16">
           {/* Logo for larger screens */}
@@ -116,7 +136,7 @@ function Navbar() {
         <div className="flex justify-end ">
           {/* Center: Categories (hidden on small screens) */}
           {router?.pathname !== "/search" && (
-            <div className="hidden sm:hidden md:flex flex items-center space-x-2">
+            <div className="hidden sm:hidden lg:flex flex items-center space-x-2">
               {data[0]?.children?.slice(1, 7).map((category, index) => (
                 <div
                   key={index}
@@ -129,8 +149,8 @@ function Navbar() {
                     className="
                   text-white
                   text-[14px]
-                  sm:text-[13px]
-                  md:text-[13px]
+                  sm:text-[12px]
+                  md:text-[12px]
                   mt-2
                 
                   whitespace-nowrap
@@ -209,7 +229,7 @@ function Navbar() {
                     {userInfo.name[0]}
                   </span>
                 ) : (
-                  <ImUser  className="h-4 w-4 mt-2 md:h-6 md:w-6 cursor-pointer text-white hover:text-[#ff6b01]" />
+                  <ImUser className="h-4 w-4 mt-2 md:h-6 md:w-6 cursor-pointer text-white hover:text-[#ff6b01]" />
                 )}
               </button>
 
@@ -266,7 +286,7 @@ function Navbar() {
             </div>
 
             {/* Burger Menu Icon (visible on small screens) */}
-            <div className="md:hidden block">
+            <div className="lg:hidden block">
               <FiMenu
                 className="h-4 w-4 md:h-6 md:w-6 cursor-pointer text-white hover:text-[#ff6b01]"
                 onClick={toggleCategoryDrawer}
