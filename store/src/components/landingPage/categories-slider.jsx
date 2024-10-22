@@ -59,9 +59,9 @@ function CategoriesSlider({ attributes }) {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 4,
+    speed: 400,
+    slidesToShow: 5,
+    slidesToScroll: 1,
     draggable: true,
     responsive: [
       { breakpoint: 1090, settings: { slidesToShow: 4 } },
