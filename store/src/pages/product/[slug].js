@@ -34,6 +34,7 @@ import ProductServices from "@services/ProductServices";
 import useUtilsFunction from "@hooks/useUtilsFunction";
 import Discount from "@components/common/Discount";
 import ImageCarousel from "@components/carousel/ImageCarousel";
+import NavBarTop from "@layout/navbar/NavBarTop";
 
 const ProductScreen = ({ product, attributes, relatedProducts }) => {
   const router = useRouter();
@@ -235,28 +236,31 @@ const ProductScreen = ({ product, attributes, relatedProducts }) => {
       {isLoading ? (
         <Loading loading={isLoading} />
       ) : (
-        <Layout
+       <>
+         <Layout
           title={showingTranslateValue(product?.title)}
           description={showingTranslateValue(product.description)}
         >
-          <div className="px-0 py-10 lg:py-10">
+        
+          <div className="px-0 py-10 lg:py-10 mt-12">
             <div className="mx-auto px-3 lg:px-10 max-w-screen-2xl">
               <div className="flex items-center mt-12 pb-4">
                 <ol className="flex items-center w-full overflow-hidden font-serif">
-                  <li className="text-sm pr-1 transition duration-200 ease-in cursor-pointer hover:text-emerald-500 font-semibold">
+                  <li className="text-sm pr-1 transition duration-200 ease-in cursor-pointer hover:text-[#ff6b01] font-semibold">
                     <Link href="/">Home</Link>
                   </li>
                   <li className="text-sm mt-[1px]">
                     {" "}
                     <FiChevronRight />{" "}
                   </li>
-                  <li className="text-sm pl-1 transition duration-200 ease-in cursor-pointer hover:text-emerald-500 font-semibold ">
+                  <li className="text-sm pl-1 transition duration-200 ease-in cursor-pointer hover:text-[#ff6b01] font-semibold ">
                     <Link
                       href={`/search?category=${category_name}&_id=${product?.category?._id}`}
                     >
                       <button
                         type="button"
                         onClick={() => setIsLoading(!isLoading)}
+                        className="capitalize font-sans tracking-wider"
                       >
                         {category_name}
                       </button>
@@ -266,7 +270,7 @@ const ProductScreen = ({ product, attributes, relatedProducts }) => {
                     {" "}
                     <FiChevronRight />{" "}
                   </li>
-                  <li className="text-sm px-1 transition duration-200 ease-in ">
+                  <li className="text-sm px-1 text-gray-400 capitalize tracking-widest font-sans transition duration-200 ease-in ">
                     {showingTranslateValue(product?.title)}
                   </li>
                 </ol>
@@ -312,7 +316,7 @@ const ProductScreen = ({ product, attributes, relatedProducts }) => {
                           </h1>
 
                           <p className="uppercase font-serif font-medium text-gray-500 text-sm">
-                            SKU :{" "}
+                            {/* SKU :{" "} */}
                             <span className="font-bold text-gray-600">
                               {product.sku}
                             </span>
@@ -410,7 +414,7 @@ const ProductScreen = ({ product, attributes, relatedProducts }) => {
                               </div>
                               <button
                                 onClick={() => handleAddToCart(product)}
-                                className="text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-serif text-center justify-center border-0 border-transparent rounded-md focus-visible:outline-none focus:outline-none text-white px-4 ml-4 md:px-6 lg:px-8 py-4 md:py-3.5 lg:py-4 hover:text-white bg-emerald-500 hover:bg-emerald-600 w-full h-12"
+                                className="text-base tracking-wider leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-sans text-center justify-center border-0 border-transparent rounded-md focus-visible:outline-none focus:outline-none text-white px-4 ml-4 md:px-6 lg:px-8 py-4 md:py-3.5 lg:py-4 hover:text-white bg-black w-full h-12"
                               >
                                 {t("common:addToCart")}
                               </button>
@@ -515,12 +519,12 @@ const ProductScreen = ({ product, attributes, relatedProducts }) => {
               {/* related products */}
               {relatedProducts?.length >= 2 && (
                 <div className="pt-10 lg:pt-20 lg:pb-10">
-                  <h3 className="leading-7 text-lg lg:text-xl mb-3 font-semibold font-serif hover:text-gray-600">
+                  <h3 className="leading-7 text-lg lg:text-xl mb-3 font-medium tracking-wider uppercase font-sans ">
                     {t("common:relatedProducts")}
                   </h3>
                   <div className="flex">
                     <div className="w-full">
-                      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 2xl:grid-cols-6 gap-2 md:gap-3 lg:gap-3">
+                      <div className="px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-8 gap-x-12 justify-items-start">
                         {relatedProducts?.slice(1, 13).map((product, i) => (
                           <ProductCard
                             key={product._id}
@@ -535,7 +539,9 @@ const ProductScreen = ({ product, attributes, relatedProducts }) => {
               )}
             </div>
           </div>
-        </Layout>
+        </Layout></>
+
+      
       )}
     </>
   );

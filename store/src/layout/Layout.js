@@ -30,13 +30,11 @@ const Layout = ({ title, description, children }) => {
           />
         </Head>
         {/* Make the top navigation sticky */}
-        
-        <div className="sticky top-0 z-50">
-    
 
-          {/* <div className="flex flex-col">
+        <div className="sticky top-0 z-50">
+          <div className="flex flex-col">
             <Navbar />
-          </div> */}
+          </div>
         </div>
 
         <div className="bg-white">{children}</div>
