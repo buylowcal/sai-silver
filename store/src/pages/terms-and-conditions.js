@@ -4,7 +4,7 @@ import React from "react";
 import Layout from "@layout/Layout";
 import useGetSetting from "@hooks/useGetSetting";
 import PageHeader from "@components/header/PageHeader";
-import CMSkeleton from "@components/preloader/CMSkeleton";
+import Preloader from "@components/preloader/preLoader";
 import useUtilsFunction from "@hooks/useUtilsFunction";
 
 const TermAndConditions = () => {
@@ -18,33 +18,60 @@ const TermAndConditions = () => {
     >
       <PageHeader
         headerBg={storeCustomizationSetting?.term_and_condition?.header_bg}
-        title={showingTranslateValue(
-          storeCustomizationSetting?.term_and_condition?.title
-        )}
+        // title={showingTranslateValue(
+        //   storeCustomizationSetting?.term_and_condition?.title
+        // )}
+        title="Terms & Conditions"
       />
       <div className="bg-white">
         <div className="max-w-screen-2xl mx-auto lg:py-20 py-10 px-3 sm:px-10">
-          <CMSkeleton
+          {/* <Preloader
             html
-            count={15}
+            count={1}
             height={15}
             error={error}
             loading={loading}
             data={storeCustomizationSetting?.term_and_condition?.description}
-          />
+          /> */}
+          {/* <p className="tracking-wide text-base ">Welcome to Sai Silver!</p> */}
+
+          {/* <br />
+          <Preloader count={1} height={15} loading={loading} />
           <br />
-          <CMSkeleton count={15} height={15} loading={loading} />
-          <br />
-          <CMSkeleton count={15} height={15} loading={loading} />
-          {/* <div className="mb-6 lg:mb-12 last:mb-0">
+          <Preloader count={1} height={15} loading={loading} /> */}
+          <div className="mb-6 lg:mb-12 last:mb-0">
             <h2 className="text-xl xl:text-2xl xl:leading-7 font-semibold font-serif mb-2 lg:mb-4">
-              {t("common:terms-condition-cookies")}
+              {/* {t("common:terms-condition-cookies")}
+               */}
+              Welcome to Sai Silver!
             </h2>
-            <div className="font-sans leading-7">
-              <p>{t("common:terms-condition-cookies-docs")}</p>
+            <div className="font-sans leading-7 text-justify">
+              <p>
+                {/* {t("common:terms-condition-cookies-docs")} */}
+                These terms and conditions outline the rules and regulations for
+                the use of saiSilver's Website, located at
+                https://thesaiSilver.com/. By accessing this website we assume you
+                accept these terms and conditions. Do not continue to use
+                saiSilver if you do not agree to take all of the terms and
+                conditions stated on this page. The following terminology
+                applies to these Terms and Conditions, Privacy Statement and
+                Disclaimer Notice and all Agreements: Client, You and Your
+                refers to you, the person log on this website and compliant to
+                the Company’s terms and conditions. The Company, refers to our
+                CompanyPartParties or Us refers to both the Client and
+                ourselves. <br/><br/>All terms refer to the offer, acceptance and
+                consideration of payment necessary to undertake the process of
+                our assistance to the Client in the most appropriate manner for
+                the express purpose of meeting the Client’s needs in respect of
+                provision of the Company’s stated services, in accordance with
+                and subject to, prevailing law of Netherlands. Any use of the
+                above terminology or other words in the singular, plural,
+                capitalization and/or he/she or they, are taken as
+                interchangeable and therefore as referring to same.
+              </p>
             </div>
           </div>
-          <div className="mb-8 lg:mb-12 last:mb-0">
+          {/* <div className="mb-8 lg:mb-12 last:mb-0">
             <h2 className="text-xl xl:text-2xl xl:leading-7 font-semibold font-serif mb-2 lg:mb-4">
               {t("common:terms-condition-license")}
             </h2>
@@ -82,9 +109,7 @@ const TermAndConditions = () => {
                 <p>
                   {t("common:terms-condition-privacy-docs1")}
                   <Link href="/privacy-policy" className="text-emerald-500">
-                 
-                      {t("common:terms-condition-privacy-docs2")}
-               
+                    {t("common:terms-condition-privacy-docs2")}
                   </Link>{" "}
                 </p>
               </div>
