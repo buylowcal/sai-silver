@@ -7,7 +7,7 @@ import PageHeader from "@components/header/PageHeader";
 import Preloader from "@components/preloader/preLoader";
 import useUtilsFunction from "@hooks/useUtilsFunction";
 
-const ShippingPolicy = () => {
+const Warranty = () => {
   const { storeCustomizationSetting, loading, error } = useGetSetting();
   const { showingTranslateValue } = useUtilsFunction();
   const instructionsOne = [
@@ -107,4 +107,4 @@ const ShippingPolicy = () => {
   );
 };
 
-export default ShippingPolicy;
+export default Warranty;
