@@ -24,7 +24,8 @@ const useLoginSubmit = () => {
       redirect: false, // Changed to false to handle redirection manually
       email,
       password,
-      callbackUrl: "/user/dashboard",
+      // callbackUrl: "/user/dashboard",
+      callbackUrl:"/"
     });
 
     setLoading(false);

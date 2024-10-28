@@ -225,7 +225,7 @@ function Navbar() {
                     className="ring ring-[#ff6b01] ring-2 rounded-full px-2 py-1 hover:ring-white"
                   />
                 ) : userInfo?.name ? (
-                  <span className="leading-none font-bold font-baskerville block mt-0 ring-2 ring-white hover:ring-[#ff6b01] rounded-full px-2 py-1">
+                  <span className="leading-none font-bold font-baskerville block mt-0 uppercase ring-2 ring-white hover:ring-[#ff6b01] rounded-full px-2 py-1">
                     {userInfo.name[0]}
                   </span>
                 ) : (

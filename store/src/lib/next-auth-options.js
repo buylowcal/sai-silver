@@ -119,7 +119,7 @@ export const getDynamicAuthOptions = async () => {
       },
       async redirect({ url, baseUrl }) {
         // console.log("url", url, "baseUrl", baseUrl);
-        return url.startsWith(baseUrl) ? url : `${baseUrl}/user/dashboard`;
+        return url.startsWith(baseUrl) ? url : `${baseUrl}/`;
       },
     },
     secret: process.env.NEXTAUTH_SECRET,
