@@ -29,7 +29,7 @@ const Footer = () => {
           {/* Need Help Section */}
           <div>
             <h3 className="text-lg font-semibold mb-4 tracking-widest">NEED HELP? WE'RE ALWAYS THERE</h3>
-            <p className="text-base mb-2 tracking-widest leading-5 font-sans text-justify">
+            <p className="text-base mb-2 tracking-wide leading-2  text-justify">
               Everyone who shops from us is one of us, we will never ghost you.
               Reach out to us & we promise to help you out in the best way possible.
             </p>
@@ -42,7 +42,7 @@ const Footer = () => {
           {/* About Us Section */}
           <div>
             <h3 className="text-lg tracking-widest font-semibold mb-4">ABOUT US</h3>
-            <p className="text-base tracking-wider font-sans leading-6 text-justify">
+            <p className="text-base tracking-wide leading-2 text-justify">
               Each of your pieces are handcrafted by more than 200 karigars working tirelessly for you. 
               We started this brand in 2020 with an aim of providing jobs to more than 1000 karigars who lost livelihood in Covid.
             </p>
