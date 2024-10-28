@@ -40,6 +40,14 @@ const storeCustomization = {
         en: "Terms & Conditions",
         de: "Terms & Bedingungen",
       },
+      shipping_policy:{
+        en: "Shipping Policy",
+        de: "Versandbedingungen",
+      },
+      jewellery_care:{
+        en: "Jewellery Care",
+        de: "Schmuckpflege",
+      },
       pages: {
         en: "Pages",
         de: "Seiten",
