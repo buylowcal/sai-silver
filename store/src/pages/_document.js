@@ -7,7 +7,7 @@ class MyDocument extends Document {
 
     // Fetch general metadata from backend API
     const setting = await SettingServices.getStoreSeoSetting();
-
+    // console.log("settings",seting)
     return { ...initialProps, setting };
   }
 

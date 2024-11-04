@@ -75,39 +75,39 @@ function Navbar() {
     setIsLoading(!isLoading);
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      console.log("handle scroll bhggg raha hai ")
-      // Check the scroll position and update the navbar background if not on the search page
-      if (
-        window.scrollY > window.innerHeight
-        //  &&
-        // !router.pathname.includes("/search")
-      ) {
-        console.log("setnavbg:",setNavBg)
-        console.log("setnavbggggggggg:")
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     console.log("handle scroll bhggg raha hai ")
+  //     // Check the scroll position and update the navbar background if not on the search page
+  //     if (
+  //       window.scrollY > window.innerHeight
+  //       //  &&
+  //       // !router.pathname.includes("/search")
+  //     ) {
+  //       console.log("setnavbg:",setNavBg)
+  //       console.log("setnavbggggggggg:")
 
         setNavBg("bg-black");
         console.log("Nvbar color:",navBg)
-      } else {
-        setNavBg("bg-transparent");
-        console.log("Nvbarrrr2 color:",navBg)
-      }
-    };
+      // } else {
+      //   setNavBg("bg-transparent");
+      //   console.log("Nvbarrrr2 color:",navBg)
+      // }
+    // };
 
-    // Check if the current route is the search page
-    if (router.pathname.includes("/search") || ("/product/[slug]")) {
-      setNavBg("bg-black"); // Set navbar to black for all category search pages
-    } else {
-      // Add scroll event listener if not on the search page
+  //   // Check if the current route is the search page
+  //   if (router.pathname.includes("/search") || ("/product/[slug]")) {
+  //     setNavBg("bg-black"); // Set navbar to black for all category search pages
+  //   } else {
+  //     // Add scroll event listener if not on the search page
       
-    }
-    window.addEventListener("scroll", handleScroll);
-    // Cleanup the event listener on component unmount or route change
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [router.pathname]);
+  //   }
+  //   window.addEventListener("scroll", handleScroll);
+  //   // Cleanup the event listener on component unmount or route change
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, [router.pathname]);
 
   return (
     <>
