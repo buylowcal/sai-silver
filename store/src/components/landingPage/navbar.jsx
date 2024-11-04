@@ -254,9 +254,9 @@ function Navbar() {
                       {userInfo.name[0]}
                     </span>
                   ) : (
-                    <ImUser className={`h-6 w-6 cursor-pointer ${
-                      scrolled ? 'text-black' : 'text-white'
-                    } hover:text-[#ff6b01] transition-colors duration-200`} />
+                    <ImUser  className={`h-6 w-6 cursor-pointer ${
+                      (scrolled || router.asPath !== '/') ? 'text-black' : 'text-white'
+                    } hover:text-[#ff6b01] transition-colors duration-200`}/>
                   )}
                 </button>
 
