@@ -171,11 +171,11 @@ function Navbar() {
                     className="cursor-pointer group px-2"
                   >
                     <h3 className={`
-                      ${scrolled ? 'text-black' : 'text-white'}
+                      ${ (scrolled || router.asPath !== '/')  ? 'text-black' : 'text-white'}
                       text-[14px]
                       whitespace-nowrap tracking-widest
                       font-sans 
-                      ${scrolled ? 'group-hover:text-[#ff6b01]' : 'group-hover:text-[#ff6b01]'}
+                      ${ (scrolled || router.asPath !== '/')  ? 'group-hover:text-[#ff6b01]' : 'group-hover:text-[#ff6b01]'}
                       leading-loose p-2
                       relative
                       after:content-[' ']
