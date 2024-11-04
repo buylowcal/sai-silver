@@ -1,5 +1,5 @@
 import React from "react";
-
+import Link from "next/link";
 const Showroom = () => {
   return (
     <div className="relative w-full h-screen overflow-hidden">
@@ -20,7 +20,7 @@ const Showroom = () => {
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>
 
       {/* Text and button on top of the video */}
-      <div className="absolute bottom-10 left-10 z-10 text-white">
+      <div className="absolute bottom-10  ml-12 z-10 text-white">
         {/* Subtitle */}
         <span className="uppercase tracking-widest font-normal text-[15px] text-[#ff6b01] flex justify-start mb-2">
           an Experience like no other
@@ -32,7 +32,7 @@ const Showroom = () => {
         </h2>
 
         {/* Paragraph */}
-        <p className="text-[19px] tracking-widest leading-relaxed w-full font-sans px-4 sm:max-w-lg sm:px-0  mb-8 text-justify">
+        <p className="text-[18px] tracking-wide leading-relax font-sans w-full p-1.5 sm:max-w-xl sm:px-0 mb-8 text-justify">
           From custom-made to personalized touch to love, earrings, rings, and much more 
           have become an essential part of our daily lives. With the
           right ornaments, you can make your love and life  a true oasis of comfort
@@ -40,9 +40,9 @@ const Showroom = () => {
         </p>
 
         {/* Button */}
-        <button className="w-fit text-black whitespace-nowrap bg-transparent text-white border border-white hover:bg-[#ff6b01] hover:border-black hover:text-white font-normal tracking-widest rounded-full text-base px-6 py-2 text-center">
+        <Link href="/" className="w-fit text-black whitespace-nowrap bg-transparent text-white border border-white hover:bg-[#ff6b01] hover:border-black hover:text-white font-normal tracking-widest rounded-full text-base px-6 py-2 text-center">
           Explore Showroom
-        </button>
+        </Link>
       </div>
     </div>
   );
