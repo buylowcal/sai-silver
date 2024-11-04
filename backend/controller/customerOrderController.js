@@ -95,14 +95,14 @@ const createOrderByRazorPay = async (req, res) => {
     console.log("storeSetting", storeSetting)
 
     
-    // const instance = new Razorpay({
-    //   key_id: storeSetting?.setting?.razorpay_id,
-    //   key_secret: storeSetting?.setting?.razorpay_secret,
-    // });
     const instance = new Razorpay({
-      key_id:     process.env.RAZORPAY_ID,
-      key_secret: process.env.RAZORPAY_SECRET,
+      key_id: storeSetting?.setting?.razorpay_id,
+      key_secret: storeSetting?.setting?.razorpay_secret,
     });
+    // const instance = new Razorpay({
+    //   key_id:     process.env.RAZORPAY_ID,
+    //   key_secret: process.env.RAZORPAY_SECRET,
+    // });
 
     console.log("we are here !!!!");
     const options = {
