@@ -88,8 +88,10 @@ function Navbar() {
         console.log("setnavbggggggggg:")
 
         setNavBg("bg-black");
+        console.log("Nvbar color:",navBg)
       } else {
         setNavBg("bg-transparent");
+        console.log("Nvbarrrr2 color:",navBg)
       }
     };
 
@@ -112,8 +114,11 @@ function Navbar() {
       <CartDrawer />
       <CategoryDrawer className="w-6 h-6 drop-shadow-xl text-white " />
 
-      <nav
-        className={`fixed flex justify-between gap-4 sapce-x-4 w-full z-40 mb-5 transition-all duration-300 p-1.5 bg-black flex-wrap sm:flex-nowrap mb-4 ${navBg}`}
+      {/* <nav
+        className={`fixed flex justify-between gap-4 sapce-x-4 w-full z-40 mb-5 transition-all duration-300 p-1.5 ${navBg} flex-wrap sm:flex-nowrap mb-4 `}
+      > */}
+        <nav
+        className={`fixed flex justify-between gap-4 sapce-x-4 w-full z-40 mb-5 transition-all duration-300 p-1.5 bg-black flex-wrap sm:flex-nowrap mb-4 `}
       >
         <div className="max-w-7xl px-4 flex justify-start items-center h-16">
           {/* Logo for larger screens */}
