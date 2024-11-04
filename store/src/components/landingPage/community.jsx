@@ -31,7 +31,7 @@ const Community = () => {
         </p>
         <div className="flex justify-center">
           <Link
-            href="#"
+            href="/auth/signup"
             className="text-black border border-black hover:bg-black hover:text-white font-normal tracking-wider rounded-full text-base px-6 py-2"
           >
             Sign up now
