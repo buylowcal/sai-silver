@@ -75,39 +75,37 @@ function Navbar() {
     setIsLoading(!isLoading);
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      console.log("handle scroll bhggg raha hai ")
-      // Check the scroll position and update the navbar background if not on the search page
-      if (
-        window.scrollY > window.innerHeight
-        //  &&
-        // !router.pathname.includes("/search")
-      ) {
-        console.log("setnavbg:",setNavBg)
-        console.log("setnavbggggggggg:")
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     console.log("handle scroll bhggg raha hai ")
+  //     // Check the scroll position and update the navbar background if not on the search page
+  //     if (
+  //       window.scrollY > window.innerHeight
+  //       //  &&
+  //       // !router.pathname.includes("/search")
+  //     ) {
+  //       console.log("setnavbg:",setNavBg)
+  //       console.log("setnavbggggggggg:")
 
-        setNavBg("bg-black");
-        console.log("Nvbar color:",navBg)
-      } else {
-        setNavBg("bg-transparent");
-        console.log("Nvbarrrr2 color:",navBg)
-      }
-    };
+  //       setNavBg("bg-black");
+  //     } else {
+  //       setNavBg("bg-transparent");
+  //     }
+  //   };
 
-    // Check if the current route is the search page
-    if (router.pathname.includes("/search") || ("/product/[slug]")) {
-      setNavBg("bg-black"); // Set navbar to black for all category search pages
-    } else {
-      // Add scroll event listener if not on the search page
+  //   // Check if the current route is the search page
+  //   if (router.pathname.includes("/search") || ("/product/[slug]")) {
+  //     setNavBg("bg-black"); // Set navbar to black for all category search pages
+  //   } else {
+  //     // Add scroll event listener if not on the search page
       
-    }
-    window.addEventListener("scroll", handleScroll);
-    // Cleanup the event listener on component unmount or route change
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [router.pathname]);
+  //   }
+  //   window.addEventListener("scroll", handleScroll);
+  //   // Cleanup the event listener on component unmount or route change
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, [router.pathname]);
 
   return (
     <>
@@ -115,7 +113,7 @@ function Navbar() {
       <CategoryDrawer className="w-6 h-6 drop-shadow-xl text-white " />
 
       <nav
-        className={`fixed flex justify-between gap-4 sapce-x-4 w-full z-40 mb-5 transition-all duration-300 p-1.5 ${navBg} flex-wrap sm:flex-nowrap mb-4 `}
+        className={`fixed flex justify-between gap-4 sapce-x-4 w-full z-40 mb-5 transition-all duration-300 p-1.5 bg-black flex-wrap sm:flex-nowrap mb-4 bg-black`}
       >
         {/* <nav
         className={`fixed flex justify-between gap-4 sapce-x-4 w-full z-40 mb-5 transition-all duration-300 p-2 bg-black flex-wrap sm:flex-nowrap mb-4 `}
