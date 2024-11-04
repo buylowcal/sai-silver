@@ -110,7 +110,9 @@ const useCheckoutSubmit = (storeSetting) => {
   }, [cartTotal, shippingCost, discountPercentage]);
 
   const submitHandler = async (data) => {
-    // console.log("data", data);
+    console.log("data", data);
+    console.log('isCheckoutSubmit submit handler',isCheckoutSubmit)
+    // setIsCheckoutSubmit(true);
     // return;
     try {
       // dispatch({ type: "SAVE_SHIPPING_ADDRESS", payload: data });

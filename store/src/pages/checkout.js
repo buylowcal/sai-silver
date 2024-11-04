@@ -33,6 +33,8 @@ const Checkout = () => {
   const { showingTranslateValue } = useUtilsFunction();
   const { data: storeSetting } = useAsync(SettingServices.getStoreSetting);
   const [isHovered, setIsHovered] = useState(false);
+  console.log('storeSetting',storeSetting)
+ 
   const {
     error,
     stripe,
@@ -59,7 +61,7 @@ const Checkout = () => {
     isCouponAvailable,
     handleDefaultShippingAddress,
   } = useCheckoutSubmit();
-
+  console.log('isCheckoutSubmit',isCheckoutSubmit)
   // console.log(
   //   "shippingCost",
   //   shippingCost,
