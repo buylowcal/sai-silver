@@ -75,170 +75,195 @@ function Navbar() {
     setIsLoading(!isLoading);
   };
 
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     console.log("handle scroll bhggg raha hai ")
-  //     // Check the scroll position and update the navbar background if not on the search page
-  //     if (
-  //       window.scrollY > window.innerHeight
-  //       //  &&
-  //       // !router.pathname.includes("/search")
-  //     ) {
-  //       console.log("setnavbg:",setNavBg)
-  //       console.log("setnavbggggggggg:")
+  const [scrolled, setScrolled] = useState(false);
 
-  //       setNavBg("bg-black");
-  //     } else {
-  //       setNavBg("bg-transparent");
-  //     }
-  //   };
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 20;
+      setScrolled(isScrolled);
+    };
 
-  //   // Check if the current route is the search page
-  //   if (router.pathname.includes("/search") || ("/product/[slug]")) {
-  //     setNavBg("bg-black"); // Set navbar to black for all category search pages
-  //   } else {
-  //     // Add scroll event listener if not on the search page
-      
-  //   }
-  //   window.addEventListener("scroll", handleScroll);
-  //   // Cleanup the event listener on component unmount or route change
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, [router.pathname]);
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+ 
+ 
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+ 
 
   return (
     <>
-      <CartDrawer />
-      <CategoryDrawer className="w-6 h-6 drop-shadow-xl text-white " />
+    <CartDrawer />
+      <CategoryDrawer className="w-6 h-6 drop-shadow-xl text-white" />
+      
 
-      <nav
-        className={`fixed flex justify-between gap-4 sapce-x-4 w-full z-40 mb-5 transition-all duration-300 p-1.5 bg-black flex-wrap sm:flex-nowrap mb-4 bg-black`}
-      >
-        {/* <nav
-        className={`fixed flex justify-between gap-4 sapce-x-4 w-full z-40 mb-5 transition-all duration-300 p-2 bg-black flex-wrap sm:flex-nowrap mb-4 `}
-      > */}
-        <div className="max-w-7xl px-4 flex justify-start items-center h-16">
-          {/* Logo for larger screens */}
-          <img
-            onClick={() => router.push("/")}
-            src="/logo/logo-color.png"
-            className="cursor-pointer w-80 h-auto object-contain md:block hidden" // Adjust width for medium screens
-            alt="Brand Logo"
-          />
+      <nav 
+  className={`
+    fixed top-0 w-full z-50 p-3
+    ${scrolled 
+      ? 'bg-white/95 backdrop-blur-md borde border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.12)]' 
+      : 'bg-transparent'
+    }
+    transition-all duration-500 ease-in-out
+  `}
+>
 
-          {/* Logo for small screens */}
-          <img
-            onClick={() => router.push("/")}
-            src="/logo/saii.png"
-            className="cursor-pointer w-8 h-8 object-contain md:hidden block"
-            alt="Brand Logo"
-          />
-        </div>
+ 
+   <div className={`
+    absolute inset-0 
+    ${scrolled 
+      ? 'after:absolute after:bottom-[-20px] after:left-0 after:right-0 after:h-[20px] after:bg-gradient-to-b after:from-black/5 after:to-transparent after:blur-xl'
+      : ''
+    }
+    transition-all duration-300
+  `} />
 
-        <div className="flex justify-end ">
-          {/* Center: Categories (hidden on small screens) */}
-          {router?.pathname !== "/search" && (
-            <div className="hidden sm:hidden lg:flex flex items-center space-x-2">
-              {data[0]?.children?.slice(1, 7).map((category, index) => (
-                <div
-                  key={index}
-                  onClick={() =>
-                    handleCategoryClick(category?._id, category.name)
-                  }
-                  className="cursor-pointer group"
-                >
-                  <h3
-                    className="
-                  text-white
-                  text-[14px]
-                  sm:text-[12px]
-                  md:text-[12px]
-                  mt-2
-                
-                  whitespace-nowrap
-                  tracking-widest
-                  font-sans
-                  group-hover:text-[#ff6b01]
-                  leading-loose
-                  p-2
-                  px-2
-                  mx-2
-                  relative
-                  after:content-[' ']
-                  after:absolute
-                  after:left-0
-                  after:bottom-0
-                  after:h-0.5
-                  after:w-full
-                  after:bg-current
-                  after:transition-transform
-                  after:duration-500
-                  after:scale-x-0
-                  after:origin-center
-                  hover:after:scale-x-100
-                "
-                  >
-                    {showingTranslateValue(category?.name).toUpperCase()}
-                  </h3>
-                </div>
-              ))}
-            </div>
-          )}
+         <div className={`
+          absolute inset-0 
+          ${scrolled 
+            ? 'bg-white/10 backdrop-blur-sm' 
+            : 'bg-transparent'
+          }
+          transition-all duration-300
+        `} />
 
-          {/* Right Side: Icons */}
-          <div className="flex items-center space-x-4 p-2">
-            {/* Search Icon */}
-            <FiSearch
-              className="h-4 w-4 md:h-6 md:w-6 cursor-pointer text-white hover:text-[#ff6b01]"
-              onClick={() => setShowSearch(true)}
-              aria-label="Search"
-            />
-
-            {/* Cart Icon */}
-            <div className="relative">
-              <BsCart4
-                className="h-4 w-4 md:h-6 md:w-6 cursor-pointer text-white hover:text-[#ff6b01]"
-                onClick={() => {
-                  console.log("Cart icon clicked");
-                  toggleCartDrawer();
-                }}
-                aria-label="Cart"
+        {/* Main content */}
+        <div className="w-full px-4 relative z-10">
+          <div className="flex items-center justify-between h-16">
+            {/* Left Section - Logo */}
+            <div className="flex-shrink-0">
+              <img
+                onClick={() => router.push("/")}
+                src="/logo/logo-color.png"
+                className="cursor-pointer w-48 md:w-80 h-auto object-contain md:block hidden"
+                alt="Brand Logo"
               />
-              {totalItems > 0 && (
-                <span className="absolute -top-2 -right-2 inline-flex items-center justify-center p-1 h-4 w-4 text-xs font-medium leading-none text-white bg-[#ff6b01] rounded-full">
-                  {totalItems}
-                </span>
-              )}
+              <img
+                onClick={() => router.push("/")}
+                src="/logo/saii.png"
+                className="cursor-pointer w-8 h-8 object-contain md:hidden block"
+                alt="Brand Logo"
+              />
             </div>
 
-            {/* Profile Icon */}
-            <div className="relative" ref={dropdownRef}>
-              <button
-                className="text-white hover:text-[#ff6b01] text-2xl  font-bold"
-                aria-label="Login"
-                onClick={toggleDropdown}
-              >
-                {userInfo?.image ? (
-                  <Image
-                    width={29}
-                    height={29}
-                    src={userInfo.image}
-                    alt="user"
-                    className="ring ring-[#ff6b01] ring-2 rounded-full px-2 py-1 hover:ring-white"
-                  />
-                ) : userInfo?.name ? (
-                  <span className="leading-none font-bold font-baskerville block mt-0 uppercase ring-2 ring-white hover:ring-[#ff6b01] rounded-full px-2 py-1">
-                    {userInfo.name[0]}
-                  </span>
-                ) : (
-                  <ImUser className="h-4 w-4 mt-2 md:h-6 md:w-6 cursor-pointer text-white hover:text-[#ff6b01]" />
-                )}
-              </button>
+            {/* Middle Section - Categories (hidden on mobile) */}
+            {router?.pathname !== "/search" && (
+              <div className="hidden lg:flex items-center justify-center flex-1">
+                {data[0]?.children?.slice(1, 7).map((category, index) => (
+                  <div
+                    key={index}
+                    onClick={() => handleCategoryClick(category?._id, category.name)}
+                    className="cursor-pointer group px-2"
+                  >
+                    <h3 className={`
+                      ${scrolled ? 'text-black' : 'text-white'}
+                      text-[14px]
+                      whitespace-nowrap tracking-widest
+                      font-sans 
+                      ${scrolled ? 'group-hover:text-[#ff6b01]' : 'group-hover:text-[#ff6b01]'}
+                      leading-loose p-2
+                      relative
+                      after:content-[' ']
+                      after:absolute after:left-0 after:bottom-0
+                      after:h-0.5 after:w-full after:bg-current
+                      after:transition-transform after:duration-500
+                      after:scale-x-0 after:origin-center
+                      hover:after:scale-x-100
+                    `}>
+                      {showingTranslateValue(category?.name).toUpperCase()}
+                    </h3>
+                  </div>
+                ))}
+              </div>
+            )}
 
+            {/* Right Section - Icons */}
+            <div className="flex items-center space-x-6">
+              {/* Burger Menu (mobile only) */}
+              <div className="lg:hidden">
+                <FiMenu
+                  className={`h-6 w-6 cursor-pointer ${
+                    scrolled ? 'text-black' : 'text-white'
+                  } hover:text-[#ff6b01] transition-colors duration-200`}
+                  onClick={toggleCategoryDrawer}
+                  aria-label="Menu"
+                />
+              </div>
+
+              {/* Search Icon */}
+              <FiSearch
+                className={`h-6 w-6 cursor-pointer ${
+                  scrolled ? 'text-black' : 'text-white'
+                } hover:text-[#ff6b01] transition-colors duration-200`}
+                onClick={() => setShowSearch(true)}
+                aria-label="Search"
+              />
+
+              {/* Cart Icon */}
+              <div className="relative">
+                <BsCart4
+                  className={`h-6 w-6 cursor-pointer ${
+                    scrolled ? 'text-black' : 'text-white'
+                  } hover:text-[#ff6b01] transition-colors duration-200`}
+                  onClick={toggleCartDrawer}
+                  aria-label="Cart"
+                />
+                {totalItems > 0 && (
+                  <span className="absolute -top-2 -right-2 inline-flex items-center justify-center p-1 h-4 w-4 text-xs font-medium leading-none text-white bg-[#ff6b01] rounded-full">
+                    {totalItems}
+                  </span>
+                )}
+              </div>
+
+              {/* User Profile */}
+              <div className="relative" ref={dropdownRef}>
+                <button
+                  className={`${
+                    scrolled ? 'text-black' : 'text-white'
+                  } hover:text-[#ff6b01] text-2xl font-bold transition-colors duration-200`}
+                  aria-label="Login"
+                  onClick={toggleDropdown}
+                >
+                  {userInfo?.image ? (
+                    <Image
+                      width={29}
+                      height={29}
+                      src={userInfo.image}
+                      alt="user"
+                      className="ring ring-[#ff6b01] rounded-full px-2 py-1 hover:ring-white transition-all duration-200"
+                    />
+                  ) : userInfo?.name ? (
+                    <span className={`leading-none font-bold font-baskerville block mt-0 uppercase ring-2 ${
+                      scrolled ? 'ring-black' : 'ring-white'
+                    } hover:ring-[#ff6b01] rounded-full px-2 py-1 transition-all duration-200`}>
+                      {userInfo.name[0]}
+                    </span>
+                  ) : (
+                    <ImUser className={`h-6 w-6 cursor-pointer ${
+                      scrolled ? 'text-black' : 'text-white'
+                    } hover:text-[#ff6b01] transition-colors duration-200`} />
+                  )}
+                </button>
+
+              {/* Dropdown Menu */}
               {isDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-48 bg-black shadow-md shadow-[#ff6b01] rounded-md shadow-lg py-1 transition-all duration-300 ease-in-out transform origin-top-right scale-100 opacity-100">
-                  <Link
+                <div className="absolute right-0 mt-2 w-48 bg-black shadow-[#ff6b01] rounded-md shadow-lg py-1">
+                 <Link
                     href="/user/dashboard"
                     className="inline-flex space-x-2 gap-2 px-4 py-2 text-[17px] uppercase tracking-widest  text-white  hover:text-[#ff6b01]"
                   >
@@ -284,40 +309,32 @@ function Navbar() {
                     </svg>
                     Logout
                   </button>
+                 
                 </div>
               )}
             </div>
-
-            {/* Burger Menu Icon (visible on small screens) */}
-            <div className="lg:hidden block">
-              <FiMenu
-                className="h-4 w-4 md:h-6 md:w-6 cursor-pointer text-white hover:text-[#ff6b01]"
-                onClick={toggleCategoryDrawer}
-                aria-label="Menu"
-              />
-            </div>
           </div>
         </div>
-      </nav>
+      </div>
+    </nav>
 
-      {/* Sidebar Component */}
-      {showSidebar && (
-        <Sidebar
-          setShowSidebar={setShowSidebar}
-          categories={data[0]?.children?.slice(1, 5)}
-          handleCategoryClick={handleCategoryClick}
-        />
-      )}
+    {/* Search and Sidebar Components */}
+    {showSidebar && (
+      <Sidebar
+        setShowSidebar={setShowSidebar}
+        categories={data[0]?.children?.slice(1, 5)}
+        handleCategoryClick={handleCategoryClick}
+      />
+    )}
 
-      {/* SearchBar Component */}
-      {showSearch && (
-        <SearchBar
-          showSearch={showSearch}
-          setShowSearch={setShowSearch}
-          lastSearches={lastSearches}
-        />
-      )}
-    </>
+    {showSearch && (
+      <SearchBar
+        showSearch={showSearch}
+        setShowSearch={setShowSearch}
+        lastSearches={lastSearches}
+      />
+    )}
+  </>
   );
 }
 
