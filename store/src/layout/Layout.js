@@ -37,6 +37,7 @@ const Layout = ({ title, description, children }) => {
           </div>
         </div> */}
         <div className="flex flex-col">
+          {/* removed the z index  */}
         <Navbar />
       </div>
         <div className="bg-white">{children}</div>
