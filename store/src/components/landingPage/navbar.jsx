@@ -198,7 +198,7 @@ function Navbar() {
               <div className="lg:hidden">
                 <FiMenu
                   className={`h-6 w-6 cursor-pointer ${
-                    scrolled ? 'text-black' : 'text-white'
+                    (scrolled || router.asPath !== '/') ? 'text-black' : 'text-white'
                   } hover:text-[#ff6b01] transition-colors duration-200`}
                   onClick={toggleCategoryDrawer}
                   aria-label="Menu"
@@ -208,7 +208,7 @@ function Navbar() {
               {/* Search Icon */}
               <FiSearch
                 className={`h-6 w-6 cursor-pointer ${
-                  scrolled ? 'text-black' : 'text-white'
+                  (scrolled || router.asPath !== '/') ? 'text-black' : 'text-white'
                 } hover:text-[#ff6b01] transition-colors duration-200`}
                 onClick={() => setShowSearch(true)}
                 aria-label="Search"
@@ -218,7 +218,7 @@ function Navbar() {
               <div className="relative">
                 <BsCart4
                   className={`h-6 w-6 cursor-pointer ${
-                    scrolled ? 'text-black' : 'text-white'
+                    (scrolled || router.asPath !== '/') ? 'text-black' : 'text-white'
                   } hover:text-[#ff6b01] transition-colors duration-200`}
                   onClick={toggleCartDrawer}
                   aria-label="Cart"
@@ -234,7 +234,7 @@ function Navbar() {
               <div className="relative" ref={dropdownRef}>
                 <button
                   className={`${
-                    scrolled ? 'text-black' : 'text-white'
+                     (scrolled || router.asPath !== '/') ? 'text-black' : 'text-white'
                   } hover:text-[#ff6b01] text-2xl font-bold transition-colors duration-200`}
                   aria-label="Login"
                   onClick={toggleDropdown}
@@ -249,7 +249,7 @@ function Navbar() {
                     />
                   ) : userInfo?.name ? (
                     <span className={`leading-none font-bold font-baskerville block mt-0 uppercase ring-2 ${
-                      scrolled ? 'ring-black' : 'ring-white'
+                       (scrolled || router.asPath !== '/') ? 'ring-black' : 'ring-white'
                     } hover:ring-[#ff6b01] rounded-full px-2 py-1 transition-all duration-200`}>
                       {userInfo.name[0]}
                     </span>
