@@ -40,15 +40,12 @@ export default defineConfig({
         maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
       },
 
-      // add this to cache all the
-      // // static assets in the public folder
-      // includeAssets: ["**/*"],
       includeAssets: [
-        "src/assets/img/logo/*saii.png",
+        "src/assets/img/logo/saii.png",
         "src/assets/img/*.png",
         "src/assets/img/*.jepg",
         "src/assets/img/*.webp",
-        "favicon.png",
+        "/assets/img/logo/saii.png",
       ],
       manifest: {
         theme_color: "#FFFFFF",
@@ -58,8 +55,8 @@ export default defineConfig({
         scope: ".",
         start_url: ".",
         id: ".",
-        short_name: " SaiSilver - E-Commerce Website",
-        name: " SaiSilver | React eCommerce Admin Dashboard",
+        short_name: " SaiSilver - e-Commerce Website",
+        name: " SaiSilver | eCommerce Admin Dashboard",
         description:
           " SaiSilver : Sai Silver  Admin Dashboard",
         icons: [
