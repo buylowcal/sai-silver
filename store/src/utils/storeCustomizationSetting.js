@@ -319,8 +319,8 @@ const storeCustomization = {
         de: "Schreiben Sie uns eine E-Mail",
       },
       email_box_email: {
-        en: "info@kachabazar.com ",
-        de: "info@kachabazar.com",
+        en: "info@thesaisilver.com ",
+        de: "info@thesaisilver.com",
       },
       email_box_text: {
         en: "Interactively grow empowered for process-centric total linkage. ",
