@@ -26,7 +26,7 @@ const ChangePassword = () => {
 
   const onSubmit = async ({ email, currentPassword, newPassword }) => {
     // return notifySuccess("This Feature is disabled for demo!");
-
+   
     setLoading(true);
     try {
       const res = await CustomerServices.changePassword({

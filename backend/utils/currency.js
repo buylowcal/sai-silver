@@ -1,4 +1,8 @@
-const currency = [
+const currency = [ {
+  name: "Rupee",
+  symbol: "€",
+  status: "show",
+},
   {
     name: "Euro",
     symbol: "€",
@@ -10,7 +14,7 @@ const currency = [
     status: "show",
   },
   {
-    name: "Pound",
+    name: "Pounds",
     symbol: "£",
     status: "show",
   },
