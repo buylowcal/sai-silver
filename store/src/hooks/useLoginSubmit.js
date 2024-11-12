@@ -3,9 +3,8 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useSearchParams } from "next/navigation";
 import { signIn } from "next-auth/react";
-
- 
 import { notifyError } from "@utils/toast";
+
 
 const useLoginSubmit = () => {
   const router = useRouter();
