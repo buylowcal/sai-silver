@@ -234,13 +234,13 @@ console.log("@@",showingTranslateValue(
                       </div>
                     </div>
 
-                    <Label
+                    {/* <Label
                       // label={showingTranslateValue(
                       //   storeCustomizationSetting?.checkout?.shipping_cost
                       // )}
                       label="Shipping Cost"
-                    />
-                    <div className="grid grid-cols-6 gap-6">
+                    /> */}
+                    {/* <div className="grid grid-cols-6 gap-6">
                       <div className="col-span-6 sm:col-span-3">
                         <InputShipping
                           currency={currency}
@@ -290,7 +290,7 @@ console.log("@@",showingTranslateValue(
                         />
                         <Error errorName={errors.shippingOption} />
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                   <div className="form-group mt-12">
                     <h2 className="font-medium tracking-wider  text-base text-gray-700 pb-3">
