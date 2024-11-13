@@ -9,7 +9,7 @@ const currency = [ {
     status: "show",
   },
   {
-    name: "Dollar",
+    name: " Dollars",
     symbol: "$",
     status: "show",
   },
