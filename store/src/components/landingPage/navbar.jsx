@@ -246,7 +246,7 @@ function Navbar() {
                       height={29}
                       src={userInfo.image}
                       alt="user"
-                      className="ring ring-[#ff6b01] rounded-full px-2 py-1 hover:ring-white transition-all duration-200"
+                      className="ring ring-[#ff6b01] rounded-full px-2 py-2 hover:ring-white transition-all duration-200"
                     />
                   ) : userInfo?.name ? (
                     <span className={`leading-none font-bold font-baskerville block mt-0 uppercase ring-2 ${
