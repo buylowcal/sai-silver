@@ -266,7 +266,7 @@ console.log("@@",showingTranslateValue(
                         <Error errorName={errors.shippingOption} />
                       </div>
 
-                      <div className="col-span-6 sm:col-span-3">
+                      {/* <div className="col-span-6 sm:col-span-3">
                         <InputShipping
                           // currency={currency}
                           // currency="₹ "
@@ -289,7 +289,7 @@ console.log("@@",showingTranslateValue(
                           }
                         />
                         <Error errorName={errors.shippingOption} />
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                   <div className="form-group mt-12">
