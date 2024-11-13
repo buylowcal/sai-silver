@@ -57,6 +57,7 @@ function Navbar() {
 
   const handleLogout = async () => {
     await signOut();
+    // router.push('/auth/login')
     setIsDropdownOpen(false);
   };
 
