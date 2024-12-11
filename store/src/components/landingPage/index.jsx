@@ -19,6 +19,7 @@ import GiftSection from "./gift";
 import Community from "./community";
 import Showroom from "./showroom";
 import Testimonials from "./testimonials";
+import HumanCategory from "./humanCategory";
 
 const LandingPage = ({ discountProducts, popularProducts, attributes }) => {
   return (
@@ -42,6 +43,7 @@ const LandingPage = ({ discountProducts, popularProducts, attributes }) => {
         attributes={attributes}
         popularProducts={popularProducts}
       />
+      {/* <HumanCategory/> */}
       <GiftSection />
       {/* <DiscountProducts
         discountProducts={discountProducts}

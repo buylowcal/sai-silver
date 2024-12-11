@@ -1,4 +1,5 @@
 import React from "react";
+import HumanCategory from "./humanCategory";
 
 const GiftSection = () => {
   return (
@@ -10,6 +11,7 @@ const GiftSection = () => {
           Karigars, made from 92.5 sterling silver and finished with<br />
           an 18KT real gold polish.
         </p>
+        <HumanCategory/>
       </div>
       <div className="bg-[#fff] py-8 sm:py-16">
         <div className="text-center mt-10">
