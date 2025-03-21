@@ -45,6 +45,7 @@ const LandingPage = ({ discountProducts, popularProducts, attributes }) => {
       />
       {/* <HumanCategory/> */}
       <GiftSection />
+     
       <DiscountProducts
         discountProducts={discountProducts}
         attributes={attributes}

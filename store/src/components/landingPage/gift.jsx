@@ -24,14 +24,14 @@ const GiftSection = () => {
           <div className="flex flex-col md:flex-row justify-center items-center gap-8">
             {/* Image */}
             <img
-              src="/jewel/box.jpeg"
+              src="/logo/5.png"
               alt="Gift Box"
-              className="w-[400px] sm:w-80 h-[400px] rounded-lg object-cover"
+              className="w-[700px] sm:w-80 h-[400px] rounded-lg object-cover"
             />
 
             {/* Text and button */}
             <div className="text-justify p-3 md:text-left max-w-lg">
-              <p className="text-gray-700 mb-6 text-[19px] sm:text-[19px] text-justify tracking-widerleading-8 sm:leading-9">
+              <p className="text-gray-700 mb-6 text-[19px] sm:text-[19px] text-justify tracking-widerleading-7 sm:leading-9">
                 Explore our collection of perfect, fail-proof gifts. To make
                 this year’s gift truly unforgettable, choose a piece of jewelry
                 from Sai Silver.
