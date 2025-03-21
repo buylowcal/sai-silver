@@ -46,7 +46,7 @@ const Carousel = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center mt-10 leading-none">
+    <div className="flex flex-col items-center mt-10 leading-none">
       <h2 className="text-3xl font-serif text-center tracking-widest mb-8 uppercase">
         <span className="text-lg text-gray-600">Customer voices</span> <br />
         What our customers say
