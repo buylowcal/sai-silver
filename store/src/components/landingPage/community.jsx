@@ -4,7 +4,7 @@ import React from "react";
 const Community = () => {
   return (
     <div>
-      <div className="bg-white text-black py-10">
+      <div className="bg-white text-black leading-none -mt-auto">
         <div className="flex justify-center mb-6">
           <svg
             className="w-10 h-10 text-black"
@@ -34,7 +34,7 @@ const Community = () => {
             href="/auth/signup"
             className="text-black border border-black uppercase hover:bg-black hover:text-white font-normal tracking-wider rounded-full text-base px-6 py-2"
           >
-          Signup Now
+            Signup Now
           </Link>
         </div>
       </div>

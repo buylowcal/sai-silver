@@ -45,10 +45,10 @@ const LandingPage = ({ discountProducts, popularProducts, attributes }) => {
       />
       {/* <HumanCategory/> */}
       <GiftSection />
-      {/* <DiscountProducts
+      <DiscountProducts
         discountProducts={discountProducts}
         attributes={attributes}
-      /> */}
+      />
       <img
         className="w-full h-auto max-h-screen object-cover"
         src="/jewel/banner2.png"
@@ -61,9 +61,7 @@ const LandingPage = ({ discountProducts, popularProducts, attributes }) => {
       <Community />
       {/* <Footer /> */}
       <br />
-      {/* <div className="mt-6">
-        <ToolsResources />
-      </div> */}
+    
     </div>
   );
 };
