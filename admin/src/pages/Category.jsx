@@ -127,10 +127,10 @@ const Category = () => {
                   <Button
                     disabled={isCheck.length < 1}
                     onClick={() => handleUpdateMany(isCheck)}
-                    className="w-full rounded-md h-12 text-gray-600 btn-gray"
+                    className="w-full rounded-md h-12 text-gray-600 btn-gray whitesapce-nowrap"
                   >
                     <span className="mr-2">
-                      <FiEdit />
+                      <FiEdit size={20}/>
                     </span>
 
                     {t("BulkAction")}

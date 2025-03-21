@@ -118,16 +118,16 @@ const ChildCategory = () => {
       <AnimatedContent>
         <div className="flex items-center pb-4">
           <ol className="flex items-center w-full overflow-hidden font-serif">
-            <li className="text-sm pr-1 transition duration-200 ease-in cursor-pointer hover:text-emerald-500 font-semibold">
+            <li className="text-sm pr-1 transition duration-200 ease-in cursor-pointer hover:text-emerald-500 dark:text-gray-600 font-medium">
               <Link to={`/categories`}>{t("Categories")}</Link>
             </li>
             {selectedObj?.map((child, i) => (
               <span key={i + 1} className="flex items-center font-serif">
                 <li className="text-sm mt-[1px]">
                   {" "}
-                  <FiChevronRight />{" "}
+                  <FiChevronRight className="dark:text-white" />{" "}
                 </li>
-                <li className="text-sm pl-1 transition duration-200 ease-in cursor-pointer text-blue-700 hover:text-emerald-500 font-semibold ">
+                <li className="text-sm pl-1 transition duration-200 ease-in cursor-pointer text-blue-700 hover:text-emerald-500 dark:text-gray-200 font-semibold ">
                   <Link to={`/categories/${child._id}`}>
                     {showingTranslateValue(child?.name)}
                   </Link>
@@ -151,9 +151,9 @@ const ChildCategory = () => {
                 <Button
                   disabled={isCheck.length < 1}
                   onClick={() => handleUpdateMany(isCheck)}
-                  className="w-full rounded-md h-12"
+                  className="w-full rounded-md text-white h-12 whitespace-nowrap"
                 >
-                  <FiEdit />
+                  <FiEdit size={20} />
                   {t("BulkAction")}
                 </Button>
               </div>

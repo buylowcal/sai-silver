@@ -74,7 +74,7 @@ const HumanCategory = () => {
                     <div className="absolute bottom-0">
                       <h2 className="font-semibold font-serif text-white leading-tight text-base pb-2">
                         {card.title} <span className="text-white text-sm font-medium tracking-widest italic">
-                        ~{card.description}
+                        <span className="text-orange-500 font-extrabold tracking-tight text-lg">~{card.description}</span>
                       </span>
                       </h2>
                      
