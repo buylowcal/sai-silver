@@ -32,6 +32,8 @@ const LandingPage = ({ discountProducts, popularProducts, attributes }) => {
       </div> */}
       <Banner />
       {/* <FeatureCategory/> */}
+      <HumanCategory/>
+
       <CategoriesSlider attributes={attributes} />
       <div className="mb-12">
         <FeaturesSection />
@@ -43,9 +45,8 @@ const LandingPage = ({ discountProducts, popularProducts, attributes }) => {
         attributes={attributes}
         popularProducts={popularProducts}
       />
-      {/* <HumanCategory/> */}
       <GiftSection />
-     
+
       <DiscountProducts
         discountProducts={discountProducts}
         attributes={attributes}
@@ -62,7 +63,7 @@ const LandingPage = ({ discountProducts, popularProducts, attributes }) => {
       <Community />
       {/* <Footer /> */}
       <br />
-    
+
     </div>
   );
 };

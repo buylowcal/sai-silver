@@ -6,12 +6,12 @@ const GiftSection = () => {
     <>
       <div className="text-center px-4 sm:px-6">
         {/* Upper text section */}
-        <p className="text-[19px] sm:text-md font-normal text-gray-700 mb-4 tracking-wider leading-7 sm:leading-9">
+        {/* <p className="text-[19px] sm:text-md font-normal text-gray-700 mb-4 tracking-wider leading-7 sm:leading-9">
           Showcase your style with our everyday jewelry, handcrafted by skilled<br />
           Karigars, made from 92.5 sterling silver and finished with<br />
           an 18KT real gold polish.
-        </p>
-        <HumanCategory/>
+        </p> */}
+        {/* <HumanCategory/> */}
       </div>
       <div className="bg-[#fff] py-8 sm:py-16">
         <div className="text-center mt-10">

@@ -5,25 +5,25 @@ import { BsShieldCheck } from 'react-icons/bs';
 
 const features = [
   {
-    icon: <GiHeartKey className="h-10 w-10 mb-4 text-white" />,
-    text: 'Handmade with love in India',
+    icon: <GiHeartKey size={58} />,
+    text: 'Designed with passion, made with love',
   },
   {
-    icon: <BsShieldCheck className="h-10 w-10 mb-4 text-white" />,
-    text: '365 day warranty',
+    icon: <BsShieldCheck  size={58}/>,
+    text: 'Chosen with care,designed for timeless charms',
   },
   {
-    icon: <GiSparkles className="h-10 w-10 mb-4 text-white" />,
-    text: '18KT real gold on 92.5 sterling silver',
+    icon: <GiSparkles size={58} />,
+    text: 'Sparkling 925 silver Jewellery (with Hallmark)',
   },
 ];
 
 const FeaturesSection = () => {
   return (
-    <div className="bg-[#ff6b01] py-6 flex justify-center">
-      <div className="max-w-6xl w-full grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-16 space-x-8 px-4">
+    <div className="bg-[#ff6b01] py-3 flex justify-center">
+      <div className="max-w-6xl w-full grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-12 space-x-8 px-4">
         {features.map((feature, index) => (
-          <div key={index} className="flex flex-col items-center gap-3">
+          <div key={index} className="flex flex-col items-center gap-3 text-white">
             {feature.icon}
             <p className="text-center text-white text-[22px] font-thin font-sans tracking-wider leading-9">{feature.text}</p>
           </div>
