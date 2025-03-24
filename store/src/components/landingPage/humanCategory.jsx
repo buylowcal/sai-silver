@@ -1,39 +1,48 @@
 import React, { useContext } from "react";
 import { useRouter } from "next/router";
 import { SidebarContext } from "@context/SidebarContext";
+import useUtilsFunction from "@hooks/useUtilsFunction";
+import useAsync from "@hooks/useAsync";
+import CategoryServices from "@services/CategoryServices";
 
 const cardData = [
   {
-    id: "67daa7242f25061c15ec8dc1", // Example category ID
     imgSrc:
       "https://dalhae.com/cdn/shop/products/e5earrings-gif.gif?v=1725399799&width=1445",
     description: "for her",
-    category: "for-her",
   },
   {
-    id: "67daa7242f25061c15ec8dc2",
     imgSrc: "/jewel/icons/kids.png",
     description: "kids",
-    category: "kids",
   },
   {
-    id: "67daa7242f25061c15ec8dc3",
     imgSrc:
       "https://static.wixstatic.com/media/5d3e9b_e39d04f4354d4efa92646dc3dd1208d9~mv2.gif",
     description: "for him",
-    category: "for-him",
   },
 ];
 
 const HumanCategory = () => {
   const router = useRouter();
   const { isLoading, setIsLoading } = useContext(SidebarContext);
+  const { showingTranslateValue } = useUtilsFunction();
+  const { data, error } = useAsync(() => CategoryServices.getShowingCategory());
+  console.log("Fetched Categories:", data);
 
   const handleCategoryClick = (id, description) => {
-    router.push(`/search?category=${description}&_id=${id}`);
+    if (!id || !description) return; // Prevents errors
+
+    const category_name = showingTranslateValue(description)
+      ?.toLowerCase()
+      .replace(/[^A-Z0-9]+/gi, "-");
+
+    router.push(`/search?category=${category_name}&_id=${id}`);
     setIsLoading(!isLoading);
   };
-
+  console.log("Fetched Categories:", data[0]?.children);
+  if (!data || data.length === 0 || !data[0]?.children) {
+    return null; // Prevents rendering when there's no data
+  }
   return (
     <div className="p-5">
       <div className="max-w-screen-xl mx-auto px-4 pt-4 pb-4">
@@ -41,41 +50,74 @@ const HumanCategory = () => {
           <span className="text-lg text-gray-600"> Shop by</span> <br />
           Elegance for Everyone
         </h2>
-        <div className="flex justify-center flex-col flex-wrap md:flex-row md:-mx-2">
-          {cardData.map((card) => (
-            <div key={card.id} className="w-full md:w-1/2 lg:w-1/4 mb-4 lg:mb-0">
-              <div className="h-72 md:h-96 block group relative mx-2 overflow-hidden shadow-lg">
-                {/* Image */}
-                <img
-                  src={card.imgSrc}
-                  alt={card.description}
-                  className="absolute z-0 object-cover w-full h-80 md:h-96 transform group-hover:scale-150 transition duration-300"
-                />
+        {router?.pathname !== "/search" && (
+          <div className="flex flex-wrap justify-center items-center gap-6 px-4 md:px-8">
 
-                {/* Gradient Overlay */}
-                <div className="absolute gradient transition duration-300 group-hover:bg-orange-500/50 group-hover:opacity-80 w-full h-72 md:h-96 z-10"></div>
+            {data[0]?.children?.slice(0, 6).map((category, index) => {
+              // Find the matching card
+              const matchingCard = cardData.find(
+                (sub) =>
+                  sub.description.toLowerCase().trim() ===
+                  (category.name?.en?.toLowerCase().trim() || category.name?.toLowerCase().trim())
+              );
 
-                {/* Content */}
-                <div className="absolute left-0 right-0 bottom-0 p-6 z-30 transform translate-y-1/2 transition duration-300 h-full group-hover:translate-y-0 delay-100 flex flex-col justify-center items-center">
-                  {/* Description */}
-                  <div className="text-white text-lg font-medium italic opacity-100 group-hover:opacity-0 transition-opacity duration-300">
-                    ~ {card.description}
-                  </div>
+              // If no matching card is found, do not render
+              if (!matchingCard) return null;
 
-                  {/* Button */}
-                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200">
-                    <button
-                      onClick={() => handleCategoryClick(card.id, card.category)}
-                      className="bg-[#ff6b01] text-white text-base px-4 py-2 -mb-8 font-semibold focus:outline-none focus:ring-2 focus:ring-white"
-                    >
-                      Shop Now
-                    </button>
+              return (
+                <div
+                  key={index}
+                  onClick={() => handleCategoryClick(category?._id, category.name)}
+                  className="cursor-pointer group px-6 "
+                >
+                  <h3 className="text-black text-[14px] font-sans tracking-widest group-hover:text-[#ff6b01] p-2 hidden">
+                    {showingTranslateValue(category?.name)}
+                  </h3>
+                  <div
+                  // className="flex justify-center flex-col flex-wrap md:flex-row md:-mx-2"
+                  >
+                    <div className="w-full md:w-1/2 lg:w-1/4 mb-4 lg:mb-0">
+                      <div className="relative w-60 h-80 md:w-72 md:h-[30rem] block group mx-2 overflow-hidden shadow-lg">
+
+
+                        {/* Image */}
+                        <img
+                          src={matchingCard.imgSrc}
+                          alt={showingTranslateValue(category?.name).toUpperCase()}
+                          className="absolute top-0 left-0 w-full h-full object-cover transform group-hover:scale-110 transition duration-300"
+                        />
+
+                        {/* Gradient Overlay */}
+                        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black/70 to-transparent transition duration-300 group-hover:bg-orange-500/50 group-hover:opacity-80"></div>
+
+                        {/* Content */}
+                        <div className="absolute left-0 right-0 bottom-0 p-6 z-30 transform translate-y-1/2 transition duration-300 h-full group-hover:translate-y-0 delay-100 flex flex-col justify-center items-center">
+                          {/* Description */}
+                          <div className="text-white text-lg font-medium italic opacity-100 group-hover:opacity-0 transition-opacity duration-300">
+                            ~ {matchingCard.description}
+                          </div>
+
+                          {/* Button */}
+                          <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200">
+                            <button
+                              onClick={() => handleCategoryClick(category?._id, category.name)}
+                              className="bg-[#ff6b01] text-white text-base px-4 py-2 -mb-8 font-semibold focus:outline-none focus:ring-2 focus:ring-white"
+                            >
+                              Shop Now
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          ))}
-        </div>
+              );
+            })}
+
+
+          </div>
+        )}
+
       </div>
     </div>
   );

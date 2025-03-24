@@ -33,13 +33,13 @@ const LandingPage = ({ discountProducts, popularProducts, attributes }) => {
       <Banner />
       {/* <FeatureCategory/> */}
       <HumanCategory/>
+      <Showroom />
 
-      <CategoriesSlider attributes={attributes} />
+      {/* <CategoriesSlider attributes={attributes} /> */}
       <div className="mb-12">
         <FeaturesSection />
       </div>
       {/* <Category /> */}
-      <Showroom />
 
       <FeaturedProducts
         attributes={attributes}
@@ -47,10 +47,10 @@ const LandingPage = ({ discountProducts, popularProducts, attributes }) => {
       />
       <GiftSection />
 
-      <DiscountProducts
+      {/* <DiscountProducts
         discountProducts={discountProducts}
         attributes={attributes}
-      />
+      /> */}
       <img
         className="w-full h-auto max-h-screen object-cover"
         src="/jewel/banner2.png"

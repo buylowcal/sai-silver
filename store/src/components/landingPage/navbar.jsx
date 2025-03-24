@@ -64,7 +64,7 @@ function Navbar() {
   // For demonstration, store last searches
   const [lastSearches, setLastSearches] = useState([
     "Diamond Ring",
-    "Gold Necklace",
+    "silver Necklace",
   ]);
 
   const handleCategoryClick = (id, category) => {
@@ -165,7 +165,7 @@ function Navbar() {
             {/* Middle Section - Categories (hidden on mobile) */}
             {router?.pathname !== "/search" && (
               <div className="hidden lg:flex items-center justify-center flex-1">
-                {data[0]?.children?.slice(1, 7).map((category, index) => (
+                {data[0]?.children?.slice(0, 3).map((category, index) => (
                   <div
                     key={index}
                     onClick={() => handleCategoryClick(category?._id, category.name)}
