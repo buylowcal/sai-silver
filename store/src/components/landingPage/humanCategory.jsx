@@ -93,7 +93,7 @@ const HumanCategory = () => {
                         {/* Content */}
                         <div className="absolute left-0 right-0 bottom-0 p-6 z-30 transform translate-y-1/2 transition duration-300 h-full group-hover:translate-y-0 delay-100 flex flex-col justify-center items-center">
                           {/* Description */}
-                          <div className="text-white text-lg font-medium italic opacity-100 group-hover:opacity-0 transition-opacity duration-300">
+                          <div className="text-white text-3xl sm:2xl md:2xl lg:3xl font-italiano font-medium italic opacity-100 group-hover:opacity-0 transition-opacity duration-300">
                             ~ {matchingCard.description}
                           </div>
 
@@ -101,7 +101,7 @@ const HumanCategory = () => {
                           <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200">
                             <button
                               onClick={() => handleCategoryClick(category?._id, category.name)}
-                              className="bg-[#ff6b01] text-white text-base px-4 py-2 -mb-8 font-semibold focus:outline-none focus:ring-2 focus:ring-white"
+                              className="bg-[#ff6b01] text-white text-base px-6 py-2 -mb-8 font-semibold focus:outline-none focus:ring-2 focus:ring-white"
                             >
                               Shop Now
                             </button>
