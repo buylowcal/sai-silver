@@ -17,6 +17,7 @@ module.exports = {
       // Retain existing font families if needed
       sans: ["Open Sans", "sans-serif"],
       DejaVu: ["DejaVu Sans", "Arial", "sans-serif"],
+      italiano: ['"Italianno"', 'cursive'],
     },
     extend: {
       writingMode: {

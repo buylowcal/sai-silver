@@ -23,7 +23,6 @@ const LandingPage = ({ discountProducts, popularProducts, attributes }) => {
         popularProducts={popularProducts}
       />
       <GiftSection />
-      {/* <LandingPage/> */}
       {/* <DiscountProducts
         discountProducts={discountProducts}
         attributes={attributes}
