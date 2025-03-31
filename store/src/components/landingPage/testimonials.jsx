@@ -46,25 +46,25 @@ const Carousel = () => {
   };
 
   return (
-    <div className="flex flex-col items-center mt-10 leading-none">
-      <h2 className="text-3xl font-serif text-center tracking-widest mb-8 uppercase">
+    <div className="flex flex-col items-center">
+      <h2 className="text-3xl font-serif text-center tracking-widest  mt-8 mb-8 uppercase">
         <span className="text-lg text-gray-600">Customer voices</span> <br />
         What our customers say
       </h2>
       <div className="relative w-full overflow-hidden">
-        <div className="absolute w-3/5 h-full left-0 z-50 bg-gradient-to-r from-gray-50 to-transparent"></div>
-        <div className="absolute w-3/5 h-full right-0 z-50 bg-gradient-to-l from-gray-50 to-transparent"></div>
+        <div className="absolute w-1/4 h-full left-0 z-50 bg-gradient-to-r from-gray-50 to-transparent"></div>
+        <div className="absolute w-1/4 h-full right-0 z-50 bg-gradient-to-l from-gray-50 to-transparent"></div>
         <div ref={carouselRef} className="flex items-center justify-center w-max">
           {Array.from({ length: 6 }).map((_, index) => (
             <div
               key={index}
-              className={`flex flex-col items-center  mx-6 my-10  rounded-lg shadow-lg w-64 relative transition-transform duration-300 ${playingIndex === index ? 'scale-125 shadow-xl' : 'scale-100'}`}
+              className={`flex flex-col items-center  mx-6 my-16 rounded-lg shadow-lg w-72 relative transition-transform duration-300 ${playingIndex === index ? 'scale-125 shadow-xl' : 'scale-100'}`}
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={handleMouseLeave}
             >
               <div className="relative w-full h-80">
                 <video
-                  className="w-full h-auto rounded-lg"
+                  className="w-full h-auto "
                   loop
                   // muted
                   // poster="/logo/poster.jpeg"
@@ -88,7 +88,7 @@ const Carousel = () => {
                     onClick={() => setPlayingIndex(index)}
                   >
                     <svg
-                      className="h-14 w-14 text-white bg-gray-300 rounded-full bg-clip-padding backdrop-filter backdrop-blur-md text-center p-2 bg-opacity-10 "
+                      className="h-14 w-14 text-white bg-gray-100 rounded-full bg-clip-padding backdrop-filter backdrop-blur-md text-center p-2 bg-opacity-10 "
                       fill="currentColor"
                       viewBox="0 0 20 20"
                       xmlns="http://www.w3.org/2000/svg"
