@@ -35,7 +35,7 @@ const CategoryCarousel = () => {
 
   return (
     <>
-      <div className="flex justify-center  leading-tight overflow-x-hidden whitespace-nowrap hidden sm:flex">
+      <div className="hidden justify-center  leading-tight overflow-x-hidden whitespace-nowrap  sm:flex">
         {error ? (
           <p className="flex lg:block justify-center align-middle items-center m-auto text-xl text-red-500">
             <span> {error}</span>
