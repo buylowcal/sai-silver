@@ -362,7 +362,7 @@ const ProductModal = ({
                   <div>
                     <button
                       onClick={() => handleMoreInfo(product.slug)}
-                      className="font-sans font-medium text-sm text-orange-500"
+                      className="font-sans font-medium text-sm text-green-600"
                     >
                       {t("common:moreInfo")}
                     </button>

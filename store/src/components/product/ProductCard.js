@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 import Image from "next/image";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { IoAdd, IoBagAddSharp, IoRemove } from "react-icons/io5";
 import { useCart } from "react-use-cart";
 
@@ -16,9 +16,13 @@ import useUtilsFunction from "@hooks/useUtilsFunction";
 import ProductModal from "@components/modal/ProductModal";
 import ImageWithFallback from "@components/common/ImageWithFallBack";
 import { handleLogEvent } from "src/lib/analytics";
+import { SidebarContext } from "@context/SidebarContext";
+import { useRouter } from "next/router";
 
 const ProductCard = ({ product, attributes }) => {
+  const router = useRouter();
   const [modalOpen, setModalOpen] = useState(false);
+  const { setIsLoading, isLoading } = useContext(SidebarContext);
 
   const { items, addItem, updateItemQuantity, inCart } = useCart();
   const { handleIncreaseQuantity } = useAddToCart();
@@ -46,13 +50,19 @@ const ProductCard = ({ product, attributes }) => {
     addItem(newItem);
   };
 
-  const handleModalOpen = (event, id) => {
-    setModalOpen(event);
+  // const handleModalOpen = (event, id) => {
+  //   setModalOpen(event);
+  // };
+
+  const handleProductClick = (slug) => {
+    router.push(`/product/${slug}`);
+    setIsLoading(!isLoading);
+    handleLogEvent("product", `opened ${slug} product details`);
   };
 
   return (
     <>
-      {modalOpen && (
+      {/* {modalOpen && (
         <ProductModal
           modalOpen={modalOpen}
           setModalOpen={setModalOpen}
@@ -60,9 +70,9 @@ const ProductCard = ({ product, attributes }) => {
           currency={currency}
           attributes={attributes}
         />
-      )}
+      )} */}
 
-      <div className="group box-border overflow-hidden flex  shadow-xl border border-2 border-gray-50 flex-col items-center bg-gray-50 relative w-full h-full max-w-sm">
+      <div className="group box-border overflow-hidden flex  shadow-xl border  border-gray-50 flex-col items-center bg-gray-50 relative w-full h-full max-w-sm">
         {/* Header Section */}
         <div className="w-full flex justify-between px-4 py-2">
           {/* <Stock product={product} stock={product.stock} card /> */}
@@ -71,13 +81,14 @@ const ProductCard = ({ product, attributes }) => {
 
         {/* Image Section */}
         <div
-          onClick={() => {
-            handleModalOpen(!modalOpen, product._id);
-            handleLogEvent(
-              "product",
-              `opened ${showingTranslateValue(product?.title)} product modal`
-            );
-          }}
+          // onClick={() => {
+          //   handleModalOpen(!modalOpen, product._id);
+          //   handleLogEvent(
+          //     "product",
+          //     `opened ${showingTranslateValue(product?.title)} product modal`
+          //   );
+          // }}
+          onClick={() => handleProductClick(product.slug)}
           className="relative flex justify-center cursor-pointer w-full h-60 sm:h-72 md:h-80"
         >
           <div className="relative w-full h-full p-4">
@@ -110,7 +121,7 @@ const ProductCard = ({ product, attributes }) => {
             </span>
             <h2 className="text-[16px] truncate mb-1 block  font-light text-gray-700">
               <span className="line-clamp-2 tracking-widest">
-                {showingTranslateValue(product?.title).charAt(0).toUpperCase()+ showingTranslateValue(product?.title).slice(1)}
+                {showingTranslateValue(product?.title).charAt(0).toUpperCase() + showingTranslateValue(product?.title).slice(1)}
               </span>
             </h2>
           </div>
