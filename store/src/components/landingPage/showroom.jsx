@@ -12,12 +12,12 @@ const Showroom = () => {
         playsInline
         preload="auto"
       >
-        <source src="/jewel/jewel.mp4" type="video/mp4" />
+        <source src="/jewel/website video.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
       {/* Overlay effect */}
-      <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+      <div className="absolute inset-0 bg-black bg-opacity-60"></div>
 
       {/* Text and button on top of the video */}
       <div className="absolute bottom-10  ml-12 z-10 text-white">

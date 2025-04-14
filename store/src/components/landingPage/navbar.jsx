@@ -144,7 +144,7 @@ function Navbar() {
             <div className="flex-shrink-0">
               <img
                 onClick={() => router.push("/")}
-                src="/logo/logo-color.png"
+                src="/logo/saii.png"
                 className="cursor-pointer w-48 md:w-80 h-auto object-contain md:block hidden"
                 alt="Brand Logo"
               />
@@ -224,7 +224,7 @@ function Navbar() {
                               {subCategory?.children?.length > 0 && (
                                 <IoIosArrowDown size={20} />
                               )}
-                              {/* {subCategory?.children?.length > 0 && (
+                              {subCategory?.children?.length > 0 && (
                                 <div className="absolute left-full top-0 mt-0 hidden group-hover:block bg-pink-300 shadow-lg rounded-xl p-2 w-48 z-50">
                                   {subCategory.children.map((nestedSub, nestedIndex) => (
                                     <h5
@@ -236,7 +236,7 @@ function Navbar() {
                                     </h5>
                                   ))}
                                 </div>
-                              )} */}
+                              )}
                             </h4>
 
                             {/* Nested Dropdown (if exists) */}

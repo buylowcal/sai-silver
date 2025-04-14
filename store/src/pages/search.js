@@ -34,9 +34,9 @@ const Search = ({ products, attributes }) => {
               {/* <div className="w-full grid grid-col gap-4 grid-cols-1 2xl:gap-6 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2">
                 <Card />
               </div> */}
-              <div className="relative  ">
-                <CategoryCarousel />
-                <BestSellingProducts/>
+              <div className="relative">
+                <CategoryCarousel  />
+                <BestSellingProducts />
               </div>
               {productData?.length === 0 ? (
                 <div className="mx-auto mt-8 p-5 my-5 ">
@@ -102,9 +102,9 @@ const Search = ({ products, attributes }) => {
                   {productData?.length > visibleProduct && (
                     <button
                       onClick={() => setVisibleProduct((pre) => pre + 10)}
-                      className="w-auto mx-auto md:text-sm leading-5 flex items-center transition ease-in-out duration-300 font-medium text-center 
-                                 justify-center border-0 border-transparent rounded-md focus-visible:outline-none focus:outline-none bg-indigo-100 
-                                 text-gray-700 px-5 md:px-6 lg:px-8 py-2 md:py-3 lg:py-3 hover:text-white hover:bg-emerald-600 h-12 mt-6 text-sm lg:text-sm"
+                      className="w-auto mx-auto md:text-base leading-5 flex items-center transition ease-in-out duration-300 font-medium text-center 
+                                 justify-center border-0 border-transparent  focus-visible:outline-none focus:outline-none bg-orange-500 
+                                 px-5 md:px-6 lg:px-6 py-2 md:py-3 lg:py-2 text-white hover:bg-black h-12 mt-6 text-sm lg:text-sm"
                     >
                       {t("common:loadMoreBtn")}
                     </button>
