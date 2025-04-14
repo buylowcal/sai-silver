@@ -14,81 +14,51 @@ import { SidebarContext } from "@context/SidebarContext";
 import CategoryServices from "@services/CategoryServices";
 import useUtilsFunction from "@hooks/useUtilsFunction";
 
-const CategoryCarousel = () => {
-  const router = useRouter();
-
-  const prevRef = useRef(null);
-  const nextRef = useRef(null);
-
-  const { showingTranslateValue } = useUtilsFunction();
-  const { isLoading, setIsLoading } = useContext(SidebarContext);
+const CategoryCarousel = ({ setSelectedCategory }) => {
   const { data, error } = useAsync(() => CategoryServices.getShowingCategory());
+  const { showingTranslateValue } = useUtilsFunction();
+  const router = useRouter();
+  const { isLoading, setIsLoading } = useContext(SidebarContext);
 
   const handleCategoryClick = (id, category) => {
     const category_name = showingTranslateValue(category)
       ?.toLowerCase()
       .replace(/[^A-Z0-9]+/gi, "-");
 
+    // Push to search and set selectedCategory
     router.push(`/search?category=${category_name}&_id=${id}`);
     setIsLoading(!isLoading);
+
+    // Find the full category object by id
+    const clickedCategory = data[0]?.children?.find((cat) => cat._id === id);
+    if (clickedCategory) {
+      setSelectedCategory(clickedCategory);
+    }
   };
 
   return (
-    <>
-      <div className="hidden justify-center  leading-tight overflow-x-hidden whitespace-nowrap  sm:flex">
-        {error ? (
-          <p className="flex lg:block justify-center align-middle items-center m-auto text-xl text-red-500">
-            <span> {error}</span>
-          </p>
-        ) : (
-          data[0]?.children?.map((category, i) => (
-            <div key={i + 1} className="group flex-shrink-0">
-              <div
-                onClick={() =>
-                  handleCategoryClick(category?._id, category.name)
-                }
-                className="text-center cursor-pointer p-3 mt-8 mx-auto"
-              >
-                <h3
-                  className="
-                  text-black
-                  text-[14px]
-                  sm:text-[12px]
-                  md:text-[12px]
-                  mt-2
-                
-                  whitespace-nowrap
-                  tracking-widest
-                  font-sans
-                  group-hover:text-[#ff6b01]
-                  leading-loose
-                  p-2
-                  px-2
-                  mx-2
-                  relative
-                  after:content-[' ']
-                  after:absolute
-                  after:left-0
-                  after:bottom-0
-                  after:h-0.5
-                  after:w-full
-                  after:bg-current
-                  after:transition-transform
-                  after:duration-500
-                  after:scale-x-0
-                  after:origin-center
-                  hover:after:scale-x-100
-                "
-                >
-                  {showingTranslateValue(category?.name).toUpperCase()}
-                </h3>
-              </div>
+    <div className="hidden justify-center sm:flex overflow-x-hidden whitespace-nowrap">
+      {error ? (
+        <p className="text-xl text-red-500">{error}</p>
+      ) : (
+        data[0]?.children?.map((category, i) => (
+          <div key={i} className="group flex-shrink-0">
+            <div
+              onClick={() =>
+                handleCategoryClick(category?._id, category.name)
+              }
+              className="text-center cursor-pointer p-3 mt-8"
+            >
+              <h3 className="text-black text-[14px] tracking-widest font-sans group-hover:text-[#ff6b01] p-2 relative hover:underline">
+                {showingTranslateValue(category?.name).toUpperCase()}
+              </h3>
             </div>
-          ))
-        )}
-      </div>
-    </>
+          </div>
+        ))
+      )}
+    </div>
   );
 };
 
-export default React.memo(CategoryCarousel);
+export default CategoryCarousel;
+
