@@ -144,7 +144,7 @@ function Navbar() {
             <div className="flex-shrink-0">
               <img
                 onClick={() => router.push("/")}
-                src="/logo/saii.png"
+                src="/logo/logo-color.png"
                 className="cursor-pointer w-48 md:w-80 h-auto object-contain md:block hidden"
                 alt="Brand Logo"
               />
