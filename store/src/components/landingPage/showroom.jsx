@@ -27,22 +27,28 @@ const Showroom = () => {
         </span>
 
         {/* Title */}
-        <h2 className="text-5xl font-baskerville tracking-widest  mb-3">
-          Showroom
+        <h2 className="text-6xl font-baskerville tracking-wide  mb-3">
+          Sai Silver
         </h2>
 
         {/* Paragraph */}
         <p className="text-[18px] tracking-wide leading-relax font-sans w-full p-1.5 sm:max-w-xl sm:px-0 mb-8 text-justify">
-          From custom-made to personalized touch to love, earrings, rings, and much more 
+          From custom-made to personalized touch to love, earrings, rings, and much more
           have become an essential part of our daily lives. With the
           right ornaments, you can make your love and life  a true oasis of comfort
           and convenience.
         </p>
 
         {/* Button */}
-        <Link href="/" className="w-fit  whitespace-nowrap bg-transparent text-white border border-white hover:bg-[#ff6b01] hover:border-black hover:text-white font-normal tracking-widest rounded-full text-base px-6 py-2 text-center">
+        <button
+          onClick={() => {
+            const section = document.getElementById('showroom');
+            section?.scrollIntoView({ behavior: 'smooth' });
+          }}
+          className="w-fit whitespace-nowrap bg-transparent text-white border border-white hover:bg-[#ff6b01] hover:border-black hover:text-white font-normal tracking-widest rounded-full text-base px-6 py-2 text-center"
+        >
           Explore Showroom
-        </Link>
+        </button>
       </div>
     </div>
   );

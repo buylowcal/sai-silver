@@ -49,7 +49,7 @@ const CategoryCarousel = ({ setSelectedCategory }) => {
               }
               className="text-center cursor-pointer p-3 mt-8"
             >
-              <h3 className="text-black text-[14px] tracking-widest font-sans group-hover:text-[#ff6b01] p-2 relative hover:underline">
+              <h3 className="text-black text-[14px] font-medium tracking-widest font-sans group-hover:text-[#ff6b01] p-2 relative hover:underline underline-offset-4">
                 {showingTranslateValue(category?.name).toUpperCase()}
               </h3>
             </div>

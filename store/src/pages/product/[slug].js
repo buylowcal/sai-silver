@@ -182,31 +182,29 @@ const ProductScreen = ({ product, attributes, relatedProducts }) => {
       const { variants, categories, description, ...updatedProduct } = product;
       const newItem = {
         ...updatedProduct,
-        id: `${
-          p.variants.length <= 1
+        id: `${p.variants.length <= 1
             ? p._id
             : p._id +
-              variantTitle
-                ?.map(
-                  // (att) => selectVariant[att.title.replace(/[^a-zA-Z0-9]/g, '')]
-                  (att) => selectVariant[att._id]
-                )
-                .join("-")
-        }`,
+            variantTitle
+              ?.map(
+                // (att) => selectVariant[att.title.replace(/[^a-zA-Z0-9]/g, '')]
+                (att) => selectVariant[att._id]
+              )
+              .join("-")
+          }`,
 
-        title: `${
-          p.variants.length <= 1
+        title: `${p.variants.length <= 1
             ? showingTranslateValue(product?.title)
             : showingTranslateValue(product?.title) +
-              "-" +
-              variantTitle
-                ?.map(
-                  // (att) => selectVariant[att.title.replace(/[^a-zA-Z0-9]/g, '')]
-                  (att) =>
-                    att.variants?.find((v) => v._id === selectVariant[att._id])
-                )
-                .map((el) => showingTranslateValue(el?.name))
-        }`,
+            "-" +
+            variantTitle
+              ?.map(
+                // (att) => selectVariant[att.title.replace(/[^a-zA-Z0-9]/g, '')]
+                (att) =>
+                  att.variants?.find((v) => v._id === selectVariant[att._id])
+              )
+              .map((el) => showingTranslateValue(el?.name))
+          }`,
         image: img,
         variant: selectVariant,
         price: price,
@@ -230,143 +228,143 @@ const ProductScreen = ({ product, attributes, relatedProducts }) => {
     .replace(/[^A-Z0-9]+/gi, "-");
 
   // console.log("discount", discount);
-const rout = useRouter();
-console.log("oooooo",rout)
+  const rout = useRouter();
+  console.log("oooooo", rout)
   return (
     <>
       {isLoading ? (
         <Loading loading={isLoading} />
       ) : (
-       <>
-         <Layout
-          title={showingTranslateValue(product?.title)}
-          description={showingTranslateValue(product.description)}
-        >
-        
-          <div className="px-0 py-10 lg:py-10 mt-12">
-            <div className="mx-auto px-3 lg:px-10 max-w-screen-2xl">
-              <div className="flex items-center mt-12 pb-4">
-                <ol className="flex items-center w-full overflow-hidden font-serif">
-                  <li className="text-sm pr-1 transition duration-200 ease-in cursor-pointer hover:text-[#ff6b01] font-semibold">
-                    <Link href="/">Home</Link>
-                  </li>
-                  <li className="text-sm mt-[1px]">
-                    {" "}
-                    <FiChevronRight />{" "}
-                  </li>
-                  <li className="text-sm pl-1 transition duration-200 ease-in cursor-pointer hover:text-[#ff6b01] font-semibold ">
-                    <Link
-                      href={`/search?category=${category_name}&_id=${product?.category?._id}`}
-                    >
-                      <button
-                        type="button"
-                        onClick={() => setIsLoading(!isLoading)}
-                        className="capitalize font-sans tracking-wider"
+        <>
+          <Layout
+            title={showingTranslateValue(product?.title)}
+            description={showingTranslateValue(product.description)}
+          >
+
+            <div className="px-0 py-10 lg:py-10 mt-12">
+              <div className="mx-auto px-3 lg:px-10 max-w-screen-2xl">
+                <div className="flex items-center mt-12 pb-4">
+                  <ol className="flex items-center w-full overflow-hidden font-serif">
+                    <li className="text-sm pr-1 transition duration-200 ease-in cursor-pointer hover:text-[#ff6b01] font-semibold">
+                      <Link href="/">Home</Link>
+                    </li>
+                    <li className="text-sm mt-[1px]">
+                      {" "}
+                      <FiChevronRight />{" "}
+                    </li>
+                    <li className="text-sm pl-1 transition duration-200 ease-in cursor-pointer hover:text-[#ff6b01] font-semibold ">
+                      <Link
+                        href={`/search?category=${category_name}&_id=${product?.category?._id}`}
                       >
-                        {category_name}
-                      </button>
-                    </Link>
-                  </li>
-                  <li className="text-sm mt-[1px]">
-                    {" "}
-                    <FiChevronRight />{" "}
-                  </li>
-                  <li className="text-sm px-1 text-gray-400 capitalize tracking-widest font-sans transition duration-200 ease-in ">
-                    {showingTranslateValue(product?.title)}
-                  </li>
-                </ol>
-              </div>
-              <div className="w-full rounded-lg p-3 lg:p-12 bg-white">
-                <div className="flex flex-col xl:flex-row">
-                  <div className="flex-shrink-0 xl:pr-10 lg:block w-full mx-auto md:w-6/12 lg:w-5/12 xl:w-4/12">
-                    <Discount slug product={product} discount={discount} />
+                        <button
+                          type="button"
+                          onClick={() => setIsLoading(!isLoading)}
+                          className="capitalize font-sans tracking-wider"
+                        >
+                          {category_name}
+                        </button>
+                      </Link>
+                    </li>
+                    <li className="text-sm mt-[1px]">
+                      {" "}
+                      <FiChevronRight />{" "}
+                    </li>
+                    <li className="text-sm px-1 text-gray-400 capitalize tracking-widest font-sans transition duration-200 ease-in ">
+                      {showingTranslateValue(product?.title)}
+                    </li>
+                  </ol>
+                </div>
+                <div className="w-full rounded-lg p-3 lg:p-12 bg-white">
+                  <div className="flex flex-col xl:flex-row">
+                    <div className="flex-shrink-0 xl:pr-10 lg:block w-full mx-auto md:w-6/12 lg:w-5/12 xl:w-4/12">
+                      <Discount slug product={product} discount={discount} />
 
-                    {product.image[0] ? (
-                      <Image
-                        src={img || product.image[0]}
-                        alt="product"
-                        width={650}
-                        height={650}
-                        priority
-                      />
-                    ) : (
-                      <Image
-                        src="https://res.cloudinary.com/ahossain/image/upload/v1655097002/placeholder_kvepfp.png"
-                        width={650}
-                        height={650}
-                        alt="product Image"
-                      />
-                    )}
-
-                    {product?.image?.length > 1 && (
-                      <div className="flex flex-row flex-wrap mt-4 border-t">
-                        <ImageCarousel
-                          images={product.image}
-                          handleChangeImage={handleChangeImage}
+                      {product.image[0] ? (
+                        <Image
+                          src={img || product.image[0]}
+                          alt="product"
+                          width={650}
+                          height={650}
+                          priority
                         />
-                      </div>
-                    )}
-                  </div>
+                      ) : (
+                        <Image
+                          src="https://res.cloudinary.com/ahossain/image/upload/v1655097002/placeholder_kvepfp.png"
+                          width={650}
+                          height={650}
+                          alt="product Image"
+                        />
+                      )}
 
-                  <div className="w-full">
-                    <div className="flex flex-col md:flex-row lg:flex-row xl:flex-row">
-                      <div className=" w-3/5 xl:pr-6 md:pr-6  md:w-2/3 mob-w-full">
-                        <div className="mb-6">
-                          <h1 className="leading-7 text-lg md:text-xl lg:text-2xl mb-1 font-semibold font-serif text-gray-800">
-                            {showingTranslateValue(product?.title)}
-                          </h1>
+                      {product?.image?.length > 1 && (
+                        <div className="flex flex-row flex-wrap mt-4 border-t">
+                          <ImageCarousel
+                            images={product.image}
+                            handleChangeImage={handleChangeImage}
+                          />
+                        </div>
+                      )}
+                    </div>
 
-                          <p className="uppercase font-serif font-medium text-gray-500 text-sm">
-                            {/* SKU :{" "} */}
-                            <span className="font-bold text-gray-600">
-                              {product.sku}
-                            </span>
-                          </p>
+                    <div className="w-full">
+                      <div className="flex flex-col md:flex-row lg:flex-row xl:flex-row">
+                        <div className=" w-3/5 xl:pr-6 md:pr-6  md:w-2/3 mob-w-full">
+                          <div className="mb-6">
+                            <h1 className="leading-7 text-lg md:text-xl lg:text-2xl mb-1 font-semibold font-serif text-gray-800">
+                              {showingTranslateValue(product?.title)}
+                            </h1>
 
-                          <div className="relative">
-                            <Stock stock={stock} />
+                            <p className="uppercase font-serif font-medium text-gray-500 text-sm">
+                              {/* SKU :{" "} */}
+                              <span className="font-bold text-gray-600">
+                                {product.sku}
+                              </span>
+                            </p>
+
+                            <div className="relative">
+                              <Stock stock={stock} />
+                            </div>
                           </div>
-                        </div>
-                        <Price
-                          price={price}
-                          product={product}
-                          currency={currency}
-                          originalPrice={originalPrice}
-                        />
+                          <Price
+                            price={price}
+                            product={product}
+                            currency={currency}
+                            originalPrice={originalPrice}
+                          />
 
-                        <div className="mb-4">
-                          {variantTitle?.map((a, i) => (
-                            <span key={i + 1}>
-                              <h4 className="text-sm py-1">
-                                {showingTranslateValue(a?.name)}:
-                              </h4>
-                              <div className="flex flex-row mb-3">
-                                <VariantList
-                                  att={a._id}
-                                  lang={lang}
-                                  option={a.option}
-                                  setValue={setValue}
-                                  varTitle={variantTitle}
-                                  setSelectVa={setSelectVa}
-                                  variants={product.variants}
-                                  selectVariant={selectVariant}
-                                  setSelectVariant={setSelectVariant}
-                                />
-                              </div>
-                            </span>
-                          ))}
-                        </div>
+                          <div className="mb-4">
+                            {variantTitle?.map((a, i) => (
+                              <span key={i + 1}>
+                                <h4 className="text-sm py-1">
+                                  {showingTranslateValue(a?.name)}:
+                                </h4>
+                                <div className="flex flex-row mb-3">
+                                  <VariantList
+                                    att={a._id}
+                                    lang={lang}
+                                    option={a.option}
+                                    setValue={setValue}
+                                    varTitle={variantTitle}
+                                    setSelectVa={setSelectVa}
+                                    variants={product.variants}
+                                    selectVariant={selectVariant}
+                                    setSelectVariant={setSelectVariant}
+                                  />
+                                </div>
+                              </span>
+                            ))}
+                          </div>
 
-                        <div>
-                          <div className="text-sm leading-6 text-gray-500 md:leading-7">
-                            {isReadMore
-                              ? showingTranslateValue(
+                          <div>
+                            <div className="text-sm leading-6 text-gray-500 md:leading-7">
+                              {isReadMore
+                                ? showingTranslateValue(
                                   product?.description
                                 )?.slice(0, 230)
-                              : showingTranslateValue(product?.description)}
-                            <br />
-                            {Object?.keys(product?.description)?.includes(lang)
-                              ? product?.description[lang]?.length > 230 && (
+                                : showingTranslateValue(product?.description)}
+                              <br />
+                              {Object?.keys(product?.description)?.includes(lang)
+                                ? product?.description[lang]?.length > 230 && (
                                   <span
                                     onClick={() => setIsReadMore(!isReadMore)}
                                     className="read-or-hide"
@@ -376,7 +374,7 @@ console.log("oooooo",rout)
                                       : t("common:showLess")}
                                   </span>
                                 )
-                              : product?.description?.en?.length > 230 && (
+                                : product?.description?.en?.length > 230 && (
                                   <span
                                     onClick={() => setIsReadMore(!isReadMore)}
                                     className="read-or-hide"
@@ -386,80 +384,84 @@ console.log("oooooo",rout)
                                       : t("common:showLess")}
                                   </span>
                                 )}
-                          </div>
+                            </div>
 
-                          <div className="flex items-center mt-4">
-                            <div className="flex items-center justify-between space-s-3 sm:space-s-4 w-full">
-                              <div className="group flex items-center justify-between rounded-md overflow-hidden flex-shrink-0 border h-11 md:h-12 border-gray-300">
+                            <div className="flex items-center mt-4">
+                              <div className="flex items-center justify-between space-s-3 sm:space-s-4 w-full">
+                                <div className="group flex items-center justify-between rounded-md overflow-hidden flex-shrink-0 border h-11 md:h-12 border-gray-300">
+                                  <button
+                                    onClick={() => setItem(item - 1)}
+                                    disabled={item === 1}
+                                    className="flex items-center justify-center flex-shrink-0 h-full transition ease-in-out duration-300 focus:outline-none w-8 md:w-12 text-heading border-e border-gray-300 hover:text-gray-500"
+                                  >
+                                    <span className="text-dark text-base">
+                                      <FiMinus />
+                                    </span>
+                                  </button>
+                                  <p className="font-semibold flex items-center justify-center h-full  transition-colors duration-250 ease-in-out cursor-default flex-shrink-0 text-base text-heading w-8  md:w-20 xl:w-24">
+                                    {item}
+                                  </p>
+                                  <button
+                                    onClick={() => setItem(item + 1)}
+                                    disabled={selectVariant?.quantity <= item}
+                                    className="flex items-center justify-center h-full flex-shrink-0 transition ease-in-out duration-300 focus:outline-none w-8 md:w-12 text-heading border-s border-gray-300 hover:text-gray-500"
+                                  >
+                                    <span className="text-dark text-base">
+                                      <FiPlus />
+                                    </span>
+                                  </button>
+                                </div>
                                 <button
-                                  onClick={() => setItem(item - 1)}
-                                  disabled={item === 1}
-                                  className="flex items-center justify-center flex-shrink-0 h-full transition ease-in-out duration-300 focus:outline-none w-8 md:w-12 text-heading border-e border-gray-300 hover:text-gray-500"
+                                  onClick={() => handleAddToCart(product)}
+                                  className="text-base tracking-wider leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-sans text-center justify-center border-0 border-transparent rounded-md focus-visible:outline-none focus:outline-none text-white px-4 ml-4 md:px-6 lg:px-8 py-4 md:py-3.5 lg:py-4 hover:text-white bg-black w-full h-12"
                                 >
-                                  <span className="text-dark text-base">
-                                    <FiMinus />
-                                  </span>
-                                </button>
-                                <p className="font-semibold flex items-center justify-center h-full  transition-colors duration-250 ease-in-out cursor-default flex-shrink-0 text-base text-heading w-8  md:w-20 xl:w-24">
-                                  {item}
-                                </p>
-                                <button
-                                  onClick={() => setItem(item + 1)}
-                                  disabled={selectVariant?.quantity <= item}
-                                  className="flex items-center justify-center h-full flex-shrink-0 transition ease-in-out duration-300 focus:outline-none w-8 md:w-12 text-heading border-s border-gray-300 hover:text-gray-500"
-                                >
-                                  <span className="text-dark text-base">
-                                    <FiPlus />
-                                  </span>
+                                  {t("common:addToCart")}
                                 </button>
                               </div>
-                              <button
-                                onClick={() => handleAddToCart(product)}
-                                className="text-base tracking-wider leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-sans text-center justify-center border-0 border-transparent rounded-md focus-visible:outline-none focus:outline-none text-white px-4 ml-4 md:px-6 lg:px-8 py-4 md:py-3.5 lg:py-4 hover:text-white bg-black w-full h-12"
-                              >
-                                {t("common:addToCart")}
-                              </button>
                             </div>
-                          </div>
 
-                          <div className="flex flex-col mt-4">
-                            <span className="font-serif font-semibold py-1 text-sm d-block">
-                              <span className="text-gray-800">
-                                {t("common:category")}:
-                              </span>{" "}
-                              <Link
-                                href={`/search?category=${category_name}&_id=${product?.category?._id}`}
-                              >
-                                <button
-                                  type="button"
-                                  className="text-gray-600 font-serif font-medium underline ml-2 hover:text-teal-600"
-                                  onClick={() => setIsLoading(!isLoading)}
+                            <div className="flex flex-col mt-4">
+                              <span className="font-serif font-semibold py-1 text-sm d-block">
+                                <span className="text-gray-800">
+                                  {t("common:category")}:
+                                </span>{" "}
+                                <Link
+                                  href={`/search?category=${category_name}&_id=${product?.category?._id}`}
                                 >
-                                  {category_name}
-                                </button>
-                              </Link>
-                            </span>
-                            <Tags product={product} />
-                          </div>
+                                  <button
+                                    type="button"
+                                    className="text-gray-600 font-serif font-medium underline ml-2 hover:text-teal-600"
+                                    onClick={() => setIsLoading(!isLoading)}
+                                  >
+                                    {category_name}
+                                  </button>
+                                </Link>
+                              </span>
+                              <Tags product={product} />
+                            </div>
 
-                          <div className="mt-8">
-                            <p className="text-xs sm:text-sm text-gray-700 font-medium">
-                              Call Us To Order By Mobile Number :{" "}
-                              <span className="text-emerald-700 font-semibold">
-                                +0044235234
-                              </span>{" "}
-                            </p>
-                          </div>
+                            <div className="mt-8">
+                              <p className="text-sm sm:text-base text-gray-700 font-medium">
+                                Call Us To Order By Mobile Number:{" "}
+                                <Link href="tel:7700000760" className="text-[#ff6b01] font-semibold">
+                                7700000760
+                                </Link>
+                                <span className="text-lg font-bold"> | </span>
+                                <Link href="tel:9996870760" className="text-[#ff6b01] font-semibold">
+                                 9996870760
+                                </Link>
+                              </p>
+                            </div>
 
-                          {/* social share */}
-                          <div className="mt-2">
-                            <h3 className="text-base font-semibold mb-1 font-serif">
+                            {/* social share */}
+                            <div className="mt-2">
+                              {/* <h3 className="text-base font-semibold mb-1 font-serif">
                               {t("common:shareYourSocial")}
-                            </h3>
-                            <p className="font-sans text-sm text-gray-500">
+                            </h3> */}
+                              {/* <p className="font-sans text-sm text-gray-500">
                               {t("common:shareYourSocialText")}
-                            </p>
-                            <ul className="flex mt-4">
+                            </p> */}
+                              {/* <ul className="flex mt-4">
                               <li className="flex items-center text-center border border-gray-100 rounded-full hover:bg-emerald-500  mr-2 transition ease-in-out duration-500">
                                 <FacebookShareButton
                                   url={`https://kachabazar-store-nine.vercel.app/product/${router.query.slug}`}
@@ -500,49 +502,49 @@ console.log("oooooo",rout)
                                   <LinkedinIcon size={32} round />
                                 </LinkedinShareButton>
                               </li>
-                            </ul>
+                            </ul> */}
+                            </div>
                           </div>
                         </div>
-                      </div>
 
-                      {/* shipping description card */}
+                        {/* shipping description card */}
 
-                      {/* <div className="w-full xl:w-5/12 lg:w-6/12 md:w-5/12">
+                        {/* <div className="w-full xl:w-5/12 lg:w-6/12 md:w-5/12">
                         <div className="mt-6 md:mt-0 lg:mt-0 bg-gray-50 border border-gray-100 p-4 lg:p-8 rounded-lg">
                           <Card />
                         </div>
                       </div> */}
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* related products */}
-              {relatedProducts?.length >= 2 && (
-                <div className="pt-10 lg:pt-20 lg:pb-10">
-                  <h3 className="leading-7 text-lg lg:text-xl mb-3 font-medium tracking-wider uppercase font-sans ">
-                    {t("common:relatedProducts")}
-                  </h3>
-                  <div className="flex">
-                    <div className="w-full">
-                      <div className="px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-8 gap-x-12 justify-items-start">
-                        {relatedProducts?.slice(1, 13).map((product, i) => (
-                          <ProductCard
-                            key={product._id}
-                            product={product}
-                            attributes={attributes}
-                          />
-                        ))}
                       </div>
                     </div>
                   </div>
                 </div>
-              )}
-            </div>
-          </div>
-        </Layout></>
 
-      
+                {/* related products */}
+                {relatedProducts?.length >= 2 && (
+                  <div className="pt-10 lg:pt-20 lg:pb-10">
+                    <h3 className="leading-7 text-lg lg:text-xl mb-3 font-medium tracking-wider uppercase font-sans ">
+                      {t("common:relatedProducts")}
+                    </h3>
+                    <div className="flex">
+                      <div className="w-full">
+                        <div className="px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-8 gap-x-12 justify-items-start">
+                          {relatedProducts?.slice(1, 13).map((product, i) => (
+                            <ProductCard
+                              key={product._id}
+                              product={product}
+                              attributes={attributes}
+                            />
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </Layout></>
+
+
       )}
     </>
   );

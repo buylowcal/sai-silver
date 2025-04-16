@@ -8,16 +8,21 @@ import CategoryServices from "@services/CategoryServices";
 const cardData = [
   {
     imgSrc:
-      "https://dalhae.com/cdn/shop/products/e5earrings-gif.gif?v=1725399799&width=1445",
+      "/jewel/for her.gif",
+    imgStatic: "/jewel/forherstatic.jpg",
     description: "for her",
   },
   {
     imgSrc: "/jewel/icons/kids.png",
     description: "kids",
+    imgStatic: "/jewel/icons/kids.png",
+
   },
   {
     imgSrc:
-      "https://static.wixstatic.com/media/5d3e9b_e39d04f4354d4efa92646dc3dd1208d9~mv2.gif",
+      "/jewel/for him.gif",
+    imgStatic: "/jewel/forhimstatic.jpg",
+
     description: "for him",
   },
 ];
@@ -84,18 +89,25 @@ const HumanCategory = () => {
                         <img
                           src={matchingCard.imgSrc}
                           alt={showingTranslateValue(category?.name).toUpperCase()}
-                          className="absolute top-0 left-0 w-full h-full object-cover transform group-hover:scale-110 transition duration-300"
+                          className="absolute top-0 left-0 w-full h-full object-cover transition duration-300 group-hover:hidden"
+                        />
+                        <img
+                          src={matchingCard.imgStatic}
+                          alt="Static"
+                          className="absolute top-0 left-0 w-full h-full object-cover transition duration-300 hidden group-hover:block"
                         />
 
+
                         {/* Gradient Overlay */}
-                        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black/70 to-transparent transition duration-300 group-hover:bg-orange-500/50 group-hover:opacity-80"></div>
+                        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black/70 to-transparent transition duration-300 group-hover:bg-orange-500/70 group-hover:opacity-80"></div>
 
                         {/* Content */}
                         <div className="absolute left-0 right-0 bottom-0 p-6 z-30 transform translate-y-1/2 transition duration-300 h-full group-hover:translate-y-0 delay-100 flex flex-col justify-center items-center">
                           {/* Description */}
-                          <div className="text-white text-3xl sm:2xl md:2xl lg:3xl font-italiano font-medium italic opacity-100 group-hover:opacity-0 transition-opacity duration-300">
+                          <div className="text-white mb-2 text-3xl sm:text-4xl md:text-5xl lg:text-5xl whitespace-nowrap font-light font-italiano italic  opacity-100 group-hover:opacity-0 transition-opacity duration-300">
                             ~ {matchingCard.description}
                           </div>
+
 
                           {/* Button */}
                           <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200">

@@ -9,6 +9,13 @@ import Showroom from "./showroom";
 import Testimonials from "./testimonials";
 import HumanCategory from "./humanCategory";
 
+const imageUrls = [
+  "/jewel/showroom/1.webp",
+  "/jewel/showroom/2.webp",
+  "/jewel/showroom/3.webp",
+  "/jewel/showroom/4.webp",
+];
+
 const LandingPage = ({ discountProducts, popularProducts, attributes }) => {
   return (
     <div className="bg-white mx-auto w-full overflow-hidden">
@@ -22,6 +29,36 @@ const LandingPage = ({ discountProducts, popularProducts, attributes }) => {
         attributes={attributes}
         popularProducts={popularProducts}
       />
+      <div id="showroom" className="relative py-24 px-5 sm:px-8">
+        {/* Background Text */}
+        <h2 className="absolute top-[11%] left-1/2 -translate-x-1/2 -translate-y-1/2 
+               whitespace-nowrap text-6xl sm:text-7xl md:text-8xl lg:text-9xl 
+               font-extrabold text-gray-200 font-baskerville capitalize tracking-wide
+               pointer-events-none select-none z-20">
+          Sai Silver<span className="text-[#ff6b01]">Showroom</span> 
+        </h2>
+
+        {/* Background Pattern */}
+        <div className="absolute inset-0 z-10">
+          <div className="h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] 
+                    [background-size:16px_16px]" />
+        </div>
+
+        {/* Image Grid */}
+        <div className="relative z-20 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {imageUrls.map((url, index) => (
+            <img
+              key={index}
+              src={url}
+              alt={`Gallery ${index + 1}`}
+              className={`grayscale hover:grayscale-0 transition duration-300 ease-in-out 
+                    w-full hover:scale-95 shadow-xl 
+                    ${index % 2 === 0 ? 'translate-y-12' : '-translate-y-6'}`}
+            />
+          ))}
+        </div>
+      </div>
+
       <GiftSection />
       {/* <DiscountProducts
         discountProducts={discountProducts}
