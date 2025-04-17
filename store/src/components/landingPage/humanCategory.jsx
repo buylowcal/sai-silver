@@ -9,7 +9,7 @@ const cardData = [
   {
     imgSrc:
       "/jewel/for her.gif",
-    imgStatic: "/jewel/forherstatic.jpg",
+    imgStatic: "/jewel/herstatic.JPG",
     description: "for her",
   },
   {
@@ -21,7 +21,7 @@ const cardData = [
   {
     imgSrc:
       "/jewel/for him.gif",
-    imgStatic: "/jewel/forhimstatic.jpg",
+    imgStatic: "/jewel/himstatic.JPG",
 
     description: "for him",
   },
