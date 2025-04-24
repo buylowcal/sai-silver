@@ -18,6 +18,7 @@ import { useCart } from "react-use-cart";
 import CategoryDrawer from "@components/drawer/CategoryDrawer";
 import { signOut } from "next-auth/react";
 import { IoIosArrowDown } from "react-icons/io";
+import { FaChevronRight } from "react-icons/fa";
 function Navbar() {
   const [navBg, setNavBg] = useState("bg-transparent");
   const [showSearch, setShowSearch] = useState(false);
@@ -34,7 +35,10 @@ function Navbar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
   const { data: categories } = useAsync(() => CategoryServices.getShowingCategory());
-
+  const [activeSubMenu, setActiveSubMenu] = useState(null);
+  const toggleSubMenu = (subCategoryId) => {
+    setActiveSubMenu(prev => (prev === subCategoryId ? null : subCategoryId));
+  };
   useEffect(() => {
     function handleClickOutside(event) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -199,9 +203,8 @@ function Navbar() {
                   <div key={index} className="relative group px-2">
                     <h3
                       className={`text-[14px] whitespace-nowrap tracking-widest font-sans 
-        ${scrolled ? "text-black" : "text-white"} 
-        group-hover:text-[#ff6b01] leading-loose p-2 flex items-center gap-2`}
-        //  onClick={() => toggleCategoryDropdown(index)}
+              ${scrolled ? "text-black" : "text-white"} 
+              group-hover:text-[#ff6b01] leading-loose p-2 flex items-center gap-2`}
                     >
                       {showingTranslateValue(category?.name).toUpperCase()}
                       {category?.children?.length > 0 && (
@@ -214,39 +217,51 @@ function Navbar() {
                     {/* Dropdown Menu */}
                     {category?.children?.length > 0 && (
                       <div className="absolute left-0 mt-2 hidden group-hover:block bg-white shadow-lg rounded-md p-2 w-48 z-50">
-                        {category.children.map((subCategory, subIndex) => (
-                          <div key={subIndex} className="relative group">
-                            <h4
-                              onClick={() => handleCategoryClick(subCategory._id, subCategory.name)}
-                              className="text-sm font-semibold tracking-wide uppercase text-gray-900 p-2 rounded-lg hover:bg-orange-50 hover:text-[#ff6b01] flex justify-between items-center cursor-pointer"
-                            >
-                              {showingTranslateValue(subCategory?.name)}
+                        {category.children.map((subCategory) => (
+                          <div key={subCategory._id} className="relative group">
+                            <div className="flex items-center justify-between p-2 hover:bg-orange-50 hover:text-[#ff6b01] rounded-lg cursor-pointer">
+                              <span
+                                onClick={() => handleCategoryClick(subCategory._id, subCategory.name)}
+                                className="text-sm font-semibold tracking-wide uppercase"
+                              >
+                                {showingTranslateValue(subCategory?.name)}
+                              </span>
+
+                              {/* Show chevron only if subCategory has children */}
                               {subCategory?.children?.length > 0 && (
-                                <IoIosArrowDown size={20} />
+                                <span
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    toggleSubMenu(subCategory._id);
+                                  }}
+                                  className="cursor-pointer transition-transform duration-300"
+                                >
+                                  <FaChevronRight  size={18} />
+                                </span>
                               )}
-                              {/* {subCategory?.children?.length > 0 && (
-                                <div className="absolute left-full top-0 mt-0 hidden group-hover:block bg-pink-300 shadow-lg rounded-xl p-2 w-48 z-50">
-                                  {subCategory.children.map((nestedSub, nestedIndex) => (
-                                    <h5
-                                      key={nestedIndex}
-                                      onClick={() => handleCategoryClick(nestedSub._id, nestedSub.name)}
-                                      className="text-base p-2 hover:bg-gray-200 cursor-pointer"
-                                    >
-                                      <span className="Capitalize text-blue-500">{showingTranslateValue(nestedSub?.name)}</span>
-                                    </h5>
-                                  ))}
-                                </div>
-                              )} */}
-                            </h4>
+                            </div>
 
-                            {/* Nested Dropdown (if exists) */}
-
+                            {/* Nested Dropdown (for sets -> chain sets) */}
+                            {subCategory?.children?.length > 0 && activeSubMenu === subCategory._id && (
+                              <div className="absolute left-full top-0 mt-0 bg-[#ff6b01]  shadow-xl rounded-xl mx-4 px-4 py-2 w-48 z-50">
+                                {subCategory.children.map((nestedSub) => (
+                                  <h5
+                                    key={nestedSub._id}
+                                    onClick={() => handleCategoryClick(nestedSub._id, nestedSub.name)}
+                                    className="text-base  cursor-pointer text-white uppercase tracking-wide "
+                                  >
+                                    {showingTranslateValue(nestedSub?.name)}
+                                  </h5>
+                                ))}
+                              </div>
+                            )}
                           </div>
                         ))}
                       </div>
                     )}
                   </div>
                 ))}
+
 
               </div>
             )}
