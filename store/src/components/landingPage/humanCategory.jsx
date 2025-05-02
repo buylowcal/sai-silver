@@ -48,6 +48,12 @@ const HumanCategory = () => {
   if (!data || data.length === 0 || !data[0]?.children) {
     return null; // Prevents rendering when there's no data
   }
+
+  const sortedData = [
+    ...data[0]?.children?.filter(category => category.type === 'her'),
+    ...data[0]?.children?.filter(category => category.type === 'him'),
+    ...data[0]?.children?.filter(category => category.type === 'kids')
+  ];
   return (
     <div className="p-5">
       <div className="max-w-screen-xl mx-auto px-4 pt-4 pb-4">
@@ -82,8 +88,7 @@ const HumanCategory = () => {
                   // className="flex justify-center flex-col flex-wrap md:flex-row md:-mx-2"
                   >
                     <div className="w-full md:w-1/2 lg:w-1/4 mb-4 lg:mb-0">
-                      <div className="relative w-60 h-80 md:w-72 md:h-[30rem] block group mx-2 overflow-hidden shadow-lg">
-
+                      <div className="relative w-72 h-96 md:w-96 md:h-[32rem] block group mx-2 overflow-hidden shadow-lg rounded-lg">
 
                         {/* Image */}
                         <img
@@ -97,29 +102,29 @@ const HumanCategory = () => {
                           className="absolute top-0 left-0 w-full h-full object-cover transition duration-300 hidden group-hover:block"
                         />
 
-
                         {/* Gradient Overlay */}
                         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black/70 to-transparent transition duration-300 group-hover:bg-orange-500/70 group-hover:opacity-80"></div>
 
-                        {/* Content */}
-                        <div className="absolute left-0 right-0 bottom-0 p-6 z-30 transform translate-y-1/2 transition duration-300 h-full group-hover:translate-y-0 delay-100 flex flex-col justify-center items-center">
-                          {/* Description */}
-                          <div className="text-white mb-2 text-3xl sm:text-4xl md:text-5xl lg:text-5xl whitespace-nowrap font-light font-italiano italic  opacity-100 group-hover:opacity-0 transition-opacity duration-300">
+                        {/* Category Name - always visible */}
+                        <div className="absolute top-0 left-0 w-full text-center p-3 z-30">
+                          <div className="text-white text-5xl md:text-7xl font-italiano italic tracking-wide">
                             ~ {matchingCard.description}
                           </div>
-
-
-                          {/* Button */}
-                          <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200">
-                            <button
-                              onClick={() => handleCategoryClick(category?._id, category.name)}
-                              className="bg-[#ff6b01] text-white text-base px-6 py-2 -mb-8 font-semibold focus:outline-none focus:ring-2 focus:ring-white"
-                            >
-                              Shop Now
-                            </button>
-                          </div>
                         </div>
+
+                        {/* Shop Now Button - only on hover */}
+                        <div className="absolute bottom-0 left-0 w-full flex justify-center p-4 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 delay-150 z-30">
+                          <button
+                            onClick={() => handleCategoryClick(category?._id, category.name)}
+                            className="bg-[#ff6b01] text-white text-base px-6 py-2 font-semibold focus:outline-none focus:ring-2 focus:ring-white"
+                          >
+                            Shop Now
+                          </button>
+                        </div>
+
+
                       </div>
+
                     </div>
                   </div>
                 </div>
