@@ -29,12 +29,12 @@ const ImageCarousel = ({ images, handleChangeImage }) => {
       // </Carousel> */}
 
       <Swiper
-        onInit={(swiper) => {
-          swiper.params.navigation.prevEl = prevRef.current;
-          swiper.params.navigation.nextEl = nextRef.current;
-          swiper.navigation.init();
-          swiper.navigation.update();
-        }}
+        // onInit={(swiper) => {
+        //   swiper.params.navigation.prevEl = prevRef.current;
+        //   swiper.params.navigation.nextEl = nextRef.current;
+        //   swiper.navigation.init();
+        //   swiper.navigation.update();
+        // }}
         spaceBetween={40}
         loop={true}
         slidesPerView={4}
