@@ -41,7 +41,7 @@ const ImageCarousel = ({ images, handleChangeImage }) => {
         allowTouchMove={true}
         breakpoints={{
           0: {
-            slidesPerView: 3,
+            slidesPerView: 2,
             navigation: false,
           },
           480: {

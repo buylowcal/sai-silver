@@ -183,27 +183,27 @@ const ProductScreen = ({ product, attributes, relatedProducts }) => {
       const newItem = {
         ...updatedProduct,
         id: `${p.variants.length <= 1
-            ? p._id
-            : p._id +
-            variantTitle
-              ?.map(
-                // (att) => selectVariant[att.title.replace(/[^a-zA-Z0-9]/g, '')]
-                (att) => selectVariant[att._id]
-              )
-              .join("-")
+          ? p._id
+          : p._id +
+          variantTitle
+            ?.map(
+              // (att) => selectVariant[att.title.replace(/[^a-zA-Z0-9]/g, '')]
+              (att) => selectVariant[att._id]
+            )
+            .join("-")
           }`,
 
         title: `${p.variants.length <= 1
-            ? showingTranslateValue(product?.title)
-            : showingTranslateValue(product?.title) +
-            "-" +
-            variantTitle
-              ?.map(
-                // (att) => selectVariant[att.title.replace(/[^a-zA-Z0-9]/g, '')]
-                (att) =>
-                  att.variants?.find((v) => v._id === selectVariant[att._id])
-              )
-              .map((el) => showingTranslateValue(el?.name))
+          ? showingTranslateValue(product?.title)
+          : showingTranslateValue(product?.title) +
+          "-" +
+          variantTitle
+            ?.map(
+              // (att) => selectVariant[att.title.replace(/[^a-zA-Z0-9]/g, '')]
+              (att) =>
+                att.variants?.find((v) => v._id === selectVariant[att._id])
+            )
+            .map((el) => showingTranslateValue(el?.name))
           }`,
         image: img,
         variant: selectVariant,
@@ -356,7 +356,7 @@ const ProductScreen = ({ product, attributes, relatedProducts }) => {
                           </div>
 
                           <div>
-                            <div className="text-sm leading-6 text-gray-500 md:leading-7">
+                            <div className="text-base  text-gray-600 md:leading-7">
                               {isReadMore
                                 ? showingTranslateValue(
                                   product?.description
@@ -386,39 +386,43 @@ const ProductScreen = ({ product, attributes, relatedProducts }) => {
                                 )}
                             </div>
 
-                            <div className="flex items-center mt-4">
-                              <div className="flex items-center justify-between space-s-3 sm:space-s-4 w-full">
-                                <div className="group flex items-center justify-between rounded-md overflow-hidden flex-shrink-0 border h-11 md:h-12 border-gray-300">
+                            <div className="flex flex-wrap items-center mt-4 p-3">
+                              <div className="flex flex-wrap items-center justify-between gap-3 w-full">
+                                {/* Quantity Selector */}
+                                <div className="group flex items-center rounded-md overflow-hidden border h-11 md:h-12 border-gray-300 flex-shrink-0">
                                   <button
                                     onClick={() => setItem(item - 1)}
                                     disabled={item === 1}
-                                    className="flex items-center justify-center flex-shrink-0 h-full transition ease-in-out duration-300 focus:outline-none w-8 md:w-12 text-heading border-e border-gray-300 hover:text-gray-500"
+                                    className="flex items-center justify-center h-full transition ease-in-out duration-300 focus:outline-none w-9 sm:w-10 md:w-12 text-heading border-e border-gray-300 hover:text-gray-500"
                                   >
                                     <span className="text-dark text-base">
                                       <FiMinus />
                                     </span>
                                   </button>
-                                  <p className="font-semibold flex items-center justify-center h-full  transition-colors duration-250 ease-in-out cursor-default flex-shrink-0 text-base text-heading w-8  md:w-20 xl:w-24">
+                                  <p className="font-semibold flex items-center justify-center h-full transition-colors duration-250 ease-in-out cursor-default text-base text-heading w-10 sm:w-12 md:w-20 xl:w-24">
                                     {item}
                                   </p>
                                   <button
                                     onClick={() => setItem(item + 1)}
                                     disabled={selectVariant?.quantity <= item}
-                                    className="flex items-center justify-center h-full flex-shrink-0 transition ease-in-out duration-300 focus:outline-none w-8 md:w-12 text-heading border-s border-gray-300 hover:text-gray-500"
+                                    className="flex items-center justify-center h-full transition ease-in-out duration-300 focus:outline-none w-9 sm:w-10 md:w-12 text-heading border-s border-gray-300 hover:text-gray-500"
                                   >
                                     <span className="text-dark text-base">
                                       <FiPlus />
                                     </span>
                                   </button>
                                 </div>
+
+                                {/* Add to Cart Button */}
                                 <button
                                   onClick={() => handleAddToCart(product)}
-                                  className="text-base tracking-wider leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-sans text-center justify-center border-0 border-transparent rounded-md focus-visible:outline-none focus:outline-none text-white px-4 ml-4 md:px-6 lg:px-8 py-4 md:py-3.5 lg:py-4 hover:text-white bg-black w-full h-12"
+                                  className="text-base tracking-wider leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-sans text-center justify-center border-0 border-transparent rounded-md focus-visible:outline-none focus:outline-none text-white px-4 md:px-6 lg:px-8 py-3 md:py-3.5 lg:py-4 hover:text-white bg-black w-full sm:w-auto sm:flex-1 h-12"
                                 >
                                   {t("common:addToCart")}
                                 </button>
                               </div>
                             </div>
+
 
                             <div className="flex flex-col mt-4">
                               <span className="font-serif font-semibold py-1 text-sm d-block">
@@ -444,11 +448,11 @@ const ProductScreen = ({ product, attributes, relatedProducts }) => {
                               <p className="text-sm sm:text-base text-gray-700 font-medium">
                                 Call Us To Order By Mobile Number:{" "}
                                 <Link href="tel:7700000760" className="text-[#ff6b01] font-semibold">
-                                7700000760
+                                  7700000760
                                 </Link>
                                 <span className="text-lg font-bold"> | </span>
                                 <Link href="tel:9996870760" className="text-[#ff6b01] font-semibold">
-                                 9996870760
+                                  9996870760
                                 </Link>
                               </p>
                             </div>
