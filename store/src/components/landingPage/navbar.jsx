@@ -236,7 +236,7 @@ function Navbar() {
                                   }}
                                   className="cursor-pointer transition-transform duration-300"
                                 >
-                                  <FaChevronRight  size={18} />
+                                  <FaChevronRight size={18} />
                                 </span>
                               )}
                             </div>
@@ -261,8 +261,6 @@ function Navbar() {
                     )}
                   </div>
                 ))}
-
-
               </div>
             )}
 

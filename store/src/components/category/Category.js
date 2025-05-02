@@ -56,7 +56,7 @@ const Category = () => {
         ) : data.length === 0 ? (
           <Loading loading={loading} />
         ) : (
-          <div className="relative grid gap-2 p-6">
+          <div className="relative grid gap-2 p-6 ">
             {data[0]?.children?.map((category) => (
               <CategoryCard
               images={false}
@@ -65,6 +65,9 @@ const Category = () => {
                 icon={category.icon}
                 nested={category.children}
                 title={showingTranslateValue(category?.name)}
+                onClick={() => {
+                  closeCategoryDrawer();
+                }}
               />
             ))}
           </div>

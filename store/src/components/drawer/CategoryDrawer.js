@@ -16,6 +16,7 @@ const CategoryDrawer = () => {
       parent={null}
       level={null}
       placement={"left"}
+      // className="bg-pink-300"
     >
       <Category />
     </Drawer>

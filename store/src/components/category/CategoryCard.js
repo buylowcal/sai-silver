@@ -11,7 +11,7 @@ import {
 import { SidebarContext } from "@context/SidebarContext";
 import useUtilsFunction from "@hooks/useUtilsFunction";
 
-const CategoryCard = ({ title, icon,images=true, nested, id }) => {
+const CategoryCard = ({ title, icon, images = true, nested, id }) => {
   const router = useRouter();
   const { closeCategoryDrawer, isLoading, setIsLoading } =
     useContext(SidebarContext);
@@ -38,18 +38,18 @@ const CategoryCard = ({ title, icon,images=true, nested, id }) => {
   const handleSubNestedCategory = (id, categoryName) => {
     const name = categoryName.toLowerCase().replace(/[^A-Z0-9]+/gi, "-");
 
-    setShowSubCategory({ id: id, show: showSubCategory.show ? false : true });
+    setShowSubCategory({ id: id, show: !showSubCategory.show });
+    setIsLoading(true);
     router.push(`/search?category=${name}&_id=${id}`);
-    closeCategoryDrawer;
-    setIsLoading(!isLoading);
+    closeCategoryDrawer();
   };
 
   const handleSubCategory = (id, categoryName) => {
     const name = categoryName.toLowerCase().replace(/[^A-Z0-9]+/gi, "-");
 
+    setIsLoading(true);
     router.push(`/search?category=${name}&_id=${id}`);
-    closeCategoryDrawer;
-    setIsLoading(!isLoading);
+    closeCategoryDrawer();
   };
 
   return (
@@ -104,7 +104,7 @@ const CategoryCard = ({ title, icon,images=true, nested, id }) => {
                     {children.children.length > 0 ? (
                       <span className="tracking-widest transition duration-700 ease-in-out inline-flex loading-none items-end text-gray-400">
                         {showSubCategory.id === children._id &&
-                        showSubCategory.show ? (
+                          showSubCategory.show ? (
                           <IoChevronDownOutline />
                         ) : (
                           <IoChevronForwardOutline />
@@ -132,7 +132,7 @@ const CategoryCard = ({ title, icon,images=true, nested, id }) => {
 
               {/* sub children category */}
               {showSubCategory.id === children._id &&
-              showSubCategory.show === true ? (
+                showSubCategory.show === true ? (
                 <ul className="pl-6 tracking-widest pb-3">
                   {children.children.map((subChildren) => (
                     <li key={subChildren._id}>
