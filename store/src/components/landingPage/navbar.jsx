@@ -148,13 +148,13 @@ function Navbar() {
             <div className="flex-shrink-0">
               <img
                 onClick={() => router.push("/")}
-                src="/logo/logo-color.png"
+                src={scrolled ? "/logo/logo-color.png" : "/jewel/sai-silver-white.png"}
                 className="cursor-pointer w-48 md:w-80 h-auto object-contain md:block hidden"
                 alt="Brand Logo"
               />
               <img
                 onClick={() => router.push("/")}
-                src="/logo/saii.png"
+                src={scrolled ? "/logo/saii.png" : "/jewel/s-white.png"}
                 className="cursor-pointer w-8 h-8 object-contain md:hidden block"
                 alt="Brand Logo"
               />
@@ -162,7 +162,7 @@ function Navbar() {
 
             {/* Middle Section - Categories (hidden on mobile) */}
             {router?.pathname !== "/search" && (
-              <div className="hidden lg:flex items-center justify-center flex-1 gap-6">
+              <div className="hidden lg:flex items-center justify-center flex-1 gap-6 ml-56">
                 {/* Dropdown for All Categories */}
                 <div className="relative group cursor-pointer px-4">
                   {/* <h3
