@@ -248,7 +248,7 @@ const ProductScreen = ({ product, attributes, relatedProducts }) => {
                     <li className="text-sm pr-1 transition duration-200 ease-in cursor-pointer hover:text-[#ff6b01] font-semibold">
                       <Link href="/">Home</Link>
                     </li>
-                    <li className="text-sm mt-[1px]">
+                    <li className="text-sm mt-[1px] ">
                       {" "}
                       <FiChevronRight />{" "}
                     </li>

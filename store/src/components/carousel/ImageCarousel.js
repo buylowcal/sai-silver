@@ -15,95 +15,76 @@ const ImageCarousel = ({ images, handleChangeImage }) => {
   return (
     <>
       {/* <Carousel showArrows={false} showThumbs={true}>
-        {images?.map((img, i) => (
-          <button key={i + 1} onClick={() => handleChangeImage(img)}>
-            <Image
-              className="border inline-flex items-center justify-center px-3 py-1 mt-2"
-              src={img}
-              alt="product"
-              width={85}
-              height={85}
-            />
-          </button>
-        ))}
-      </Carousel> */}
+      //   {images?.map((img, i) => (
+      //     <button key={i + 1} onClick={() => handleChangeImage(img)}>
+      //       <Image
+      //         className="border inline-flex items-center justify-center px-3 py-1 mt-2"
+      //         src={img}
+      //         alt="product"
+      //         width={85}
+      //         height={85}
+      //       />
+      //     </button>
+      //   ))}
+      // </Carousel> */}
 
       <Swiper
-        // onInit={(swiper) => {
-        //   swiper.params.navigation.prevEl = prevRef.current;
-        //   swiper.params.navigation.nextEl = nextRef.current;
-        //   swiper.navigation.init();
-        //   swiper.navigation.update();
-        // }}
-        spaceBetween={1}
-        navigation={true}
-        allowTouchMove={false}
+        onInit={(swiper) => {
+          swiper.params.navigation.prevEl = prevRef.current;
+          swiper.params.navigation.nextEl = nextRef.current;
+          swiper.navigation.init();
+          swiper.navigation.update();
+        }}
+        spaceBetween={40}
         loop={true}
         slidesPerView={4}
-        // breakpoints={{
-        //   // when window width is >= 640px
-        //   375: {
-        //     width: 375,
-        //     slidesPerView: 2,
-        //   },
-        //   // when window width is >= 768px
-        //   414: {
-        //     width: 414,
-        //     slidesPerView: 3,
-        //   },
-        //   // when window width is >= 768px
-        //   660: {
-        //     width: 660,
-        //     slidesPerView: 4,
-        //   },
-
-        //   // when window width is >= 768px
-        //   768: {
-        //     width: 768,
-        //     slidesPerView: 6,
-        //   },
-
-        //   // when window width is >= 768px
-        //   991: {
-        //     width: 991,
-        //     slidesPerView: 8,
-        //   },
-
-        //   // when window width is >= 768px
-        //   1140: {
-        //     width: 1140,
-        //     slidesPerView: 9,
-        //   },
-        //   1680: {
-        //     width: 1680,
-        //     slidesPerView: 10,
-        //   },
-        //   1920: {
-        //     width: 1920,
-        //     slidesPerView: 10,
-        //   },
-        // }}
+        allowTouchMove={true}
+        breakpoints={{
+          0: {
+            slidesPerView: 3,
+            navigation: false,
+          },
+          480: {
+            slidesPerView: 3,
+            navigation: false,
+          },
+          768: {
+            slidesPerView: 5,
+            navigation: {
+              prevEl: prevRef.current,
+              nextEl: nextRef.current,
+            },
+          },
+        }}
         modules={[Navigation]}
         className="mySwiper image-carousel"
       >
         {images?.map((img, i) => (
           <SwiperSlide key={i + 1} className="group">
             <button onClick={() => handleChangeImage(img)}>
+            <div className="border inline-flex items-center justify-center w-[100px] h-[100px] overflow-hidden mt-2">
               <Image
-                className="border inline-flex items-center justify-center px-3 py-1 mt-2"
                 src={img}
                 alt="product"
                 width={100}
                 height={100}
+                className="object-cover "
               />
+              </div>
             </button>
           </SwiperSlide>
         ))}
-        <button ref={prevRef} className="prev">
-          <IoChevronBackOutline />
+        <button
+          ref={prevRef}
+          className="prev absolute top-1/2 left-0 transform -translate-y-1/2 z-20 p-2 bg-white rounded-full shadow hidden md:block"
+        >
+          <IoChevronBackOutline style={{ color: "orange", fontSize: "26px" }} />
         </button>
-        <button ref={nextRef} className="next">
-          <IoChevronForward />
+        <button
+          ref={nextRef}
+          className="next absolute top-1/2 right-0 transform -translate-y-1/2 z-20 p-2 bg-white rounded-full shadow hidden md:block"
+        >
+          <IoChevronForward style={{ color: "orange", fontSize: "26px", fontFamily: "bold" }} />
         </button>
       </Swiper>
     </>

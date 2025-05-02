@@ -116,7 +116,7 @@ const CategoryCarousel = () => {
     whitespace-nowrap
     tracking-widest 
     font-serif 
-    group-hover:text-emerald-500 
+    group-hover:text-orange-500 
     leading-tight      
     px-2               
     mx-2                 

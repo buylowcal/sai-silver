@@ -367,7 +367,7 @@ p:not(:last-of-type) {
 .category-slider button.prev,
 .category-slider button.next {
   text-align: center;
-  background-color: #2C3E50;
+  background-color: #ff6b01;
   color: #ffffff;
   margin: 15px 2px 0 2px;
   position: absolute;
@@ -385,7 +385,7 @@ p:not(:last-of-type) {
 }
 .category-slider button.next:hover,
 .category-slider button.prev {
-  background-color: #2C3E50;
+  background-color: #ff6b01;
 }
 .category-slider button.prev svg,
 .category-slider button.next svg {
