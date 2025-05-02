@@ -25,6 +25,14 @@
     transform: translateX(-100%);
   }
 }
+@keyframes scrollHorizontal {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
 
 .slider-container {
   display: flex;
