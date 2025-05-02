@@ -18,6 +18,7 @@ module.exports = {
       sans: ["Open Sans", "sans-serif"],
       DejaVu: ["DejaVu Sans", "Arial", "sans-serif"],
       italiano: ['"Italianno"', 'cursive'],
+      mont: ["Montserrat", "sans-serif"]
     },
     extend: {
       writingMode: {
