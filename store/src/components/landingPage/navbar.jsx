@@ -115,7 +115,7 @@ function Navbar() {
         className={`
     fixed top-0 w-full z-50 p-3
     ${scrolled
-            ? 'bg-white/95 backdrop-blur-md borde border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.12)]'
+            ? 'bg-white/95 backdrop-blur-md  shadow-[0_8px_30px_rgb(0,0,0,0.12)]'
             : 'bg-transparent'
           }
     transition-all duration-500 ease-in-out
@@ -148,13 +148,19 @@ function Navbar() {
             <div className="flex-shrink-0">
               <img
                 onClick={() => router.push("/")}
-                src={scrolled ? "/logo/logo-color.png" : "/jewel/sai-silver-white.png"}
+                src={
+                  router.pathname === "/"
+                    ? scrolled
+                      ? "/logo/logo-color.png"
+                      : "/jewel/sai-silver-white.png"
+                    : "/logo/logo-color.png"
+                }
                 className="cursor-pointer w-48 md:w-80 h-auto object-contain md:block hidden"
                 alt="Brand Logo"
               />
               <img
                 onClick={() => router.push("/")}
-                src={scrolled ? "/logo/saii.png" : "/jewel/s-white.png"}
+                src={router.pathname === "/" ? scrolled ? "/logo/saii.png" : "/jewel/s-white.png": "/logo/saii.png"}
                 className="cursor-pointer w-8 h-8 object-contain md:hidden block"
                 alt="Brand Logo"
               />
